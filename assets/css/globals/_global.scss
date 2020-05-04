@@ -1,0 +1,149 @@
+:root {
+  --white: #fff;
+  --white-contrast: #0f040e;
+  --gray: #f4f4f4;
+  --gray-contrast: #0f040e;
+  --black: #0f040e;
+  --black-contrast: white;
+}
+html {
+  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  @screen sm {
+    font-size: initial;
+  }
+}
+// text
+h1 {
+  font-size: 3.125rem;
+}
+h2 {
+  font-size: 2.5rem;
+}
+h3 {
+  font-size: 1.875rem;
+}
+h4 {
+  font-size: 1.5rem;
+}
+h5 {
+  font-size: 1.25rem;
+}
+h6 {
+  font-size: 0.8rem;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}
+a {
+  color: currentColor;
+  text-decoration: none;
+  text-underline-position: under;
+  text-decoration: underline;
+  &:not(.no-hover):hover {
+    color: var(--blue);
+  }
+}
+.caption {
+  font-weight: 300;
+  font-size: 12px;
+  letter-spacing: 0.29em;
+}
+
+section,
+header {
+  @screen xl {
+    @apply min-h-screen;
+  }
+}
+section,
+header,
+nav,
+footer,
+.paded {
+  @apply px-10;
+  @screen sm {
+    @apply px-16;
+  }
+  @screen md {
+    @apply px-32;
+  }
+}
+.neg-margin {
+  @apply -mx-10;
+  @screen sm {
+    @apply -mx-16;
+  }
+  @screen md {
+    @apply -mx-32;
+  }
+}
+img {
+  @apply max-h-full;
+}
+button,
+.btn {
+  @apply rounded px-10 py-4 shadow-md text-base cursor-pointer;
+  font-family: 'Open Sans', sans-serif;
+  min-height: 40px;
+  transition: all 0.2s ease-in;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @apply shadow-xl;
+      opacity: 0.9;
+      transform: translateY(-3px);
+    }
+  }
+  &:active {
+    opacity: 0.5;
+  }
+  &.btn-sm {
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+  }
+}
+[watermark] {
+  @apply inline-block relative;
+  &::before {
+    @apply text-6xl absolute;
+    content: attr(watermark);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.03;
+  }
+}
+ul {
+  @apply m-0 p-0 list-none;
+}
+
+.line-beside {
+  @apply flex justify-between items-center;
+  &::before,
+  &::after {
+    content: '';
+    flex: 0.45;
+    border-top: 1px solid var(--gray);
+  }
+}
+label {
+  cursor: pointer;
+}
+.line-beside {
+  @apply flex justify-between items-center;
+  &::before,
+  &::after {
+    content: '';
+    flex: 0.45;
+    border-top: 1px solid var(--gray);
+  }
+}
+label {
+  cursor: pointer;
+}

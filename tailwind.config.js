@@ -10,6 +10,11 @@ module.exports = {
       colors: {
         current: 'currentColor',
         white: 'var(--white)',
+        'white-contrast': 'var(--white-contrast)',
+        black: 'var(--black)',
+        'black-contrast': 'var(--black-contrast)',
+        gray: 'var(--gray)',
+        'gray-contrast': 'var(--gray-contrast)',
       },
       fontSize: {
         xl: '1.5rem',
@@ -20,8 +25,7 @@ module.exports = {
         '6xl': '9rem',
       },
       boxShadow: {
-        lg:
-          '0 10px 25px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        lg: '0 10px 25px -3px rgba(0, 0, 0, 0.05)',
       },
     },
   },
