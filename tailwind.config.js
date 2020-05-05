@@ -9,12 +9,12 @@ module.exports = {
     extend: {
       colors: {
         current: 'currentColor',
-        white: 'var(--white)',
-        'white-contrast': 'var(--white-contrast)',
-        black: 'var(--black)',
-        'black-contrast': 'var(--black-contrast)',
-        gray: 'var(--gray)',
-        'gray-contrast': 'var(--gray-contrast)',
+        background: 'var(--background)',
+        'on-background': 'var(--on-background)',
+        primary: 'var(--primary)',
+        'on-primary': 'var(--on-primary)',
+        secondary: 'var(--secondary)',
+        'on-secondary': 'var(--on-secondary)',
       },
       fontSize: {
         xl: '1.5rem',

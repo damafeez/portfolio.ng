@@ -1,5 +1,5 @@
 <template>
-  <section class="editor bg-gray">
+  <section class="editor bg-secondary text-on-secondary">
     <div
       class="edit overflow-scroll shadow-lg overflow-hidden w-full flex flex-col rounded-lg"
     >
