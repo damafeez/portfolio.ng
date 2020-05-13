@@ -2,7 +2,7 @@
   <section
     class="hero bg-background text-on-background bg-right-top min-h-screen bg-no-repeat"
   >
-    <nav class="neg-margin paded py-6"></nav>
+    <nav class="neg-margin pad-x py-6"></nav>
     <h1 class="mt-48 mb-6 max-w-2xl">
       Hi, <br />
       I'm Aweke Oladele.

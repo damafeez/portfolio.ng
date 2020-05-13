@@ -2,7 +2,7 @@
   <section
     class="hero bg-background text-on-background bg-right-top min-h-screen bg-no-repeat"
   >
-    <nav class="neg-margin paded py-6"><Logo /></nav>
+    <nav class="neg-margin pad-x py-6"><Logo /></nav>
     <h1 class="mt-48 mb-6 max-w-2xl">
       Make yourself a beautiful portfolio website now.
     </h1>
@@ -21,12 +21,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .hero {
-  --background: #0f040e;
-  --on-background: #ffffff;
-  --primary: #0f040e;
-  --on-primary: #ffffff;
-  --secondary: #f4f4f4;
-  --on-secondary: #0f040e;
   background-image: url('~assets/images/portfolio.jpg');
   background-size: 38rem;
 }

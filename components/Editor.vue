@@ -1,5 +1,5 @@
 <template>
-  <section class="editor bg-secondary text-on-secondary">
+  <section class="editor bg-secondary text-on-secondary py-24">
     <div
       class="edit overflow-scroll shadow-lg overflow-hidden w-full flex flex-col rounded-lg"
     >
@@ -8,7 +8,7 @@
         <span class="fake-control"></span>
         <span class="fake-control"></span>
       </div>
-      <div class="flex-1 outline-none" contenteditable>
+      <div class="flex-1 outline-none overflow-scroll" contenteditable>
         <Somolu />
       </div>
     </div>
