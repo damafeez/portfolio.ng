@@ -42,12 +42,12 @@ h6 {
   margin-top: 0;
 }
 a {
+  display: inline-block;
   color: currentColor;
   text-decoration: none;
   text-underline-position: under;
-  text-decoration: underline;
   &:not(.no-hover):hover {
-    color: var(--blue);
+    text-decoration: underline;
   }
 }
 .caption {
@@ -75,6 +75,9 @@ footer,
     @apply px-32;
   }
 }
+.pad-y {
+  @apply py-24;
+}
 .neg-margin {
   @apply -mx-10;
   @screen sm {
@@ -89,7 +92,7 @@ img {
 }
 button,
 .btn {
-  @apply rounded px-10 py-4 shadow-md text-base cursor-pointer;
+  @apply rounded px-10 py-4 shadow-md text-base cursor-pointer inline-block;
   font-family: 'Open Sans', sans-serif;
   min-height: 40px;
   transition: all 0.2s ease-in;
@@ -146,4 +149,9 @@ label {
 }
 label {
   cursor: pointer;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

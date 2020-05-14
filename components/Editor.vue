@@ -1,5 +1,5 @@
 <template>
-  <section class="editor bg-secondary text-on-secondary py-24">
+  <section class="editor flex-center bg-secondary text-on-secondary py-24">
     <div
       class="edit overflow-scroll shadow-lg overflow-hidden w-full flex flex-col rounded-lg"
     >
@@ -25,7 +25,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .editor {
-  @include flex-center;
   .edit {
     height: 40rem;
     .top-bar {
