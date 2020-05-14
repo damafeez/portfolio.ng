@@ -59,6 +59,6 @@ export default {
   },
   // routes
   generate: {
-    routes: ['/templates/somolu/edit'],
+    routes: ['/templates/somolu', '/templates/somolu/edit'],
   },
 }
