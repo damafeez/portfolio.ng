@@ -18,6 +18,6 @@
 <style lang="scss" scoped>
 .hero {
   background-image: url('~assets/images/portfolio2.jpg');
-  background-size: 31rem;
+  background-size: auto 100%;
 }
 </style>
