@@ -57,4 +57,8 @@ export default {
      */
     extend(config, ctx) {},
   },
+  // routes
+  generate: {
+    routes: ['/templates/somolu/edit'],
+  },
 }

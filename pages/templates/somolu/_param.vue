@@ -14,7 +14,7 @@ export default {
   },
   computed: {
     editMode() {
-      return this.$route.query.edit === 'true'
+      return this.$route.params.param === 'edit'
     },
   },
 }
