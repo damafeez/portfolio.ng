@@ -1,6 +1,7 @@
 <template>
-  <main class="somolu">
+  <main :contenteditable="editMode" class="somolu">
     <Hero />
+    <section class="flex-center"><h1>More content here</h1></section>
   </main>
 </template>
 
@@ -10,6 +11,11 @@ import Hero from '@/components/templates/Hero1.vue'
 export default {
   components: {
     Hero,
+  },
+  computed: {
+    editMode() {
+      return this.$route.params.param === 'edit'
+    },
   },
 }
 </script>

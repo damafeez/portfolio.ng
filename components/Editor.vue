@@ -1,28 +1,21 @@
 <template>
   <section class="editor flex-center bg-secondary text-on-secondary py-24">
-    <div
-      class="edit overflow-scroll shadow-lg overflow-hidden w-full flex flex-col rounded-lg"
-    >
+    <div class="edit overflow-hidden shadow-lg w-full flex flex-col rounded-lg">
       <div class="top-bar bg-white flex items-center py-1 px-6">
         <span class="fake-control"></span>
         <span class="fake-control"></span>
         <span class="fake-control"></span>
       </div>
-      <div class="flex-1 outline-none overflow-scroll" contenteditable>
-        <Somolu />
-      </div>
+      <iframe
+        src="templates/somolu/edit"
+        frameborder="0"
+        width="100%"
+        height="100%"
+        class="flex-1"
+      ></iframe>
     </div>
   </section>
 </template>
-<script>
-import Somolu from '@/pages/templates/somolu'
-
-export default {
-  components: {
-    Somolu,
-  },
-}
-</script>
 <style lang="scss" scoped>
 .editor {
   .edit {

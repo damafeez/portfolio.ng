@@ -1,5 +1,5 @@
 <template>
-  <footer class="flex bg-background text-on-background py-10 flex-wrap">
+  <footer class="flex bg-background text-on-background py-20 flex-wrap">
     <div>
       <Logo />
       <p class="max-w-xl">Portfolio now. Free, fast and easy</p>
