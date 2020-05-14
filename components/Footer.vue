@@ -1,5 +1,5 @@
 <template>
-  <footer class="flex bg-background text-on-background pad-y flex-wrap">
+  <footer class="flex bg-background text-on-background py-10 flex-wrap">
     <div>
       <Logo />
       <p class="max-w-xl">Portfolio now. Free, fast and easy</p>
@@ -28,9 +28,14 @@ export default {
 <style lang="scss" scoped>
 footer {
   @include flex-gap(2rem);
-  & > *:nth-child(1) {
-    width: 25rem;
-    max-width: 100%;
+  & > * {
+    @apply my-5;
+    &:nth-child(1) {
+      max-width: 100%;
+      @screen md {
+        width: 25rem;
+      }
+    }
   }
   li {
     @apply m-1;
