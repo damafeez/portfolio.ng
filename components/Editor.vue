@@ -7,7 +7,7 @@
         <span class="fake-control"></span>
       </div>
       <iframe
-        src="templates/somolu/edit"
+        src="templates/somolu?edit=true"
         frameborder="0"
         width="100%"
         height="100%"
