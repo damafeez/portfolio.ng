@@ -1,16 +1,21 @@
 <template>
-  <main :contenteditable="editMode" class="somolu">
+  <main
+    :contenteditable="editMode"
+    class="somolu bg-background text-on-background"
+  >
     <Hero />
-    <section class="flex-center"><h1>More content here</h1></section>
+    <About />
   </main>
 </template>
 
 <script>
 import Hero from '@/components/templates/Hero1.vue'
+import About from '@/components/templates/About1.vue'
 
 export default {
   components: {
     Hero,
+    About,
   },
   computed: {
     editMode() {
@@ -21,11 +26,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 .somolu {
-  --background: #0f040e;
-  --on-background: #ffffff;
+  --background: #151515;
+  --on-background: #929293;
   --primary: #0f040e;
   --on-primary: #ffffff;
-  --secondary: #f4f4f4;
-  --on-secondary: #0f040e;
+  --secondary: #222;
+  --on-secondary: #ffffff;
 }
 </style>

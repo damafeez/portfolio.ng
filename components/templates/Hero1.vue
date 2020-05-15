@@ -1,6 +1,6 @@
 <template>
   <section
-    class="hero bg-background text-on-background bg-right-top bg-no-repeat pb-32"
+    class="hero bg-primary text-on-primary bg-right-top bg-no-repeat pb-32"
   >
     <nav class="neg-margin pad-x py-6"></nav>
     <h1 class="mt-48 mb-6 max-w-2xl">
@@ -10,7 +10,7 @@
     <p class="max-w-xl">
       I'm a frontend developer with more than 5 years of experience.
     </p>
-    <button class="bg-on-background my-10 text-primary">
+    <button class="bg-on-primary my-10 text-primary">
       See my Resume
     </button>
   </section>
