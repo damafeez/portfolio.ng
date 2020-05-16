@@ -1,5 +1,7 @@
 <template>
-  <section class="hero bg-right-top bg-no-repeat pb-32">
+  <section
+    class="hero bg-secondary text-on-secondary bg-right-top bg-no-repeat pb-32"
+  >
     <nav class="neg-margin pad-x py-6"></nav>
     <h1 class="mt-48 mb-6 max-w-2xl">
       Hi, <br />

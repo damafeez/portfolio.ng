@@ -1,5 +1,5 @@
 <template>
-  <section class="projects bg-secondary text-on-secondary pad-y">
+  <section class="projects pad-y">
     <h3 class="mb-32">Some things I've built</h3>
     <div class="projects-grid grid-3">
       <div

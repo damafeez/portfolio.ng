@@ -1,5 +1,5 @@
 <template>
-  <section class="get-in-touch bg-secondary text-on-secondary pad-y min-h-0">
+  <section class="get-in-touch pad-y min-h-0">
     <h2>Get in touch</h2>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet perspiciatis

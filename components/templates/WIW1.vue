@@ -1,5 +1,5 @@
 <template>
-  <section class="wiw text-on-background-2 pad-y">
+  <section class="wiw bg-secondary text-on-secondary-2 pad-y">
     <h3>Where I've Worked</h3>
     <div class="sm:flex mt-20">
       <ul class="companies float-left sm:float-none mb-10 mr-12">
@@ -37,7 +37,7 @@
       @apply px-6 py-3 cursor-pointer relative;
       &:hover,
       &.active {
-        @apply bg-secondary text-on-background;
+        @apply bg-background text-on-secondary;
       }
       &::before {
         @apply bg-current absolute h-full left-0 top-0;
@@ -51,7 +51,7 @@
     li {
       @apply mb-5 flex;
       &::before {
-        @apply text-on-background mr-5 text-lg;
+        @apply text-on-secondary mr-5 text-lg;
         content: '▹';
       }
     }
