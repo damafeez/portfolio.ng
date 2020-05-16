@@ -1,6 +1,8 @@
 # porfolio.ng
 
-> Create beautiful portfolio websites (devs/designers)
+> Portfolio.ng is a simple webtool for creating beautiful portfolio websites for devs and designers.
+
+Still in development, check it out at https://portfolio-ng.netlify.app/
 
 ## Build Setup
 
@@ -18,5 +20,3 @@ $ yarn start
 # generate static project
 $ yarn generate
 ```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
