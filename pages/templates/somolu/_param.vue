@@ -1,7 +1,7 @@
 <template>
   <main
     :contenteditable="editMode"
-    class="somolu bg-background text-on-background"
+    class="somolu bg-background text-on-background leading-snug"
   >
     <Hero />
     <About />
@@ -33,7 +33,10 @@ export default {
   --on-background: #929293;
   --primary: #0f040e;
   --on-primary: #ffffff;
+  --on-primary-2: #929293;
   --secondary: #222;
   --on-secondary: #ffffff;
+  --tertiary: #929293;
+  --on-tertiary: #ffffff;
 }
 </style>

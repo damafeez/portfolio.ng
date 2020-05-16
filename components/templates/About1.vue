@@ -1,7 +1,5 @@
 <template>
-  <section
-    class="about py-40 flex flex-wrap justify-between relative leading-snug"
-  >
+  <section class="about py-40 flex flex-wrap justify-between relative">
     <div>
       <h4>
         I enjoy building fine interactive UIs that are both aesthetically
