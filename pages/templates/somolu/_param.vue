@@ -6,6 +6,7 @@
     <Hero />
     <About />
     <WIW />
+    <Projects />
   </main>
 </template>
 
@@ -13,12 +14,14 @@
 import Hero from '@/components/templates/Hero1.vue'
 import About from '@/components/templates/About1.vue'
 import WIW from '@/components/templates/WIW1.vue'
+import Projects from '@/components/templates/Projects1.vue'
 
 export default {
   components: {
     Hero,
     About,
     WIW,
+    Projects,
   },
   computed: {
     editMode() {
