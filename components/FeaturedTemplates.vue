@@ -2,12 +2,12 @@
   <section class="featured-templates text-center pad-y">
     <h3 class="mb-32">Featured templates</h3>
     <div class="template-grid">
-      <nuxt-link class="template-btn btn" to="/templates/somolu"></nuxt-link>
-      <nuxt-link class="template-btn btn" to="/templates/somolu"></nuxt-link>
-      <nuxt-link class="template-btn btn" to="/templates/somolu"></nuxt-link>
-      <nuxt-link class="template-btn btn" to="/templates/somolu"></nuxt-link>
-      <nuxt-link class="template-btn btn" to="/templates/somolu"></nuxt-link>
-      <nuxt-link class="template-btn btn" to="/templates/somolu"></nuxt-link>
+      <nuxt-link class="btn-hover" to="/templates/somolu"></nuxt-link>
+      <nuxt-link class="btn-hover" to="/templates/somolu"></nuxt-link>
+      <nuxt-link class="btn-hover" to="/templates/somolu"></nuxt-link>
+      <nuxt-link class="btn-hover" to="/templates/somolu"></nuxt-link>
+      <nuxt-link class="btn-hover" to="/templates/somolu"></nuxt-link>
+      <nuxt-link class="btn-hover" to="/templates/somolu"></nuxt-link>
     </div>
     <nuxt-link
       to="templates"
@@ -29,9 +29,9 @@
     @screen lg {
       grid-template-columns: repeat(3, 1fr);
     }
-    .template-btn {
+    & > a {
+      @apply rounded bg-cover;
       background-image: url('~assets/images/template-sample.png');
-      background-size: cover;
       height: 15rem;
       &:nth-child(even) {
         background-image: url('~assets/images/template-sample2.png');
