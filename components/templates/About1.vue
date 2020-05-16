@@ -1,5 +1,7 @@
 <template>
-  <section class="about py-40 flex flex-wrap justify-between relative">
+  <section
+    class="about bg-secondary text-on-secondary py-40 flex flex-wrap justify-between relative"
+  >
     <div>
       <h4>
         I enjoy building fine interactive UIs that are both aesthetically
@@ -37,7 +39,7 @@
     width: 4em;
     height: 4em;
     border-radius: 50%;
-    box-shadow: inset 0.7em 0 var(--secondary);
+    box-shadow: inset 0.7em 0 var(--tertiary);
   }
   & > div {
     @screen md {
@@ -49,7 +51,7 @@
     position: relative;
   }
   .icon-box {
-    @apply bg-secondary rounded-full my-2 mr-5 inline-flex justify-center items-center;
+    @apply bg-tertiary rounded-full my-2 mr-5 inline-flex justify-center items-center;
     width: 2.3rem;
     height: 2.3rem;
   }

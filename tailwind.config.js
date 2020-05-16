@@ -11,10 +11,13 @@ module.exports = {
         current: 'currentColor',
         background: 'var(--background)',
         'on-background': 'var(--on-background)',
+        'on-background-2': 'var(--on-background-2)',
         primary: 'var(--primary)',
         'on-primary': 'var(--on-primary)',
         secondary: 'var(--secondary)',
         'on-secondary': 'var(--on-secondary)',
+        tertiary: 'var(--tertiary)',
+        'on-tertiary': 'var(--on-tertiary)',
       },
       fontSize: {
         xl: '1.5rem',

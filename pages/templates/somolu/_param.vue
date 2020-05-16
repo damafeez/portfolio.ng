@@ -29,14 +29,14 @@ export default {
 </script>
 <style lang="scss" scoped>
 .somolu {
-  --background: #151515;
-  --on-background: #929293;
-  --primary: #0f040e;
-  --on-primary: #ffffff;
-  --on-primary-2: #929293;
-  --secondary: #222;
-  --on-secondary: #ffffff;
-  --tertiary: #929293;
+  --background: #0f040e;
+  --on-background: #ffffff;
+  --on-background-2: #929293;
+  --primary: #ffffff;
+  --on-primary: #0f040e;
+  --secondary: #151515;
+  --on-secondary: #929293;
+  --tertiary: #222;
   --on-tertiary: #ffffff;
 }
 </style>
