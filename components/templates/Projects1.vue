@@ -100,7 +100,7 @@
       </div>
     </div>
 
-    <button class="mt-20 bg-transparent text-current pl-2">
+    <button class="mt-20 bg-transparent text-current pl-2 shadow-none">
       Show more &darr;
     </button>
   </section>
