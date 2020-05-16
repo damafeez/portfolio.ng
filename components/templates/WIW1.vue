@@ -51,7 +51,7 @@
     li {
       @apply mb-5 flex;
       &::before {
-        @apply text-on-background mr-5;
+        @apply text-on-background mr-5 text-lg;
         content: '▹';
       }
     }
