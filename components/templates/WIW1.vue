@@ -1,8 +1,8 @@
 <template>
   <section class="wiw bg-primary text-on-primary-2 pad-y">
     <h3>Where I've Worked</h3>
-    <div class="flex mt-20">
-      <ul class="companies mr-12">
+    <div class="sm:flex mt-20">
+      <ul class="companies float-left sm:float-none mb-10 mr-12">
         <li class="active">Apple</li>
         <li>Google</li>
         <li>Dribbble</li>
@@ -49,9 +49,9 @@
   .company-desc {
     max-width: 30rem;
     li {
-      @apply mb-5 pl-5 relative;
+      @apply mb-5 flex;
       &::before {
-        @apply text-on-primary absolute left-0;
+        @apply text-on-primary mr-5;
         content: '▹';
       }
     }
