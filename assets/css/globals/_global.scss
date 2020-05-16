@@ -163,3 +163,14 @@ label {
 [contenteditable] {
   outline: none;
 }
+.grid-3 {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: 1;
+  @screen sm {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @screen lg {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

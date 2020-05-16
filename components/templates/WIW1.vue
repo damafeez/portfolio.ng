@@ -9,7 +9,7 @@
         <li>Twitter</li>
       </ul>
       <div>
-        <h5 class="text-on-background mb-3">Engineer <span>@Apple</span></h5>
+        <h5 class="text-primary mb-3">Engineer <span>@Apple</span></h5>
         <p class="text-sm">May 2018 - present</p>
         <ul class="company-desc mt-10">
           <li>

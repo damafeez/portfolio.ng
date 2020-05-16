@@ -40,6 +40,6 @@ export default {
   --secondary: #151515;
   --on-secondary: #929293;
   --tertiary: #222;
-  --on-tertiary: #ffffff;
+  --on-tertiary: #929293;
 }
 </style>
