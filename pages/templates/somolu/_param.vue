@@ -5,17 +5,20 @@
   >
     <Hero />
     <About />
+    <WIW />
   </main>
 </template>
 
 <script>
 import Hero from '@/components/templates/Hero1.vue'
 import About from '@/components/templates/About1.vue'
+import WIW from '@/components/templates/WIW1.vue'
 
 export default {
   components: {
     Hero,
     About,
+    WIW,
   },
   computed: {
     editMode() {
