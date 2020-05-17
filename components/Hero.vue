@@ -10,15 +10,6 @@
     <button class="bg-on-background my-10 text-primary">Show me</button>
   </section>
 </template>
-<script>
-import Logo from '@/components/Logo.vue'
-
-export default {
-  components: {
-    Logo,
-  },
-}
-</script>
 <style lang="scss" scoped>
 .hero {
   background-image: url('~assets/images/portfolio.jpg');
