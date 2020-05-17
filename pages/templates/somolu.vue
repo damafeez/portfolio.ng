@@ -1,8 +1,5 @@
 <template>
-  <main
-    :contenteditable="editMode"
-    class="somolu bg-background text-on-background leading-snug"
-  >
+  <main class="somolu bg-background text-on-background leading-snug">
     <Hero />
     <About />
     <WIW />
@@ -19,17 +16,13 @@ import Projects from '@/components/templates/Projects1.vue'
 import GetInTouch from '@/components/templates/GetInTouch1.vue'
 
 export default {
+  layout: 'editor',
   components: {
     Hero,
     About,
     WIW,
     Projects,
     GetInTouch,
-  },
-  computed: {
-    editMode() {
-      return this.$route.params.param === 'edit'
-    },
   },
 }
 </script>
