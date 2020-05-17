@@ -1,5 +1,5 @@
 <template>
-  <div class="editor" :contenteditable="editMode">
+  <div class="editor">
     <div
       class="gear bg-secondary text-on-secondary right-0 fixed flex items-center rounded-tl-full rounded-bl-full shadow-2xl py-2 px-2"
     >
