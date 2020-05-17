@@ -25,7 +25,7 @@ export default {
       this.editMode = route.query.edit === 'true'
     },
   },
-  created() {
+  mounted() {
     this.editMode = this.$route.query.edit === 'true'
   },
 }
