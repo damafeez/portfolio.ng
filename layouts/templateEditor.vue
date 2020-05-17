@@ -10,10 +10,13 @@
         <icon-base :name="editMode ? 'settings' : 'edit-2'" />
       </span>
     </div>
-    <nuxt />
+    <div ref="template">
+      <nuxt />
+    </div>
   </div>
 </template>
 <script>
+import { getTextContainers } from '@/utils'
 export default {
   data() {
     return {
@@ -23,6 +26,14 @@ export default {
   watch: {
     $route(route) {
       this.editMode = route.query.edit === 'true'
+    },
+    editMode(editMode) {
+      if (editMode) {
+        const textNodes = getTextContainers(this.$refs.template)
+        textNodes.forEach(node => {
+          node.setAttribute('contenteditable', true)
+        })
+      }
     },
   },
   mounted() {

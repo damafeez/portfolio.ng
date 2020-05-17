@@ -16,7 +16,7 @@ import Projects from '@/components/templates/Projects1.vue'
 import GetInTouch from '@/components/templates/GetInTouch1.vue'
 
 export default {
-  layout: 'editor',
+  layout: 'templateEditor',
   components: {
     Hero,
     About,
