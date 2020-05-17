@@ -19,9 +19,11 @@
         debitis ullam architecto aspernatur amet, nisi eligendi consectetur
         dicta distinctio?
       </p>
-      <span class="icon-box btn-hover">g</span>
-      <span class="icon-box btn-hover">t</span>
-      <span class="icon-box btn-hover">w</span>
+      <span class="icon-box btn-hover"><icon-base name="github"/></span>
+      <span class="icon-box btn-hover"><icon-base name="twitter"/></span>
+      <span class="icon-box btn-hover text-lg"
+        ><icon-base name="google-plus"
+      /></span>
     </div>
   </section>
 </template>
