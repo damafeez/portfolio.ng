@@ -16,7 +16,6 @@
   </div>
 </template>
 <script>
-import { getTextContainers } from '@/utils'
 export default {
   name: 'TemplateWrapper',
   data() {
@@ -30,9 +29,11 @@ export default {
     },
     editMode(editMode) {
       if (editMode) {
-        const textNodes = getTextContainers(this.$refs.template)
-        textNodes.forEach(node => {
-          node.setAttribute('contenteditable', true)
+        const editableTextNodes = this.$refs.template.querySelectorAll(
+          '[p-editable]',
+        )
+        editableTextNodes.forEach(node => {
+          node.setAttribute('contenteditable', '')
         })
       }
     },
