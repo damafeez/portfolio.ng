@@ -1,11 +1,11 @@
 <template>
   <section class="about py-40 flex flex-wrap justify-between relative">
     <div>
-      <h4 v-schema-text="$schema.about.intro" />
-      <p v-schema-text="$schema.about.description" />
+      <h4 v-schema="'about.intro'">{{ $schema.about.intro }}</h4>
+      <p v-schema="'about.description'">{{ $schema.about.description }}</p>
     </div>
     <div class="self-end">
-      <p v-schema-text="$schema.social.description" />
+      <p v-schema="'social.description'">{{ $schema.social.description }}</p>
       <ul>
         <li
           v-for="social in $schema.social.links"

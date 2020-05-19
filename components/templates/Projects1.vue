@@ -7,15 +7,19 @@
         :key="project.name"
         class="btn-hover shadow-lg  rounded-sm bg-tertiary text-on-tertiary p-5"
       >
-        <h4 v-schema-text="project.name" class="text-primary" />
-        <p v-schema-text="project.description" />
+        <h4 v-schema="'project.name'" class="text-primary">
+          {{ project.name }}
+        </h4>
+        <p v-schema="'project.description'">{{ project.description }}</p>
         <ul class="flex mt-8">
           <li
             v-for="tag in project.tags"
             :key="tag"
-            v-schema-text="tag"
+            v-schema="tag"
             class="text-sm"
-          />
+          >
+            {{ tag }}
+          </li>
         </ul>
       </div>
     </div>

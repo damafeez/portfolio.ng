@@ -1,7 +1,9 @@
 <template>
   <section class="get-in-touch pad-y min-h-0">
-    <h2 v-schema-text="$schema.contact.intro" />
-    <p v-schema-text="$schema.contact.description" />
+    <h2 v-schema="'$schema.contact.intro'">{{ $schema.contact.intro }}</h2>
+    <p v-schema="'$schema.contact.description'">
+      {{ $schema.contact.description }}
+    </p>
     <button class="mt-10 bg-tertiary text-on-tertiary">Say hello</button>
   </section>
 </template>
