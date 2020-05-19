@@ -1,11 +1,7 @@
 <template>
   <section class="get-in-touch pad-y min-h-0">
-    <h2>Get in touch</h2>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet perspiciatis
-      molestias iusto quis perferendis dolorum dicta explicabo nihil consequatur
-      corrupti eaque accusamus voluptatibus repellendus aliquam.
-    </p>
+    <h2 v-schema-text="$schema.contact.intro" />
+    <p v-schema-text="$schema.contact.description" />
     <button class="mt-10 bg-tertiary text-on-tertiary">Say hello</button>
   </section>
 </template>

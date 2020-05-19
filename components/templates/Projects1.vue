@@ -3,99 +3,19 @@
     <h3 class="mb-32">Some things I've built</h3>
     <div class="projects-grid grid-3">
       <div
+        v-for="project in $schema.projects"
+        :key="project.name"
         class="btn-hover shadow-lg  rounded-sm bg-tertiary text-on-tertiary p-5"
       >
-        <h4 class="text-primary">Awesome project</h4>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo odio,
-          nobis ut accusantium dignissimos corrupti molestias. Itaque magnam
-          quasi velit quibusdam autem quam nobis aspernatur deleniti, minima
-          laborum iste quo.
-        </p>
+        <h4 v-schema-text="project.name" class="text-primary" />
+        <p v-schema-text="project.description" />
         <ul class="flex mt-8">
-          <li class="text-sm">Nuxt</li>
-          <li class="text-sm">Typescript</li>
-          <li class="text-sm">GraphQl</li>
-        </ul>
-      </div>
-      <div
-        class="btn-hover shadow-lg rounded-sm bg-tertiary text-on-tertiary p-5"
-      >
-        <h4 class="text-primary">Awesome project</h4>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo odio,
-          nobis ut accusantium dignissimos corrupti molestias. Itaque magnam
-          quasi velit quibusdam autem quam nobis aspernatur deleniti, minima
-          laborum iste quo.
-        </p>
-        <ul class="flex mt-8">
-          <li class="text-sm">Nuxt</li>
-          <li class="text-sm">Typescript</li>
-          <li class="text-sm">GraphQl</li>
-        </ul>
-      </div>
-      <div
-        class="btn-hover shadow-lg rounded-sm bg-tertiary text-on-tertiary p-5"
-      >
-        <h4 class="text-primary">Awesome project</h4>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo odio,
-          nobis ut accusantium dignissimos corrupti molestias. Itaque magnam
-          quasi velit quibusdam autem quam nobis aspernatur deleniti, minima
-          laborum iste quo.
-        </p>
-        <ul class="flex mt-8">
-          <li class="text-sm">Nuxt</li>
-          <li class="text-sm">Typescript</li>
-          <li class="text-sm">GraphQl</li>
-        </ul>
-      </div>
-      <div
-        class="btn-hover shadow-lg rounded-sm bg-tertiary text-on-tertiary p-5"
-      >
-        <h4 class="text-primary">Awesome project</h4>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo odio,
-          nobis ut accusantium dignissimos corrupti molestias. Itaque magnam
-          quasi velit quibusdam autem quam nobis aspernatur deleniti, minima
-          laborum iste quo.
-        </p>
-        <ul class="flex mt-8">
-          <li class="text-sm">Nuxt</li>
-          <li class="text-sm">Typescript</li>
-          <li class="text-sm">GraphQl</li>
-        </ul>
-      </div>
-      <div
-        class="btn-hover shadow-lg rounded-sm bg-tertiary text-on-tertiary p-5"
-      >
-        <h4 class="text-primary">Awesome project</h4>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo odio,
-          nobis ut accusantium dignissimos corrupti molestias. Itaque magnam
-          quasi velit quibusdam autem quam nobis aspernatur deleniti, minima
-          laborum iste quo.
-        </p>
-        <ul class="flex mt-8">
-          <li class="text-sm">Nuxt</li>
-          <li class="text-sm">Typescript</li>
-          <li class="text-sm">GraphQl</li>
-        </ul>
-      </div>
-      <div
-        class="btn-hover shadow-lg rounded-sm bg-tertiary text-on-tertiary p-5"
-      >
-        <h4 class="text-primary">Awesome project</h4>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo odio,
-          nobis ut accusantium dignissimos corrupti molestias. Itaque magnam
-          quasi velit quibusdam autem quam nobis aspernatur deleniti, minima
-          laborum iste quo.
-        </p>
-        <ul class="flex mt-8">
-          <li class="text-sm">Nuxt</li>
-          <li class="text-sm">Typescript</li>
-          <li class="text-sm">GraphQl</li>
+          <li
+            v-for="tag in project.tags"
+            :key="tag"
+            v-schema-text="tag"
+            class="text-sm"
+          />
         </ul>
       </div>
     </div>

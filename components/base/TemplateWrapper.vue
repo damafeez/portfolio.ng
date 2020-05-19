@@ -11,13 +11,14 @@
       </span>
     </div>
     <div ref="template">
-      <nuxt />
+      <slot />
     </div>
   </div>
 </template>
 <script>
 import { getTextContainers } from '@/utils'
 export default {
+  name: 'TemplateWrapper',
   data() {
     return {
       editMode: false,

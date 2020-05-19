@@ -1,40 +1,55 @@
 <template>
   <section class="wiw bg-secondary text-on-secondary-2 pad-y">
     <h3>Where I've Worked</h3>
-    <div class="sm:flex mt-20">
+    <div class="wiw-inner sm:flex mt-20">
       <ul class="companies float-left sm:float-none mb-10 mr-12">
-        <li class="active">Apple</li>
-        <li>Google</li>
-        <li>Dribbble</li>
-        <li>Twitter</li>
+        <li
+          v-for="(company, i) in $schema.wiw"
+          :key="company.name"
+          v-schema-text="company.name"
+          :class="{ active: activeIndex === i }"
+          @click="activeIndex = i"
+        />
       </ul>
       <div>
-        <h5 class="text-primary mb-3">Engineer <span>@Apple</span></h5>
-        <p class="text-sm">May 2018 - present</p>
+        <h5 class="text-primary mb-3">
+          {{ wiw.role }}
+          <span>@{{ wiw.name }}</span>
+        </h5>
+        <p v-schema-text="wiw.duration" class="text-sm" />
         <ul class="company-desc mt-10">
-          <li>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla porro
-            enim nesciunt debitis placeat neque sint ullam
-          </li>
-          <li>
-            Exercitationem, optio omnis veniam tempora accusantium iure
-            obcaecati at doloribus, modi quae maxime.
-          </li>
-          <li>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla porro
-            enim nesciunt debitis placeat neque sint ullam, optio omnis veniam
-            tempora accusantium iure obcaecati at doloribus, modi quae maxime.
-          </li>
+          <li
+            v-for="(achievement, i) in wiw.achievements"
+            :key="i"
+            v-schema-text="achievement"
+          />
         </ul>
       </div>
     </div>
   </section>
 </template>
+<script>
+import { section } from '@/mixins'
+export default {
+  mixins: [section],
+  data() {
+    return {
+      activeIndex: 0,
+    }
+  },
+  computed: {
+    wiw() {
+      return this.$schema.wiw[this.activeIndex]
+    },
+  },
+}
+</script>
 <style lang="scss" scoped>
 .wiw {
   .companies {
     li {
       @apply px-6 py-3 cursor-pointer relative;
+      transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
       &:hover,
       &.active {
         @apply bg-background text-on-secondary;
@@ -55,6 +70,9 @@
         content: '▹';
       }
     }
+  }
+  .wiw-inner {
+    min-height: 25rem;
   }
 }
 </style>

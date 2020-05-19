@@ -1,32 +1,35 @@
 <template>
   <section class="about py-40 flex flex-wrap justify-between relative">
     <div>
-      <h4>
-        I enjoy building fine interactive UIs that are both aesthetically
-        pleasing and easy to use. I have created excellent solutions with
-        frameworks such as VueJS, Flutter and React.
-      </h4>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem enim ut
-        esse quae ea mollitia minus. Sint at quaerat, nulla debitis ullam
-        architecto aspernatur amet, nisi eligendi consectetur dicta distinctio?
-      </p>
+      <h4 v-schema-text="$schema.about.intro" />
+      <p v-schema-text="$schema.about.description" />
     </div>
     <div class="self-end">
-      <p>
-        My Github is exciting, checkout my recent cat repository. Don't miss
-        house on my social esse qua ea mollitia minus. Sint at quaerat, nulla
-        debitis ullam architecto aspernatur amet, nisi eligendi consectetur
-        dicta distinctio?
-      </p>
-      <span class="icon-box btn-hover"><icon-base name="github"/></span>
-      <span class="icon-box btn-hover"><icon-base name="twitter"/></span>
-      <span class="icon-box btn-hover text-lg"
-        ><icon-base name="google-plus"
-      /></span>
+      <p v-schema-text="$schema.social.description" />
+      <ul>
+        <li
+          v-for="social in $schema.social.links"
+          :key="social.name"
+          class="inline-block"
+        >
+          <a
+            class="icon-box btn-hover"
+            target="_blan"
+            rel="noopener noreferrer"
+            :href="social.link"
+            ><icon-base :name="social.icon"
+          /></a>
+        </li>
+      </ul>
     </div>
   </section>
 </template>
+<script>
+import { section } from '@/mixins'
+export default {
+  mixins: [section],
+}
+</script>
 <style lang="scss" scoped>
 .about {
   &::before {

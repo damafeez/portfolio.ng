@@ -1,0 +1,3 @@
+const section = {}
+
+export { section }

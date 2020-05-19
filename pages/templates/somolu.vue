@@ -1,11 +1,13 @@
 <template>
-  <main class="somolu bg-background text-on-background leading-snug">
-    <Hero />
-    <About />
-    <WIW />
-    <Projects />
-    <GetInTouch />
-  </main>
+  <TemplateWrapper>
+    <main class="somolu bg-background text-on-background leading-snug">
+      <Hero />
+      <About />
+      <WIW />
+      <Projects />
+      <GetInTouch />
+    </main>
+  </TemplateWrapper>
 </template>
 
 <script>
@@ -16,7 +18,6 @@ import Projects from '@/components/templates/Projects1.vue'
 import GetInTouch from '@/components/templates/GetInTouch1.vue'
 
 export default {
-  layout: 'templateEditor',
   components: {
     Hero,
     About,
