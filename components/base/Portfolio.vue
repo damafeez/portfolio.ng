@@ -1,6 +1,6 @@
 <template>
   <main class="portfolio bg-background text-on-background">
-    <slot :schema="$store.state.schema" />
+    <slot />
   </main>
 </template>
 <script>

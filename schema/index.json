@@ -1,0 +1,111 @@
+{
+  "profile": {
+    "name": "Aweke Olawale",
+    "description": "A frontend developer with more than 5 years of professional experience.",
+    "images": [
+      "https://images.unsplash.com/photo-1523824921871-d6f1a15151f1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=30"
+    ]
+  },
+  "about": {
+    "intro": "I enjoy building fine interactive UIs that are both aesthetically pleasing and easy to use. I have created excellent solutions with frameworks such as VueJS, Flutter and React.",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem enim ut esse quae ea mollitia minus. Sint at quaerat, nulla debitis ullam architecto aspernatur amet, nisi eligendi consectetur dicta distinctio? This seems like an awesome project."
+  },
+  "cta": [{ "text": "See my resume", "link": "#" }],
+  "social": {
+    "description": "My Github is exciting, checkout myecent cat repository. Don't miss house on my social esse qua ea mollitia minus. Sint at quaerat, nulla debitis ullam architecto aspernatur amet, nisi eligendi consectetur dicta distinctio?",
+    "links": [
+      {
+        "name": "Github",
+        "link": "https:github.com/damafeez",
+        "icon": "github"
+      },
+      {
+        "name": "Twitter",
+        "link": "https:twitter.com/damafeez",
+        "icon": "twitter"
+      },
+      {
+        "name": "Google Plus",
+        "link": "https:google.com/damafeez",
+        "icon": "google-plus"
+      }
+    ]
+  },
+  "wiw": [
+    {
+      "name": "Google",
+      "role": "Consultant",
+      "duration": "May 2018 - present",
+      "achievements": [
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla porro enim nesciunt debitis placeat neque sint ullam",
+        "Exercitationem, optio omnis veniam tempora accusantium iure obcaecati at doloribus, modi quae maxime.",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla porro enim nesciunt debitis placeat neque sint ullam, optio omnis veniam tempora accusantium iure obcaecati at doloribus, modi quae maxime."
+      ]
+    },
+    {
+      "name": "Apple",
+      "role": "Engineer",
+      "duration": "May 2018 - present",
+      "achievements": [
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla porro enim nesciunt debitis placeat neque sint ullam",
+        "Exercitationem, optio omnis veniam tempora accusantium iure obcaecati at doloribus, modi quae maxime."
+      ]
+    },
+    {
+      "name": "Dribbble",
+      "role": "Engineer",
+      "duration": "May 2018 - present",
+      "achievements": [
+        "Exercitationem, optio omnis veniam tempora accusantium iure obcaecati at dolorib.",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla porro enim nesciunt debitis placeat neque sint ullam, optio omnis veniam tempora accusantium iure obcaecati at doloribus, modi quae maxime."
+      ]
+    },
+    {
+      "name": "Twitter",
+      "role": "Engineer",
+      "duration": "May 2018 - present",
+      "achievements": [
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla porro enim nesciunt debitis placeat neque sint ullam",
+        "Exercitationem, optio omnis veniam tempora accusantium iure obcaecati at doloribus, modi quae maxime.",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla porro enim nesciunt debitis placeat neque sint ullam, optio omnis veniam tempora accusantium iure obcaecati at doloribus, modi quae maxime."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Awesome Project",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem enim ut esse quae ea mollitia minus. Sint at quaerat, nulla debitis ullam architecto aspernatur amet, nisi eligendi consectetur dicta distinctio? This seems like an awesome project.",
+      "tags": ["Node", "Typescript", "GraphQl"]
+    },
+    {
+      "name": "Awesome Project",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem enim ut esse quae ea mollitia minus. Sint at quaerat, nulla debitis ullam architecto aspernatur amet, nisi eligendi consectetur dicta distinctio? This seems like an awesome project.",
+      "tags": ["Node", "Typescript", "GraphQl"]
+    },
+    {
+      "name": "Awesome Project",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem enim ut esse quae ea mollitia minus. Sint at quaerat, nulla debitis ullam architecto aspernatur amet, nisi eligendi consectetur dicta distinctio? This seems like an awesome project.",
+      "tags": ["Node", "Typescript", "GraphQl"]
+    },
+    {
+      "name": "Awesome Project",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem enim ut esse quae ea mollitia minus. Sint at quaerat, nulla debitis ullam architecto aspernatur amet, nisi eligendi consectetur dicta distinctio? This seems like an awesome project.",
+      "tags": ["Node", "Typescript", "GraphQl"]
+    },
+    {
+      "name": "Awesome Project",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem enim ut esse quae ea mollitia minus. Sint at quaerat, nulla debitis ullam architecto aspernatur amet, nisi eligendi consectetur dicta distinctio? This seems like an awesome project.",
+      "tags": ["Node", "Typescript", "GraphQl"]
+    },
+    {
+      "name": "Awesome Project",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem enim ut esse quae ea mollitia minus. Sint at quaerat, nulla debitis ullam architecto aspernatur amet, nisi eligendi consectetur dicta distinctio? This seems like an awesome project.",
+      "tags": ["Node", "Typescript", "GraphQl"]
+    }
+  ],
+  "contact": {
+    "intro": "Get In Touch",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet perspiciatis molestias iusto quis perferendis dolorum dicta explicabo nihil consequatur corrupti eaque accusamus voluptatibus repellendus aliquam.",
+    "emai": "damafeez@gmail.com"
+  }
+}

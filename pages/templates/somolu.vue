@@ -1,10 +1,10 @@
 <template>
-  <Portfolio v-slot="{ schema }" class="somolu leading-snug">
-    <Hero :schema="schema" />
-    <About :schema="schema" />
-    <WIW :schema="schema" />
-    <Projects :schema="schema" />
-    <GetInTouch :schema="schema" />
+  <Portfolio class="somolu leading-snug">
+    <Hero />
+    <About />
+    <WIW />
+    <Projects />
+    <GetInTouch />
   </Portfolio>
 </template>
 
@@ -16,7 +16,6 @@ import Projects from '@/components/templates/Projects1.vue'
 import GetInTouch from '@/components/templates/GetInTouch1.vue'
 
 export default {
-  layout: 'templateEditor',
   components: {
     Hero,
     About,

@@ -3,13 +3,8 @@ const section = {
   computed: {
     ...mapState({
       editMode: 'editMode',
+      schema: 'schema',
     }),
-  },
-  props: {
-    schema: {
-      type: Object,
-      required: true,
-    },
   },
 }
 
