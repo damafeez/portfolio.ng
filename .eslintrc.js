@@ -20,6 +20,7 @@ module.exports = {
   // add your custom rules here
   rules: {
     'vue/no-unused-components': 'warn',
+    'vue/no-unused-vars': 'warn',
     'no-unused-vars': 'warn'
   }
 }

@@ -3,7 +3,7 @@
     <h3 class="mb-32">Some things I've built</h3>
     <div class="projects-grid grid-3">
       <div
-        v-for="(project, i) in $schema.projects"
+        v-for="(project, i) in schema.projects"
         :key="i"
         class="btn-hover shadow-lg  rounded-sm bg-tertiary text-on-tertiary p-5"
       >

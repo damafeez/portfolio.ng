@@ -5,6 +5,12 @@ const section = {
       editMode: 'editMode',
     }),
   },
+  props: {
+    schema: {
+      type: Object,
+      required: true,
+    },
+  },
 }
 
 export { section }

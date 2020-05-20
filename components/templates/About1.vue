@@ -1,18 +1,18 @@
 <template>
   <section class="about py-40 flex flex-wrap justify-between relative">
     <div>
-      <h4 v-schema="['about.intro', editMode]">{{ $schema.about.intro }}</h4>
+      <h4 v-schema="['about.intro', editMode]">{{ schema.about.intro }}</h4>
       <p v-schema="['about.description', editMode]">
-        {{ $schema.about.description }}
+        {{ schema.about.description }}
       </p>
     </div>
     <div class="self-end">
       <p v-schema="['social.description', editMode]">
-        {{ $schema.social.description }}
+        {{ schema.social.description }}
       </p>
       <ul>
         <li
-          v-for="social in $schema.social.links"
+          v-for="social in schema.social.links"
           :key="social.name"
           class="inline-block"
         >

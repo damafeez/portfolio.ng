@@ -4,7 +4,7 @@
     <div class="wiw-inner sm:flex mt-20">
       <ul class="companies float-left sm:float-none mb-10 mr-12">
         <li
-          v-for="(company, i) in $schema.wiw"
+          v-for="(company, i) in schema.wiw"
           :key="company.name"
           v-schema="[`wiw[${i}].name`, editMode]"
           :class="{ active: activeIndex === i }"
@@ -54,7 +54,7 @@ export default {
   },
   computed: {
     wiw() {
-      return this.$schema.wiw[this.activeIndex]
+      return this.schema.wiw[this.activeIndex]
     },
   },
 }

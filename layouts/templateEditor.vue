@@ -8,14 +8,14 @@
       </span>
     </div>
     <div ref="template">
-      <slot />
+      <nuxt />
     </div>
   </div>
 </template>
 <script>
 import { mapState, mapActions } from 'vuex'
 export default {
-  name: 'TemplateWrapper',
+  name: 'TemplateEditor',
   computed: {
     ...mapState({
       editMode: 'editMode',
