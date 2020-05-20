@@ -24,10 +24,6 @@ export default {
   watch: {
     editMode(editMode) {
       const wrapper = this.$refs.template
-      const editableTextNodes = wrapper.querySelectorAll('[p-editable]')
-      editableTextNodes.forEach(node => {
-        node.setAttribute('contenteditable', '')
-      })
       if (editMode) {
         wrapper.addEventListener('click', this.$options.cmdClickOnly, {
           capture: true,

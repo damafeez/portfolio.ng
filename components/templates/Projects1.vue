@@ -7,15 +7,17 @@
         :key="i"
         class="btn-hover shadow-lg  rounded-sm bg-tertiary text-on-tertiary p-5"
       >
-        <h4 v-schema="`projects[${i}].name`" class="text-primary">
+        <h4 v-schema="[`projects[${i}].name`, editMode]" class="text-primary">
           {{ project.name }}
         </h4>
-        <p v-schema="'project.description'">{{ project.description }}</p>
+        <p v-schema="['project.description', editMode]">
+          {{ project.description }}
+        </p>
         <ul class="flex mt-8">
           <li
             v-for="(tag, ii) in project.tags"
             :key="tag"
-            v-schema="`projects[${i}].name.tags[${ii}]`"
+            v-schema="[`projects[${i}].name.tags[${ii}]`, editMode]"
             class="text-sm"
           >
             {{ tag }}
@@ -29,6 +31,12 @@
     </button>
   </section>
 </template>
+<script>
+import { section } from '@/mixins'
+export default {
+  mixins: [section],
+}
+</script>
 <style lang="scss" scoped>
 .projects {
   .projects-grid {

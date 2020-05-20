@@ -7,23 +7,37 @@ function setupChangeFeed(el) {
       this.data_orig = this.innerHTML
     }
     el.onblur = function() {
-      if (this.innerHTML !== this.data_orig) this.pchange()
+      if (this.innerHTML !== this.data_orig)
+        this.pchange(this.textContent.trim())
       delete this.data_orig
     }
   }
 }
+function setEditable(el, editable) {
+  if (editable) el.setAttribute('contenteditable', '')
+  else el.removeAttribute('contenteditable')
+}
 
 export default ({ store }) => {
-  Vue.directive('schema', {
-    bind(el, { arg = 'text', value }) {
-      if (arg === 'text') {
-        el.setAttribute('p-editable', '')
-        setupChangeFeed(el)
+  const pChange = address => text =>
+    store.dispatch('schema/editSchema', [address, text])
 
-        el.pchange = function() {
-          if (!store.state.editMode) return
-          store.commit('schema/EDIT_SCHEMA', [value, this.textContent.trim()])
-        }
+  Vue.directive('schema', {
+    bind(el, { arg = 'text', value: [address, editMode] }) {
+      if (arg === 'text') {
+        setEditable(el, editMode)
+        setupChangeFeed(el)
+      }
+      if (editMode) el.pchange = pChange(address)
+    },
+    update(
+      el,
+      { arg = 'text', oldValue: [, oldEditMode], value: [address, editMode] },
+    ) {
+      if (oldEditMode !== editMode && arg === 'text') {
+        setEditable(el, editMode)
+        if (editMode) el.pchange = pChange(address)
+        else el.pchange = function() {}
       }
     },
   })

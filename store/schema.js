@@ -24,3 +24,9 @@ export const mutations = {
     _.set(state, accessor, value)
   },
 }
+
+export const actions = {
+  editSchema({ commit, rootState }, payload) {
+    if (rootState.editMode) commit(EDIT_SCHEMA, payload)
+  },
+}
