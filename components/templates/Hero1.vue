@@ -6,11 +6,13 @@
     <nav class="neg-margin pad-x py-6"></nav>
     <h1 class="mt-48 mb-6 max-w-2xl">
       Hi, <br />
-      I'm <span v-schema="">{{ $schema.profile.name }}</span
+      I'm <span v-schema="'profile.name'">{{ $schema.profile.name }}</span
       >.
     </h1>
-    <p v-schema="" class="max-w-xl">{{ $schema.profile.description }}</p>
-    <button v-schema="" class="bg-primary my-10 text-on-primary">
+    <p v-schema="'profile.description'" class="max-w-xl">
+      {{ $schema.profile.description }}
+    </p>
+    <button v-schema="'cta[0].text'" class="bg-primary my-10 text-on-primary">
       {{ $schema.cta[0].text }}
     </button>
   </section>

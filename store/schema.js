@@ -1,6 +1,9 @@
+import _ from 'lodash'
+import { EDIT_SCHEMA } from './_mutationNames'
+
 export const state = () => ({
   profile: {
-    intro: '',
+    name: '',
     description: '',
     images: [],
   },
@@ -15,3 +18,9 @@ export const state = () => ({
   },
   wiw: [],
 })
+
+export const mutations = {
+  [EDIT_SCHEMA](state, [accessor, value]) {
+    _.set(state, accessor, value)
+  },
+}

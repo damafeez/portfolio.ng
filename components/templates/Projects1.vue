@@ -3,19 +3,19 @@
     <h3 class="mb-32">Some things I've built</h3>
     <div class="projects-grid grid-3">
       <div
-        v-for="project in $schema.projects"
-        :key="project.name"
+        v-for="(project, i) in $schema.projects"
+        :key="i"
         class="btn-hover shadow-lg  rounded-sm bg-tertiary text-on-tertiary p-5"
       >
-        <h4 v-schema="'project.name'" class="text-primary">
+        <h4 v-schema="`projects[${i}].name`" class="text-primary">
           {{ project.name }}
         </h4>
         <p v-schema="'project.description'">{{ project.description }}</p>
         <ul class="flex mt-8">
           <li
-            v-for="tag in project.tags"
+            v-for="(tag, ii) in project.tags"
             :key="tag"
-            v-schema="tag"
+            v-schema="`projects[${i}].name.tags[${ii}]`"
             class="text-sm"
           >
             {{ tag }}

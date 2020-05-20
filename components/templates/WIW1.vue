@@ -6,7 +6,7 @@
         <li
           v-for="(company, i) in $schema.wiw"
           :key="company.name"
-          v-schema
+          v-schema="`wiw[${i}].name`"
           :class="{ active: activeIndex === i }"
           @click="activeIndex = i"
         >
@@ -15,17 +15,19 @@
       </ul>
       <div>
         <h5 class="text-primary mb-3">
-          <span v-schema>{{ wiw.role }}</span
+          <span v-schema="`wiw[${activeIndex}].role`">{{ wiw.role }}</span
           >&nbsp;<span
-            >@<span v-schema>{{ wiw.name }}</span>
+            >@<span v-schema="`wiw[${activeIndex}].name`">{{ wiw.name }}</span>
           </span>
         </h5>
-        <p v-schema class="text-sm">{{ wiw.duration }}</p>
+        <p v-schema="`wiw[${activeIndex}].duration`" class="text-sm">
+          {{ wiw.duration }}
+        </p>
         <ul class="company-desc mt-10">
           <li
             v-for="(achievement, i) in wiw.achievements"
             :key="i"
-            v-schema="'achievement'"
+            v-schema="`wiw[${activeIndex}].achievements[${i}]`"
           >
             {{ achievement }}
           </li>

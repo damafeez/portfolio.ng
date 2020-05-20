@@ -3,10 +3,7 @@
     <div
       class="gear bg-secondary text-on-secondary right-0 fixed flex items-center rounded-tl-full rounded-bl-full shadow-2xl py-2 px-2"
     >
-      <span
-        class="cursor-pointer p-2"
-        @click="!editMode && $router.push({ query: { edit: 'true' } })"
-      >
+      <span class="cursor-pointer p-2" @click="!editMode && setEditMode(true)">
         <icon-base :name="editMode ? 'settings' : 'edit-2'" />
       </span>
     </div>
@@ -16,17 +13,15 @@
   </div>
 </template>
 <script>
+import { mapState, mapActions } from 'vuex'
 export default {
   name: 'TemplateWrapper',
-  data() {
-    return {
-      editMode: false,
-    }
+  computed: {
+    ...mapState({
+      editMode: 'editMode',
+    }),
   },
   watch: {
-    $route(route) {
-      this.editMode = route.query.edit === 'true'
-    },
     editMode(editMode) {
       if (editMode) {
         const editableTextNodes = this.$refs.template.querySelectorAll(
@@ -39,7 +34,12 @@ export default {
     },
   },
   mounted() {
-    this.editMode = this.$route.query.edit === 'true'
+    this.$store.dispatch('setEditMode', this.$route.query.edit === 'true')
+  },
+  methods: {
+    ...mapActions({
+      setEditMode: 'setEditMode',
+    }),
   },
 }
 </script>
