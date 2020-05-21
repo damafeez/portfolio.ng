@@ -10,13 +10,27 @@
     <div ref="template">
       <nuxt />
     </div>
+
+    <input
+      v-if="editMode"
+      ref="imageUploader"
+      type="file"
+      accept=".png, .jpg, .jpeg"
+      @change.prevent="imageChange"
+    />
   </div>
 </template>
 <script>
 import { mapState, mapActions } from 'vuex'
+import { TEMPLATE_EDITOR_UPLOAD_IMAGE } from '@/constants'
 
 export default {
   name: 'TemplateEditor',
+  data() {
+    return {
+      schemaAddress: '',
+    }
+  },
   computed: {
     ...mapState({
       editMode: 'editMode',
@@ -29,7 +43,7 @@ export default {
         wrapper.addEventListener('click', this.$options.cmdClickOnly, {
           capture: true,
         })
-        alert('You are now in edit mode, use CMD/CTRL+click to click')
+        // alert('You are now in edit mode, use CMD/CTRL+click to click')
       } else {
         wrapper.removeEventListener('click', this.$options.cmdClickOnly, {
           capture: true,
@@ -39,11 +53,33 @@ export default {
   },
   mounted() {
     this.$store.dispatch('setEditMode', this.$route.query.edit === 'true')
+    this.$eventBus.$on(TEMPLATE_EDITOR_UPLOAD_IMAGE, this.busImageUpoad)
+  },
+  destroyed() {
+    this.$eventBus.$off(TEMPLATE_EDITOR_UPLOAD_IMAGE, this.busImageUpoad)
   },
   methods: {
     ...mapActions({
       setEditMode: 'setEditMode',
+      editSchema: 'schema/editSchema',
     }),
+    busImageUpoad(payload) {
+      if (this.schemaAddress)
+        return alert('can not upload now, please try again')
+      this.schemaAddress = payload
+      this.$refs.imageUploader.click()
+      this.schemaAddress = ''
+    },
+    imageChange(e) {
+      const file = e.target.files[0]
+      const reader = new FileReader()
+      reader.onloadend = () => {
+        this.editSchema([this.schemaAddress, reader.result])
+        this.uploadImage(this.schemaAddress, file)
+      }
+      if (file) reader.readAsDataURL(file)
+    },
+    uploadImage() {},
   },
   cmdClickOnly(event) {
     // Allow only command/control + click
@@ -60,5 +96,17 @@ export default {
     height: 3rem;
     z-index: 10000;
   }
+  #template-editor-image-uploader {
+    opacity: 0; /* make transparent */
+    z-index: -1; /* move under anything else */
+    position: absolute; /* don't let it take up space */
+    pointer-events: none;
+    transform: scale(0);
+  }
+}
+</style>
+<style lang="scss">
+.stop-cursor-propagation * {
+  cursor: initial;
 }
 </style>

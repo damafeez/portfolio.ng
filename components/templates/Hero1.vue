@@ -1,5 +1,6 @@
 <template>
   <section
+    v-schema:bg="['profile.images[0]', editMode]"
     class="hero bg-secondary text-on-secondary bg-right-top bg-no-repeat pb-32"
     :style="{ backgroundImage: `url(${schema.profile.images[0]})` }"
   >
