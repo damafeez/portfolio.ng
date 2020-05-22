@@ -13,6 +13,7 @@
 
     <input
       v-if="editMode"
+      id="template-editor-image-uploader"
       ref="imageUploader"
       type="file"
       accept=".png, .jpg, .jpeg"
@@ -55,7 +56,7 @@ export default {
       }
     },
   },
-  created() {
+  mounted() {
     this.setMode(this.$route.query.edit === 'true' ? 'edit' : 'template')
     this.$eventBus.$on(TEMPLATE_EDITOR_UPLOAD_IMAGE, this.busImageUpoad)
     this.$eventBus.$on(TEMPLATE_EDITOR_TEXT_EDIT, this.busSchemaEdit)

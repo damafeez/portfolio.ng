@@ -16,7 +16,7 @@
         <ul class="flex mt-8">
           <li
             v-for="(tag, ii) in project.tags"
-            :key="tag"
+            :key="ii"
             v-schema="[`projects[${i}].name.tags[${ii}]`]"
             class="text-sm"
           >

@@ -12,8 +12,8 @@
       </p>
       <ul>
         <li
-          v-for="social in schema.social.links"
-          :key="social.name"
+          v-for="(social, i) in schema.social.links"
+          :key="i"
           class="inline-block"
         >
           <a
@@ -31,6 +31,7 @@
 <script>
 import { section } from '@/mixins'
 export default {
+  // TODO: use random ids for all keys
   mixins: [section],
 }
 </script>

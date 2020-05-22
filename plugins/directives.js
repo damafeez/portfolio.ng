@@ -16,28 +16,28 @@ const imgUpload = (address, vnode) => e => {
 export default ({ store }) => {
   Vue.directive('schema', {
     bind(el, options, vnode) {
-      // bind schema only in templateMode
-      if (store.getters.templateMode) {
-        if (store.state.editMode) setupSchema(el, options, vnode, true)
-        const unwatch = store.watch(
-          (state, getters) => getters.editMode,
-          editMode => {
-            if (editMode) {
-              setupSchema(el, options, vnode, editMode)
-            } else {
-              destroySchema(el)
-            }
-          },
-        )
-        el.__editMode_unwatch__ = unwatch
-      }
+      if (store.state.editMode) setupSchema(el, options, vnode, true)
+      const unwatch = store.watch(
+        (state, getters) => getters.editMode,
+        editMode => {
+          if (editMode) {
+            setupSchema(el, options, vnode, editMode)
+          } else {
+            removeSchemaListeners(el, options.modifiers)
+          }
+        },
+      )
+      el.__editMode_unwatch__ = unwatch
     },
 
-    unbind(el) {
+    unbind(el, options) {
+      removeSchemaListeners(el, options.modifiers)
       el.__editMode_unwatch__ && el.__editMode_unwatch__()
     },
   })
 }
+
+// functions
 function setupChangeFeed(el) {
   if (el.onblur !== 'function') {
     // https://stackoverflow.com/a/9258256
@@ -70,7 +70,7 @@ function setupSchema(el, { modifiers, value: [address] }, vnode, editMode) {
     el.addEventListener('dblclick', imgUpload(address, vnode))
   }
 }
-function destroySchema(el, modifiers) {
+function removeSchemaListeners(el, modifiers) {
   const { text, bg, img } = modifiers
 
   if (text || _.isEmpty(modifiers)) {

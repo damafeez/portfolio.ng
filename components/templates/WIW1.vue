@@ -5,7 +5,7 @@
       <ul class="companies float-left sm:float-none mb-10 mr-12">
         <li
           v-for="(company, i) in schema.wiw"
-          :key="company.name"
+          :key="i"
           v-schema="[`wiw[${i}].name`]"
           :class="{ active: activeIndex === i }"
           @click="activeIndex = i"
