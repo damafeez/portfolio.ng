@@ -1,11 +1,22 @@
 <template>
   <main class="portfolio bg-background text-on-background">
-    <slot />
+    <slot v-if="schemaIsValid" />
+    <div v-else>Please provide a valid schema</div>
   </main>
 </template>
 <script>
+import _ from 'lodash'
+import { mapGetters } from 'vuex'
 export default {
   name: 'Portfolio',
+  computed: {
+    ...mapGetters({
+      schema: 'schema/schema',
+    }),
+    schemaIsValid() {
+      return !_.isEmpty(this.schema)
+    },
+  },
 }
 </script>
 <style lang="scss" scoped>

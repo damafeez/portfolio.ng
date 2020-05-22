@@ -1,8 +1,8 @@
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 const section = {
   computed: {
-    ...mapState({
-      schema: 'schema',
+    ...mapGetters({
+      schema: 'schema/schema',
     }),
   },
 }

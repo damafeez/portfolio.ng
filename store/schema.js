@@ -1,37 +1,23 @@
 import _ from 'lodash'
-import { EDIT_SCHEMA, SET_SCHEMA } from '@/constants'
+import { SET_SCHEMA } from '@/constants'
 
 export const state = () => ({
-  profile: {
-    name: '',
-    description: '',
-    images: [],
-  },
-  about: {
-    intro: '',
-    description: '',
-  },
-  cta: [],
-  social: {
-    description: '',
-    links: [],
-  },
-  wiw: [],
-  _meta: {},
+  schema: {},
+  updates: {},
 })
 
 export const mutations = {
-  [EDIT_SCHEMA](state, [accessor, value]) {
-    _.set(state, accessor, value)
-  },
   [SET_SCHEMA](state, schema) {
-    state = _.merge(state, schema)
+    state.schema = _.merge({}, state.schema, schema)
   },
 }
 
 export const actions = {
-  editSchema({ commit, rootState }, payload) {
-    if (rootState.mode === 'edit') commit(EDIT_SCHEMA, payload)
+  editSchema({ commit, rootState }, [accessor, value]) {
+    if (rootState.mode === 'edit') {
+      const update = _.set({}, accessor, value)
+      commit(SET_SCHEMA, update)
+    }
   },
   setSchema({ commit }, payload) {
     commit(SET_SCHEMA, payload)
@@ -39,5 +25,6 @@ export const actions = {
 }
 
 export const getters = {
-  templateName: state => state._meta.name,
+  schema: state => state.schema,
+  templateName: (state, { schema }) => schema._meta.name,
 }

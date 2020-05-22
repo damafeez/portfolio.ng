@@ -52,20 +52,14 @@ function setupChangeFeed(el) {
   }
 }
 
-function setEditable(el, editable) {
-  if (editable) el.setAttribute('contenteditable', '')
-  else el.removeAttribute('contenteditable')
-}
-
 function setupSchema(el, { modifiers, value: [address] }, vnode, editMode) {
   const { text, bg, img } = modifiers
   // default to text if no modifiers
   if (text || _.isEmpty(modifiers)) {
-    setEditable(el, editMode)
+    el.setAttribute('contenteditable', '')
     setupChangeFeed(el)
     el.pchange = pChange(address, vnode)
   } else if (bg || img) {
-    el.style.cursor = 'pointer'
     el.classList.add('stop-cursor-propagation')
     el.addEventListener('dblclick', imgUpload(address, vnode))
   }
@@ -75,7 +69,9 @@ function removeSchemaListeners(el, modifiers) {
 
   if (text || _.isEmpty(modifiers)) {
     el.pchange = function() {}
+    el.removeAttribute('contenteditable')
   } else if (bg || img) {
     el.removeEventListener('dblclick', imgUpload())
+    el.classList.remove('stop-cursor-propagation')
   }
 }

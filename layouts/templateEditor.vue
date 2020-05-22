@@ -47,6 +47,7 @@ export default {
         wrapper.addEventListener('click', this.$options.cmdClickOnly, {
           capture: true,
         })
+        this.busBindListeners()
         // alert('You are now in edit mode, use CMD/CTRL+click to click')
       } else {
         wrapper.removeEventListener('click', this.$options.cmdClickOnly, {
@@ -58,8 +59,6 @@ export default {
   },
   mounted() {
     this.setMode(this.$route.query.edit === 'true' ? 'edit' : 'template')
-    this.$eventBus.$on(TEMPLATE_EDITOR_UPLOAD_IMAGE, this.busImageUpoad)
-    this.$eventBus.$on(TEMPLATE_EDITOR_TEXT_EDIT, this.busSchemaEdit)
   },
   destroyed() {
     this.busUnbindListeners()
@@ -73,13 +72,16 @@ export default {
       this.setMode(this.editMode ? 'template' : 'edit')
     },
     busImageUpoad(payload) {
-      if (this.schemaAddress)
-        return alert('can not upload now, please try again')
+      // TODO: update schemaAddress to avoid conflict
       this.schemaAddress = payload
       this.$refs.imageUploader.click()
     },
     busSchemaEdit(payload) {
       this.editSchema(payload)
+    },
+    busBindListeners() {
+      this.$eventBus.$on(TEMPLATE_EDITOR_UPLOAD_IMAGE, this.busImageUpoad)
+      this.$eventBus.$on(TEMPLATE_EDITOR_TEXT_EDIT, this.busSchemaEdit)
     },
     busUnbindListeners() {
       this.$eventBus.$off(TEMPLATE_EDITOR_UPLOAD_IMAGE, this.busImageUpoad)
@@ -122,7 +124,10 @@ export default {
 }
 </style>
 <style lang="scss">
-.stop-cursor-propagation * {
-  cursor: initial;
+.stop-cursor-propagation {
+  cursor: pointer;
+  * {
+    cursor: initial;
+  }
 }
 </style>

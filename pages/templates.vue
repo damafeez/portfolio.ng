@@ -10,7 +10,10 @@ export default {
     const name = route.name.split('-')[1]
     if (name) {
       store.dispatch('schema/editSchema', ['_meta.name', name])
-      store.dispatch('schema/setSchema', getSchema(name, store.state.schema))
+      store.dispatch(
+        'schema/setSchema',
+        getSchema(name, store.state.schema.document),
+      )
     }
   },
 }
