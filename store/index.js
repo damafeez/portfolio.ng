@@ -1,16 +1,24 @@
-import { SET_EDIT_MODE } from './_mutationNames'
+import { SET_MODE } from '@/constants'
 
 export const state = () => ({
-  editMode: false,
+  mode: 'portfolio',
 })
 
 export const mutations = {
-  [SET_EDIT_MODE](state, value) {
-    state.editMode = value
+  [SET_MODE](state, value) {
+    state.mode = value
   },
 }
+
 export const actions = {
-  setEditMode({ commit }, payload) {
-    commit(SET_EDIT_MODE, payload)
+  setMode({ commit }, payload) {
+    if (['portfolio', 'template', 'edit'].includes(payload))
+      commit(SET_MODE, payload)
   },
+}
+
+export const getters = {
+  portfolioMode: state => state.mode === 'portfolio',
+  editMode: state => state.mode === 'edit',
+  templateMode: state => ['template', 'edit'].includes(state.mode),
 }

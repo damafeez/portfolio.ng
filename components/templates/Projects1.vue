@@ -7,17 +7,17 @@
         :key="i"
         class="btn-hover shadow-lg  rounded-sm bg-tertiary text-on-tertiary p-5"
       >
-        <h4 v-schema="[`projects[${i}].name`, editMode]" class="text-primary">
+        <h4 v-schema="[`projects[${i}].name`]" class="text-primary">
           {{ project.name }}
         </h4>
-        <p v-schema="['project.description', editMode]">
+        <p v-schema="['project.description']">
           {{ project.description }}
         </p>
         <ul class="flex mt-8">
           <li
             v-for="(tag, ii) in project.tags"
             :key="tag"
-            v-schema="[`projects[${i}].name.tags[${ii}]`, editMode]"
+            v-schema="[`projects[${i}].name.tags[${ii}]`]"
             class="text-sm"
           >
             {{ tag }}

@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import { EDIT_SCHEMA, SET_SCHEMA } from './_mutationNames'
+import { EDIT_SCHEMA, SET_SCHEMA } from '@/constants'
 
 export const state = () => ({
   profile: {
@@ -31,7 +31,7 @@ export const mutations = {
 
 export const actions = {
   editSchema({ commit, rootState }, payload) {
-    if (rootState.editMode) commit(EDIT_SCHEMA, payload)
+    if (rootState.mode === 'edit') commit(EDIT_SCHEMA, payload)
   },
   setSchema({ commit }, payload) {
     commit(SET_SCHEMA, payload)

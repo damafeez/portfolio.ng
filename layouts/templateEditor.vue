@@ -3,7 +3,7 @@
     <div
       class="gear bg-secondary text-on-secondary right-0 fixed flex items-center rounded-tl-full rounded-bl-full shadow-2xl py-2 px-2"
     >
-      <span class="cursor-pointer p-2" @click="setEditMode(!editMode)">
+      <span class="cursor-pointer p-2" @click="toggleEditMode">
         <icon-base :name="editMode ? 'settings' : 'edit-2'" />
       </span>
     </div>
@@ -21,8 +21,11 @@
   </div>
 </template>
 <script>
-import { mapState, mapActions } from 'vuex'
-import { TEMPLATE_EDITOR_UPLOAD_IMAGE } from '@/constants'
+import { mapGetters, mapActions } from 'vuex'
+import {
+  TEMPLATE_EDITOR_UPLOAD_IMAGE,
+  TEMPLATE_EDITOR_TEXT_EDIT,
+} from '@/constants'
 
 export default {
   name: 'TemplateEditor',
@@ -32,7 +35,7 @@ export default {
     }
   },
   computed: {
-    ...mapState({
+    ...mapGetters({
       editMode: 'editMode',
     }),
   },
@@ -48,27 +51,38 @@ export default {
         wrapper.removeEventListener('click', this.$options.cmdClickOnly, {
           capture: true,
         })
+        this.busUnbindListeners()
       }
     },
   },
-  mounted() {
-    this.$store.dispatch('setEditMode', this.$route.query.edit === 'true')
+  created() {
+    this.setMode(this.$route.query.edit === 'true' ? 'edit' : 'template')
     this.$eventBus.$on(TEMPLATE_EDITOR_UPLOAD_IMAGE, this.busImageUpoad)
+    this.$eventBus.$on(TEMPLATE_EDITOR_TEXT_EDIT, this.busSchemaEdit)
   },
   destroyed() {
-    this.$eventBus.$off(TEMPLATE_EDITOR_UPLOAD_IMAGE, this.busImageUpoad)
+    this.busUnbindListeners()
   },
   methods: {
     ...mapActions({
-      setEditMode: 'setEditMode',
+      setMode: 'setMode',
       editSchema: 'schema/editSchema',
     }),
+    toggleEditMode() {
+      this.setMode(this.editMode ? 'template' : 'edit')
+    },
     busImageUpoad(payload) {
       if (this.schemaAddress)
         return alert('can not upload now, please try again')
       this.schemaAddress = payload
       this.$refs.imageUploader.click()
-      this.schemaAddress = ''
+    },
+    busSchemaEdit(payload) {
+      this.editSchema(payload)
+    },
+    busUnbindListeners() {
+      this.$eventBus.$off(TEMPLATE_EDITOR_UPLOAD_IMAGE, this.busImageUpoad)
+      this.$eventBus.$off(TEMPLATE_EDITOR_TEXT_EDIT, this.busSchemaEdit)
     },
     imageChange(e) {
       const file = e.target.files[0]
@@ -76,6 +90,7 @@ export default {
       reader.onloadend = () => {
         this.editSchema([this.schemaAddress, reader.result])
         this.uploadImage(this.schemaAddress, file)
+        this.schemaAddress = ''
       }
       if (file) reader.readAsDataURL(file)
     },
