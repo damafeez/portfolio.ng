@@ -1,0 +1,14 @@
+@keyframes hover {
+  100% {
+    transform: translate(-10%, -10%) rotate(0deg);
+  }
+  95% {
+    transform: translate(-30%, -17%) rotate(50deg);
+  }
+  10% {
+    transform: translate(-20%, -50%) rotate(40deg);
+  }
+  0% {
+    transform: translate(-10%, -10%) rotate(0deg);
+  }
+}

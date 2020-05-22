@@ -48,6 +48,7 @@ export default {
     height: 4em;
     border-radius: 50%;
     box-shadow: inset 0.7em 0 var(--tertiary);
+    animation: hover 70s ease-out infinite;
   }
   & > div {
     @screen md {
