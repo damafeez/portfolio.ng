@@ -27,7 +27,7 @@ import { mapGetters, mapActions } from 'vuex'
 import {
   TEMPLATE_EDITOR_UPLOAD_IMAGE,
   TEMPLATE_EDITOR_TEXT_EDIT,
-} from '@/constants'
+} from '~/constants'
 
 export default {
   name: 'TemplateEditor',
@@ -130,7 +130,7 @@ export default {
 </style>
 <style lang="scss">
 .stop-cursor-propagation {
-  cursor: pointer;
+  cursor: url('~assets/images/image.png'), auto;
   * {
     cursor: initial;
   }
