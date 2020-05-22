@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import _ from 'lodash'
+import { isEmpty } from 'lodash'
 import {
   TEMPLATE_EDITOR_UPLOAD_IMAGE,
   TEMPLATE_EDITOR_TEXT_EDIT,
@@ -55,23 +55,23 @@ function setupChangeFeed(el) {
 function setupSchema(el, { modifiers, value: [address] }, vnode, editMode) {
   const { text, bg, img } = modifiers
   // default to text if no modifiers
-  if (text || _.isEmpty(modifiers)) {
+  if (text || isEmpty(modifiers)) {
     el.setAttribute('contenteditable', '')
     setupChangeFeed(el)
     el.pchange = pChange(address, vnode)
   } else if (bg || img) {
     el.classList.add('stop-cursor-propagation')
-    el.addEventListener('dblclick', imgUpload(address, vnode))
+    el.__dblclick = imgUpload(address, vnode)
+    el.addEventListener('dblclick', el.__dblclick)
   }
 }
 function removeSchemaListeners(el, modifiers) {
   const { text, bg, img } = modifiers
-
-  if (text || _.isEmpty(modifiers)) {
+  if (text || isEmpty(modifiers)) {
     el.pchange = function() {}
     el.removeAttribute('contenteditable')
   } else if (bg || img) {
-    el.removeEventListener('dblclick', imgUpload())
+    el.removeEventListener('dblclick', el.__dblclick)
     el.classList.remove('stop-cursor-propagation')
   }
 }
