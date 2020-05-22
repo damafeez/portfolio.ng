@@ -5,7 +5,7 @@
   </main>
 </template>
 <script>
-import _ from 'lodash'
+import { isEmpty } from 'lodash'
 import { mapGetters } from 'vuex'
 export default {
   name: 'Portfolio',
@@ -14,7 +14,7 @@ export default {
       schema: 'schema/schema',
     }),
     schemaIsValid() {
-      return !_.isEmpty(this.schema)
+      return !isEmpty(this.schema)
     },
   },
 }

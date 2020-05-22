@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import { set, merge } from 'lodash'
 import { SET_SCHEMA } from '@/constants'
 
 export const state = () => ({
@@ -8,14 +8,14 @@ export const state = () => ({
 
 export const mutations = {
   [SET_SCHEMA](state, schema) {
-    state.schema = _.merge({}, state.schema, schema)
+    state.schema = merge({}, state.schema, schema)
   },
 }
 
 export const actions = {
   editSchema({ commit, rootState }, [accessor, value]) {
     if (rootState.mode === 'edit') {
-      const update = _.set({}, accessor, value)
+      const update = set({}, accessor, value)
       commit(SET_SCHEMA, update)
     }
   },

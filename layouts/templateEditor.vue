@@ -22,6 +22,7 @@
   </div>
 </template>
 <script>
+import { debounce } from 'lodash'
 import { mapGetters, mapActions } from 'vuex'
 import {
   TEMPLATE_EDITOR_UPLOAD_IMAGE,
@@ -68,11 +69,14 @@ export default {
       setMode: 'setMode',
       editSchema: 'schema/editSchema',
     }),
-    toggleEditMode() {
-      this.setMode(this.editMode ? 'template' : 'edit')
-    },
+    toggleEditMode: debounce(
+      function editToggle() {
+        this.setMode(this.editMode ? 'template' : 'edit')
+      },
+      500,
+      { leading: true, trailing: false },
+    ),
     busImageUpoad(payload) {
-      // TODO: update schemaAddress to avoid conflict
       this.schemaAddress = payload
       this.$refs.imageUploader.click()
     },
@@ -93,6 +97,7 @@ export default {
       reader.onloadend = () => {
         this.editSchema([this.schemaAddress, reader.result])
         this.uploadImage(this.schemaAddress, file)
+        // TODO: update schemaAddress to avoid conflict
         this.schemaAddress = ''
       }
       if (file) reader.readAsDataURL(file)

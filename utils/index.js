@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import { merge } from 'lodash'
 import defaultSchema from '@/schema/index.json'
 
 export function getSchema(name, merger = {}) {
@@ -10,5 +10,5 @@ export function getSchema(name, merger = {}) {
     console.log(`unable to get schema ${name}`)
   }
 
-  return _.merge({ _meta: { name } }, merger, schema, defaultSchema)
+  return merge({ _meta: { name } }, merger, schema, defaultSchema)
 }
