@@ -1,5 +1,5 @@
 <template>
-  <section class="get-in-touch pad-y min-h-0">
+  <section class="get-in-touch pad-y min-h-0" watermark="Hello :)">
     <h2 v-schema="['contact.intro']">{{ schema.contact.intro }}</h2>
     <p v-schema="['contact.description']">
       {{ schema.contact.description }}
@@ -15,6 +15,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 .get-in-touch {
+  &[watermark]::before {
+    right: 10%;
+    left: initial;
+  }
   & > * {
     max-width: 35rem;
   }

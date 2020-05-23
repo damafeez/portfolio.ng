@@ -119,10 +119,11 @@ button,
   }
 }
 [watermark] {
-  @apply inline-block relative;
+  @apply relative;
   &::before {
-    @apply text-6xl absolute;
+    @apply absolute;
     content: attr(watermark);
+    font-size: 10em;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
