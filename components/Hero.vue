@@ -12,7 +12,7 @@
 </template>
 <style lang="scss" scoped>
 .hero {
-  background-image: url('~assets/images/portfolio.jpg');
+  background-image: url('https://images.unsplash.com/photo-1541335145622-c8800d429bcc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=40');
   background-size: 38rem;
 }
 </style>
