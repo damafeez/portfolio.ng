@@ -42,12 +42,14 @@ export default {
     content: '';
     top: 50%;
     left: 50%;
-    transform: translate(-20%, -40%) rotate(30deg);
     font-size: 10vw;
-    width: 4em;
-    height: 4em;
-    border-radius: 50%;
-    box-shadow: inset 0.7em 0 var(--tertiary);
+    width: 2em;
+    height: 2em;
+    background-image: radial-gradient(
+      var(--suplement-1) 0.02em,
+      transparent 0.02em
+    );
+    background-size: calc(10 * 0.02em) calc(10 * 0.02em);
     animation: hover 70s ease-out infinite;
   }
   & > div {
@@ -60,9 +62,19 @@ export default {
     position: relative;
   }
   .icon-box {
-    @apply bg-tertiary rounded-full my-2 mr-5 inline-flex justify-center items-center;
+    @apply bg-tertiary text-on-tertiary rounded-full my-2 mr-5 inline-flex justify-center items-center;
     width: 2.3rem;
     height: 2.3rem;
   }
+}
+</style>
+<style lang="scss">
+[mode='night'] .about::before {
+  background: none;
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
+  transform: translate(-20%, -40%) rotate(30deg);
+  box-shadow: inset 0.7em 0 var(--tertiary);
 }
 </style>

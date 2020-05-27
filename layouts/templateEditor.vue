@@ -49,7 +49,9 @@ export default {
           capture: true,
         })
         this.busBindListeners()
-        // alert('You are now in edit mode, use CMD/CTRL+click to click')
+        // alert(
+        //   'You are now in edit mode \nCMD/CTRL+click to click \nDouble click images to replace them',
+        // )
       } else {
         wrapper.removeEventListener('click', this.$options.cmdClickOnly, {
           capture: true,

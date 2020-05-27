@@ -18,6 +18,7 @@ module.exports = {
         'on-secondary-2': 'var(--on-secondary-2)',
         tertiary: 'var(--tertiary)',
         'on-tertiary': 'var(--on-tertiary)',
+        'suplement-1': 'var(--suplement-1)',
       },
       fontSize: {
         xl: '1.5rem',

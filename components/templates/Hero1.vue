@@ -27,6 +27,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 .hero {
-  background-size: auto 100%;
+  background-size: 0;
+  @screen sm {
+    background-size: auto 100%;
+  }
 }
 </style>

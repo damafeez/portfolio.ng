@@ -94,7 +94,7 @@ img {
 }
 button,
 .btn {
-  @apply rounded px-10 py-4 shadow-md text-base inline-block;
+  @apply rounded px-10 py-4 shadow-lg text-base inline-block;
   font-family: 'Open Sans', sans-serif;
   min-height: 40px;
   &:active {

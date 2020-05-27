@@ -23,7 +23,7 @@ export default {
     max-width: 35rem;
   }
   h2::before {
-    @apply bg-tertiary block mb-2;
+    @apply bg-suplement-1 block mb-2;
     content: '';
     height: 0.5rem;
     width: 4rem;

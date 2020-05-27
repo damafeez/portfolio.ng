@@ -62,7 +62,10 @@ export default {
       transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
       &:hover,
       &.active {
-        @apply bg-background text-on-secondary;
+        @apply bg-background;
+      }
+      &.active {
+        @apply text-primary;
       }
       &::before {
         @apply bg-current absolute h-full left-0 top-0;
