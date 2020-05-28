@@ -48,9 +48,13 @@ export default {
   .mode {
     width: 2.5rem;
     height: 2.5rem;
+    bottom: 0.5rem;
+    left: 0.5rem;
+    @screen sm {
+      bottom: 1rem;
+      left: 1rem;
+    }
     position: fixed;
-    bottom: 1rem;
-    left: 1rem;
     &::before {
       content: '';
       font-size: 1rem;

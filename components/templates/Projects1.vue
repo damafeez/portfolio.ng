@@ -5,7 +5,7 @@
       <div
         v-for="(project, i) in schema.projects"
         :key="i"
-        class="btn-hover shadow-lg  rounded-sm bg-tertiary text-on-tertiary p-5"
+        class="btn-hover shadow-lg rounded bg-tertiary text-on-tertiary p-5"
       >
         <h4 v-schema="[`projects[${i}].name`]" class="text-primary">
           {{ project.name }}
