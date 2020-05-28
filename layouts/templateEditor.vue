@@ -7,6 +7,7 @@
         <icon-base :name="editMode ? 'settings' : 'edit-2'" />
       </span>
     </div>
+    <Notification />
     <div ref="template">
       <nuxt />
     </div>
@@ -24,13 +25,19 @@
 <script>
 import { debounce } from 'lodash'
 import { mapGetters, mapActions } from 'vuex'
+import Notification from '~/components/Notification'
 import {
   TEMPLATE_EDITOR_UPLOAD_IMAGE,
   TEMPLATE_EDITOR_TEXT_EDIT,
+  SHOW_NOTIFICATION,
+  REMOVE_NOTIFICATION,
 } from '~/constants'
 
 export default {
   name: 'TemplateEditor',
+  components: {
+    Notification,
+  },
   data() {
     return {
       schemaAddress: '',
@@ -49,13 +56,15 @@ export default {
           capture: true,
         })
         this.busBindListeners()
-        // alert(
-        //   'You are now in edit mode \nCMD/CTRL+click to click \nDouble click images to replace them',
-        // )
+        this.$eventBus.$emit(SHOW_NOTIFICATION, {
+          title: "You're in edit mode.",
+          text: 'CMD/CTRL+click to click \nDouble click images to replace them',
+        })
       } else {
         wrapper.removeEventListener('click', this.$options.cmdClickOnly, {
           capture: true,
         })
+        this.$eventBus.$emit(REMOVE_NOTIFICATION)
         this.busUnbindListeners()
       }
     },

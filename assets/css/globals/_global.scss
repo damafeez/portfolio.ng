@@ -4,7 +4,7 @@
   --primary: #0f040e;
   --on-primary: #ffffff;
   --secondary: #f4f4f4;
-  --on-secondary: #0f040e;
+  --on-secondary: #54504c;
   --tertiary: #ffffff;
   --on-tertiary: #0f040e;
 }
@@ -94,7 +94,7 @@ img {
 }
 button,
 .btn {
-  @apply rounded px-10 py-4 shadow-lg text-base inline-block;
+  @apply rounded px-10 py-4 shadow-lg text-base inline-block cursor-pointer;
   font-family: 'Open Sans', sans-serif;
   min-height: 40px;
   &:active {
@@ -109,7 +109,6 @@ button,
 button,
 .btn {
   transition: all 0.2s ease-in;
-  cursor: pointer;
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       @apply shadow-xl;

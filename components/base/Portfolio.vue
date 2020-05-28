@@ -6,7 +6,7 @@
     <slot v-if="schemaIsValid" />
     <div v-else>Please provide a valid schema</div>
     <div
-      class="mode btn-hover cursor-pointer rounded-lg shadow-xl bg-secondary text-on-secondary-2 flex-center"
+      class="mode btn-hover fixed cursor-pointer rounded-lg shadow-xl bg-secondary text-on-secondary-2 flex-center"
       @click="changeMode"
     ></div>
   </main>
@@ -54,7 +54,6 @@ export default {
       bottom: 1rem;
       left: 1rem;
     }
-    position: fixed;
     &::before {
       content: '';
       font-size: 1rem;
