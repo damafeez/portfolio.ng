@@ -13,9 +13,9 @@ export const mutations = {
 }
 
 export const actions = {
-  editSchema({ commit, rootState }, [accessor, value]) {
+  editSchema({ commit, rootState }, [address, value]) {
     if (rootState.mode === 'edit') {
-      const update = set({}, accessor, value)
+      const update = set({}, address, value)
       commit(SET_SCHEMA, update)
     }
   },

@@ -78,7 +78,7 @@ export default {
   methods: {
     ...mapActions({
       setMode: 'setMode',
-      editSchema: 'schema/editSchema',
+      editSchema: 'document/editSchema',
     }),
     toggleEditMode: debounce(
       function editToggle() {

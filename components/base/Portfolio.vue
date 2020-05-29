@@ -29,7 +29,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      schema: 'schema/schema',
+      schema: 'document/schema',
     }),
     schemaIsValid() {
       return !isEmpty(this.schema)
