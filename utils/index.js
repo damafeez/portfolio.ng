@@ -10,5 +10,5 @@ export function getSchema(name, merger = {}) {
     console.log(`unable to get schema ${name}`)
   }
 
-  return merge({ _meta: { name } }, merger, schema, defaultSchema)
+  return merge(defaultSchema, schema, merger, { _meta: { name } })
 }

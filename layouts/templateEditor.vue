@@ -58,7 +58,7 @@ export default {
         this.busBindListeners()
         this.$eventBus.$emit(SHOW_NOTIFICATION, {
           title: "You're in edit mode.",
-          text: 'CMD/CTRL+click to click \nDouble click images to replace them',
+          text: 'CMD/CTRL+click to click.\nDouble click images to replace them',
         })
       } else {
         wrapper.removeEventListener('click', this.$options.cmdClickOnly, {

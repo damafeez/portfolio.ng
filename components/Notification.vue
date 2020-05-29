@@ -55,14 +55,14 @@ export default {
       this.notifications.push(
         merge(
           {
-            timeoutId,
-            text: this.$escapeHTML(text),
-          },
-          notification,
-          {
             close: true,
             timeout,
             id,
+          },
+          notification,
+          {
+            timeoutId,
+            text: this.$escapeHTML(text),
           },
         ),
       )
