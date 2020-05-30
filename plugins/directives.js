@@ -30,6 +30,18 @@ export default ({ store }) => {
       el.__editMode_unwatch__ = unwatch
     },
 
+    update(el, options, vnode) {
+      const {
+        oldValue: [oldAddress],
+        value: [address],
+      } = options
+      // setup schema again if address has changed
+      if (store.getters.editMode && address !== oldAddress) {
+        removeSchemaListeners(el, options.modifiers)
+        setupSchema(el, options, vnode)
+      }
+    },
+
     unbind(el, options) {
       removeSchemaListeners(el, options.modifiers)
       el.__editMode_unwatch__ && el.__editMode_unwatch__()
