@@ -2,12 +2,15 @@
   <ul>
     <slot :list="list" />
     <li v-if="editMode">
-      <span
-        class="add-button cursor-pointer btn-hover rounded-full text-on-tertiary flex-center"
-        :class="addButtonClassList"
-        @click="addOne(address)"
-      >
-        <icon-base name="plus" />
+      <span @click="addOne(address)">
+        <slot name="add-button">
+          <span
+            class="add-button cursor-pointer btn-hover rounded-full text-on-tertiary flex-center"
+            :class="addButtonClassList"
+          >
+            <icon-base name="plus" />
+          </span>
+        </slot>
       </span>
     </li>
   </ul>
