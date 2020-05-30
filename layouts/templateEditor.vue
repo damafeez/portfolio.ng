@@ -52,17 +52,17 @@ export default {
     editMode(editMode) {
       const wrapper = this.$refs.template
       if (editMode) {
-        wrapper.addEventListener('click', this.$options.cmdClickFocus, {
+        wrapper.addEventListener('click', this.$options.altClickFocus, {
           capture: true,
         })
         this.busBindListeners()
         this.$eventBus.$emit(SHOW_NOTIFICATION, {
           title: "You're in edit mode. 🙂",
-          text: `CMD/CTRL+click to click/focus silently.
+          text: `ALT/OPTION+click to focus silently.
             Double click images to replace them.`,
         })
       } else {
-        wrapper.removeEventListener('click', this.$options.cmdClickFocus, {
+        wrapper.removeEventListener('click', this.$options.altClickFocus, {
           capture: true,
         })
         this.$eventBus.$emit(REMOVE_NOTIFICATION)
@@ -116,9 +116,9 @@ export default {
     },
     uploadImage() {},
   },
-  cmdClickFocus(event) {
-    // Disallow only command/control + click
-    if (event.metaKey || event.ctrlKey) event.stopPropagation()
+  altClickFocus(event) {
+    // Disallow only alt/option + click
+    if (event.altKey) event.stopPropagation()
   },
 }
 </script>
