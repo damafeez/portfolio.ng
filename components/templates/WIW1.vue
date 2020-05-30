@@ -2,17 +2,21 @@
   <section class="wiw bg-secondary text-on-secondary-2 pad-y">
     <h3>Where I've Worked</h3>
     <div class="wiw-inner sm:flex mt-20">
-      <ul class="companies float-left sm:float-none mb-10 mr-12">
+      <item-list
+        v-slot="{ list: companies }"
+        address="wiw"
+        class="companies float-left sm:float-none mb-10 mr-12"
+      >
         <li
-          v-for="(company, i) in schema.wiw"
-          :key="i"
+          v-for="(company, i) in companies"
+          :key="company.name + i"
           v-schema="[`wiw[${i}].name`]"
           :class="{ active: activeIndex === i }"
           @click="activeIndex = i"
         >
           {{ company.name }}
         </li>
-      </ul>
+      </item-list>
       <div>
         <h5 class="text-primary mb-3">
           <span v-schema="[`wiw[${activeIndex}].role`]">{{ wiw.role }}</span
@@ -25,15 +29,19 @@
         <p v-schema="[`wiw[${activeIndex}].duration`]" class="text-sm">
           {{ wiw.duration }}
         </p>
-        <ul class="company-desc mt-10">
+        <item-list
+          v-slot="{ list: achievements }"
+          :address="`wiw[${activeIndex}].achievements`"
+          class="company-desc mt-10"
+        >
           <li
-            v-for="(achievement, i) in wiw.achievements"
+            v-for="(achievement, i) in achievements"
             :key="i"
             v-schema="[`wiw[${activeIndex}].achievements[${i}]`]"
           >
             {{ achievement }}
           </li>
-        </ul>
+        </item-list>
       </div>
     </div>
   </section>

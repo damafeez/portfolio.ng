@@ -10,21 +10,22 @@
       <p v-schema="['social.description']">
         {{ schema.social.description }}
       </p>
-      <ul>
-        <li
-          v-for="(social, i) in schema.social.links"
-          :key="i"
-          class="inline-block"
-        >
+      <item-list
+        v-slot="{ list: socialLinks }"
+        class="flex flex-wrap items-center"
+        address="social.links"
+        add-button-class-list="no-bg text-xl"
+      >
+        <li v-for="(social, i) in socialLinks" :key="i" class="inline-block">
           <a
             class="icon-box btn-hover"
-            target="_blan"
+            target="_blank"
             rel="noopener noreferrer"
             :href="social.link"
             ><icon-base :name="social.icon"
           /></a>
         </li>
-      </ul>
+      </item-list>
     </div>
   </section>
 </template>
@@ -62,7 +63,7 @@ export default {
     position: relative;
   }
   .icon-box {
-    @apply bg-tertiary text-on-tertiary rounded-full my-2 mr-5 inline-flex justify-center items-center;
+    @apply bg-tertiary text-on-tertiary rounded-full my-2 mr-5 flex justify-center items-center;
     width: 2.3rem;
     height: 2.3rem;
   }

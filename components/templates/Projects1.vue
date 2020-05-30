@@ -1,30 +1,40 @@
 <template>
   <section class="projects pad-y">
     <h3 class="mb-32">Some things I've built</h3>
-    <div class="projects-grid grid-3">
-      <div
-        v-for="(project, i) in schema.projects"
+    <item-list
+      v-slot="{ list: projects }"
+      class="projects-grid grid-3"
+      add-button-class-list="text-xl"
+      address="projects"
+    >
+      <li
+        v-for="(project, i) in projects"
         :key="i"
         class="btn-hover shadow-lg rounded bg-tertiary text-on-tertiary p-5"
       >
         <h4 v-schema="[`projects[${i}].name`]" class="text-primary">
           {{ project.name }}
         </h4>
-        <p v-schema="['project.description']">
+        <p v-schema="[`projects[${i}].description`]">
           {{ project.description }}
         </p>
-        <ul class="flex mt-8">
+        <item-list
+          v-slot="{ list: tags }"
+          :address="`projects[${i}].tags`"
+          class="tag-list flex flex-wrap items-center mt-8"
+          add-button-class-list="bg-primary text-on-primary"
+        >
           <li
-            v-for="(tag, ii) in project.tags"
+            v-for="(tag, ii) in tags"
             :key="ii"
-            v-schema="[`projects[${i}].name.tags[${ii}]`]"
-            class="text-sm"
+            v-schema="[`projects[${i}].tags[${ii}]`]"
+            class="text-sm my-1"
           >
             {{ tag }}
           </li>
-        </ul>
-      </div>
-    </div>
+        </item-list>
+      </li>
+    </item-list>
 
     <button class="mt-20 bg-transparent text-current pl-2 shadow-none">
       Show more &darr;
@@ -40,7 +50,7 @@ export default {
 <style lang="scss" scoped>
 .projects {
   .projects-grid {
-    & > div li:not(:last-child) {
+    .tag-list li:not(:last-child) {
       @apply mr-3;
     }
   }

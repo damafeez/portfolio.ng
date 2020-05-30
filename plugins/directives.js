@@ -16,12 +16,12 @@ const imgUpload = (address, vnode) => e => {
 export default ({ store }) => {
   Vue.directive('schema', {
     bind(el, options, vnode) {
-      if (store.state.editMode) setupSchema(el, options, vnode, true)
+      if (store.getters.editMode) setupSchema(el, options, vnode)
       const unwatch = store.watch(
         (state, getters) => getters.editMode,
         editMode => {
           if (editMode) {
-            setupSchema(el, options, vnode, editMode)
+            setupSchema(el, options, vnode)
           } else {
             removeSchemaListeners(el, options.modifiers)
           }
@@ -52,7 +52,7 @@ function setupChangeFeed(el) {
   }
 }
 
-function setupSchema(el, { modifiers, value: [address] }, vnode, editMode) {
+function setupSchema(el, { modifiers, value: [address] }, vnode) {
   const { text, bg, img } = modifiers
   // default to text if no modifiers
   if (text || isEmpty(modifiers)) {

@@ -34,7 +34,7 @@
   "wiw": [
     {
       "name": "Google",
-      "role": "Consultant",
+      "role": "Engineer",
       "duration": "May 2018 - present",
       "achievements": [
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla porro enim nesciunt debitis placeat neque sint ullam",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Apple",
-      "role": "Engineer",
+      "role": "Consultant",
       "duration": "May 2018 - present",
       "achievements": [
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla porro enim nesciunt debitis placeat neque sint ullam",
@@ -53,7 +53,7 @@
     },
     {
       "name": "Dribbble",
-      "role": "Engineer",
+      "role": "Designer",
       "duration": "May 2018 - present",
       "achievements": [
         "Exercitationem, optio omnis veniam tempora accusantium iure obcaecati at dolorib.",
