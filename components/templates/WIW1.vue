@@ -3,19 +3,19 @@
     <h3>Where I've Worked</h3>
     <div class="wiw-inner sm:flex mt-20">
       <item-list
-        v-slot="{ list: companies }"
         address="wiw"
         class="companies float-left sm:float-none mb-10 mr-12"
       >
-        <li
-          v-for="(company, i) in companies"
-          :key="company.name + i"
-          v-schema="[`wiw[${i}].name`]"
-          :class="{ active: activeIndex === i }"
-          @click="activeIndex = i"
-        >
-          {{ company.name }}
-        </li>
+        <template #item="{ item: company, index, address }">
+          <div
+            v-schema="[`${address}.name`]"
+            class="companies-li px-6 py-3 cursor-pointer relative"
+            :class="{ active: activeIndex === index }"
+            @click="activeIndex = index"
+          >
+            {{ company.name }}
+          </div>
+        </template>
       </item-list>
       <div>
         <h5 class="text-primary mb-3">
@@ -30,17 +30,14 @@
           {{ wiw.duration }}
         </p>
         <item-list
-          v-slot="{ list: achievements }"
           :address="`wiw[${activeIndex}].achievements`"
           class="company-desc mt-10"
         >
-          <li
-            v-for="(achievement, i) in achievements"
-            :key="i"
-            v-schema="[`wiw[${activeIndex}].achievements[${i}]`]"
-          >
-            {{ achievement }}
-          </li>
+          <template #item="{ item: achievement, address}">
+            <div v-schema="[address]" class="company-desc-li">
+              {{ achievement }}
+            </div>
+          </template>
         </item-list>
       </div>
     </div>
@@ -65,8 +62,7 @@ export default {
 <style lang="scss" scoped>
 .wiw {
   .companies {
-    li {
-      @apply px-6 py-3 cursor-pointer relative;
+    &-li {
       transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
       &:hover,
       &.active {
@@ -84,7 +80,7 @@ export default {
   }
   .company-desc {
     max-width: 30rem;
-    li {
+    &-li {
       @apply mb-5 flex;
       &::before {
         @apply text-on-secondary mr-5 text-lg;

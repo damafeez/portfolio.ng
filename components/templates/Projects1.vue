@@ -2,38 +2,32 @@
   <section class="projects pad-y">
     <h3 class="mb-32">Some things I've built</h3>
     <item-list
-      v-slot="{ list: projects }"
       class="projects-grid grid-3"
-      add-button-class-list="text-xl"
+      button-class-list="text-xl"
+      li-class-list="btn-hover shadow-lg rounded bg-tertiary text-on-tertiary p-5"
       address="projects"
     >
-      <li
-        v-for="(project, i) in projects"
-        :key="i"
-        class="btn-hover shadow-lg rounded bg-tertiary text-on-tertiary p-5"
-      >
-        <h4 v-schema="[`projects[${i}].name`]" class="text-primary">
+      <template #item="{ item: project, address }">
+        <h4 v-schema="[`${address}.name`]" class="text-primary">
           {{ project.name }}
         </h4>
-        <p v-schema="[`projects[${i}].description`]">
+        <p v-schema="[`${address}.description`]">
           {{ project.description }}
         </p>
         <item-list
-          v-slot="{ list: tags }"
-          :address="`projects[${i}].tags`"
+          :address="`${address}.tags`"
           class="tag-list flex flex-wrap items-center mt-8"
-          add-button-class-list="bg-primary text-on-primary"
+          button-class-list="bg-primary text-on-primary"
         >
-          <li
-            v-for="(tag, ii) in tags"
-            :key="ii"
-            v-schema="[`projects[${i}].tags[${ii}]`]"
+          <template
+            #item="{ item: tag, tagAddress }"
+            v-schema="[tagAddress]"
             class="text-sm my-1"
           >
             {{ tag }}
-          </li>
+          </template>
         </item-list>
-      </li>
+      </template>
     </item-list>
 
     <button class="mt-20 bg-transparent text-current pl-2 shadow-none">

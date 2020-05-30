@@ -1,6 +1,13 @@
 <template>
   <ul>
-    <slot :list="list" />
+    <li v-for="(item, index) in list" :key="index" :class="liClassList">
+      <slot
+        name="item"
+        :item="item"
+        :index="index"
+        :address="`${address}[${index}]`"
+      />
+    </li>
     <li v-if="editMode">
       <span @click="addOne(address)">
         <slot name="add-button">
@@ -19,13 +26,15 @@
 import { mapGetters, mapActions } from 'vuex'
 import { get } from 'lodash'
 export default {
+  // TODO: use random ids for all keys
   name: 'ItemList',
   props: {
     address: {
       type: String,
       required: true,
     },
-    addButtonClassList: { type: String, default: '' },
+    buttonClassList: { type: String, default: '' },
+    liClassList: { type: String, default: '' },
   },
   computed: {
     ...mapGetters({

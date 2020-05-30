@@ -11,12 +11,11 @@
         {{ schema.social.description }}
       </p>
       <item-list
-        v-slot="{ list: socialLinks }"
         class="flex flex-wrap items-center"
         address="social.links"
-        add-button-class-list="no-bg text-xl"
+        button-class-list="no-bg text-xl"
       >
-        <li v-for="(social, i) in socialLinks" :key="i" class="inline-block">
+        <template #item="{ item: social }">
           <a
             class="icon-box btn-hover"
             target="_blank"
@@ -24,7 +23,7 @@
             :href="social.link"
             ><icon-base :name="social.icon"
           /></a>
-        </li>
+        </template>
       </item-list>
     </div>
   </section>
@@ -32,7 +31,6 @@
 <script>
 import { section } from '@/mixins'
 export default {
-  // TODO: use random ids for all keys
   mixins: [section],
 }
 </script>
