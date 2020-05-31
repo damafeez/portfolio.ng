@@ -49,31 +49,35 @@ export default {
     }),
   },
   watch: {
-    editMode(editMode) {
-      const wrapper = this.$refs.template
-      if (editMode) {
-        wrapper.addEventListener('click', this.$options.altClickFocus, {
-          capture: true,
-        })
-        this.busBindListeners()
-        this.$eventBus.$emit(SHOW_NOTIFICATION, {
-          title: "You're in edit mode. 🙂",
-          text: `ALT/OPTION+click to focus silently.
+    editMode: {
+      immediate: true,
+      handler(editMode) {
+        const wrapper = this.$refs.template
+        if (!wrapper) return
+        if (editMode) {
+          wrapper.addEventListener('click', this.$options.altClickFocus, {
+            capture: true,
+          })
+          this.busBindListeners()
+          this.$eventBus.$emit(SHOW_NOTIFICATION, {
+            title: "You're in edit mode. 🙂",
+            text: `ALT/OPTION+click to focus silently.
             Double click images to replace them.`,
-        })
-      } else {
-        wrapper.removeEventListener('click', this.$options.altClickFocus, {
-          capture: true,
-        })
-        this.$eventBus.$emit(REMOVE_NOTIFICATION)
-        this.busUnbindListeners()
-      }
+          })
+        } else {
+          wrapper.removeEventListener('click', this.$options.altClickFocus, {
+            capture: true,
+          })
+          this.$eventBus.$emit(REMOVE_NOTIFICATION)
+          this.busUnbindListeners()
+        }
+      },
     },
   },
   mounted() {
     this.setMode(this.$route.query.edit === 'true' ? 'edit' : 'template')
   },
-  destroyed() {
+  beforeDestroy() {
     this.busUnbindListeners()
   },
   methods: {

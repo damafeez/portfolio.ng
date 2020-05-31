@@ -37,7 +37,7 @@ export default {
     this.$eventBus.$on(SHOW_NOTIFICATION, this.addNotification)
     this.$eventBus.$on(REMOVE_NOTIFICATION, this.removeNotification)
   },
-  destroyed() {
+  beforeDestroy() {
     this.$eventBus.$off(SHOW_NOTIFICATION, this.addNotification)
     this.$eventBus.$off(REMOVE_NOTIFICATION, this.removeNotification)
   },

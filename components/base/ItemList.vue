@@ -68,11 +68,8 @@ export default {
       return list
     },
   },
-  watch: {
-    editMode(editMode) {
-      if (!this.itemToAdd && editMode)
-        this.itemToAdd = cloneDeep((this.list || [])[0])
-    },
+  mounted(editMode) {
+    this.itemToAdd = cloneDeep((this.list || [])[0])
   },
   methods: {
     ...mapActions({
