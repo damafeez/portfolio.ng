@@ -1,7 +1,7 @@
 <template>
   <div class="editor">
     <div
-      class="gear bg-secondary text-on-secondary right-0 fixed flex items-center rounded-tl-full rounded-bl-full shadow-2xl py-2 px-2"
+      class="gear z-1001 bg-secondary text-on-secondary right-0 fixed flex items-center rounded-tl-full rounded-bl-full shadow-2xl py-2 px-2"
     >
       <span class="cursor-pointer p-2" @click="toggleEditMode">
         <icon-base :name="editMode ? 'settings' : 'edit-2'" />
@@ -128,11 +128,10 @@ export default {
     top: 5%;
     width: 3rem;
     height: 3rem;
-    z-index: 10000;
   }
   #template-editor-image-uploader {
     opacity: 0; /* make transparent */
-    z-index: -1; /* move under anything else */
+    z-index: -1; /* move under everything else */
     position: absolute; /* don't let it take up space */
     pointer-events: none;
     transform: scale(0);

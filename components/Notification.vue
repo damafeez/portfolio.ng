@@ -3,7 +3,7 @@
     <div
       v-for="(notification, i) in notifications"
       :key="notification.id || i"
-      class="notification p-5 m-2 rounded-sm shadow-2xl leading-relaxed bg-secondary text-on-secondary fixed text-sm"
+      class="notification z-1000 p-5 m-2 rounded-sm shadow-2xl leading-relaxed bg-secondary text-on-secondary fixed text-sm"
     >
       <span
         v-if="notification.close"
@@ -90,7 +90,6 @@ export default {
 .notification {
   min-width: 10rem;
   max-width: 20rem;
-  z-index: 1000;
   top: 2rem;
   right: 5rem;
   .close {

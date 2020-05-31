@@ -1,6 +1,17 @@
 <template>
-  <ul>
-    <li v-for="(item, index) in list" :key="index" :class="liClassList">
+  <ul class="items">
+    <li
+      v-for="(item, index) in list"
+      :key="index"
+      class="relative items-li"
+      :class="liClassList"
+    >
+      <span
+        v-if="editMode"
+        class="items-li_close btn-hover absolute z-500 text-sm cursor-pointer text-white rounded-full bg-red-700 flex-center"
+        @click="close(address, index)"
+        ><icon-base name="x"
+      /></span>
       <slot
         name="item"
         :item="item"
@@ -13,7 +24,7 @@
         <slot name="add-button">
           <span
             class="add-button cursor-pointer btn-hover rounded-full text-on-tertiary flex-center"
-            :class="addButtonClassList"
+            :class="buttonClassList"
           >
             <icon-base name="plus" />
           </span>
@@ -53,15 +64,34 @@ export default {
     ...mapActions({
       addOne: 'document/schemaListAddOne',
     }),
+    close(address, index) {
+      console.log('called')
+    },
   },
 }
 </script>
 <style lang="scss" scoped>
-.add-button {
-  &:not(.no-bg) {
-    @apply bg-tertiary;
-    width: 2.5em;
-    height: 2.5em;
+.items {
+  .add-button {
+    &:not(.no-bg) {
+      @apply bg-tertiary;
+      width: 2.5em;
+      height: 2.5em;
+    }
+  }
+  &-li {
+    &:not(:hover) {
+      .items-li_close {
+        pointer-events: none;
+        opacity: 0;
+      }
+    }
+    &_close {
+      width: 1.5em;
+      height: 1.5em;
+      top: -0.5em;
+      right: -0.5em;
+    }
   }
 }
 </style>

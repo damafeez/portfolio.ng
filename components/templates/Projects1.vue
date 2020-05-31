@@ -18,13 +18,12 @@
           :address="`${address}.tags`"
           class="tag-list flex flex-wrap items-center mt-8"
           button-class-list="bg-primary text-on-primary"
+          li-class-list="text-sm my-1"
         >
-          <template
-            #item="{ item: tag, tagAddress }"
-            v-schema="[tagAddress]"
-            class="text-sm my-1"
-          >
-            {{ tag }}
+          <template #item="{ item: tag, tagAddress }">
+            <span v-schema="[tagAddress]">
+              {{ tag }}
+            </span>
           </template>
         </item-list>
       </template>
@@ -41,7 +40,7 @@ export default {
   mixins: [section],
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .projects {
   .projects-grid {
     .tag-list li:not(:last-child) {
