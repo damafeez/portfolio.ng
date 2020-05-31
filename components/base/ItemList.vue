@@ -9,7 +9,10 @@
       <span
         v-if="editMode"
         class="items-li_close btn-hover absolute z-500 text-sm cursor-pointer text-white rounded-full bg-red-700 flex-center"
-        @click="close(address, index)"
+        @click="
+          remove({ address, index })
+          $emit('remove', { address, index })
+        "
         ><icon-base name="x"
       /></span>
       <slot
@@ -19,16 +22,16 @@
         :address="`${address}[${index}]`"
       />
     </li>
-    <li v-if="editMode">
-      <span @click="addOne(address)">
-        <slot name="add-button">
-          <span
-            class="add-button cursor-pointer btn-hover rounded-full text-on-tertiary flex-center"
-            :class="buttonClassList"
-          >
-            <icon-base name="plus" />
-          </span>
-        </slot>
+    <li v-if="editMode && list.length">
+      <span
+        class="add-button cursor-pointer btn-hover rounded-full text-on-tertiary flex-center"
+        :class="buttonClassList"
+        @click="
+          addOne(address)
+          $emit('addOne', address)
+        "
+      >
+        <icon-base name="plus" />
       </span>
     </li>
   </ul>
@@ -63,10 +66,8 @@ export default {
   methods: {
     ...mapActions({
       addOne: 'document/schemaListAddOne',
+      remove: 'document/schemaListRemoveOne',
     }),
-    close(address, index) {
-      console.log('called')
-    },
   },
 }
 </script>

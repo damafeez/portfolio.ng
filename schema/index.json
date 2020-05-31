@@ -73,32 +73,32 @@
   ],
   "projects": [
     {
-      "name": "Awesome Project",
+      "name": "Awesome Project 1",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem enim ut esse quae ea mollitia minus. Sint at quaerat, nulla debitis ullam architecto aspernatur amet, nisi eligendi consectetur dicta distinctio? This seems like an awesome project.",
       "tags": ["Node", "Typescript", "GraphQl"]
     },
     {
-      "name": "Awesome Project",
+      "name": "Awesome Project 2",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem enim ut esse quae ea mollitia minus. Sint at quaerat, nulla debitis ullam architecto aspernatur amet, nisi eligendi consectetur dicta distinctio? This seems like an awesome project.",
       "tags": ["Node", "Typescript", "GraphQl"]
     },
     {
-      "name": "Awesome Project",
+      "name": "Awesome Project 3",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem enim ut esse quae ea mollitia minus. Sint at quaerat, nulla debitis ullam architecto aspernatur amet, nisi eligendi consectetur dicta distinctio? This seems like an awesome project.",
       "tags": ["Node", "Typescript", "GraphQl"]
     },
     {
-      "name": "Awesome Project",
+      "name": "Awesome Project 4",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem enim ut esse quae ea mollitia minus. Sint at quaerat, nulla debitis ullam architecto aspernatur amet, nisi eligendi consectetur dicta distinctio? This seems like an awesome project.",
       "tags": ["Node", "Typescript", "GraphQl"]
     },
     {
-      "name": "Awesome Project",
+      "name": "Awesome Project 5",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem enim ut esse quae ea mollitia minus. Sint at quaerat, nulla debitis ullam architecto aspernatur amet, nisi eligendi consectetur dicta distinctio? This seems like an awesome project.",
       "tags": ["Node", "Typescript", "GraphQl"]
     },
     {
-      "name": "Awesome Project",
+      "name": "Awesome Project 6",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem enim ut esse quae ea mollitia minus. Sint at quaerat, nulla debitis ullam architecto aspernatur amet, nisi eligendi consectetur dicta distinctio? This seems like an awesome project.",
       "tags": ["Node", "Typescript", "GraphQl"]
     }

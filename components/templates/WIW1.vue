@@ -5,6 +5,7 @@
       <item-list
         address="wiw"
         class="companies float-left sm:float-none mb-10 mr-12"
+        @remove="$event.index === activeIndex && clampActiveIndex()"
       >
         <template #item="{ item: company, index, address }">
           <div
@@ -17,7 +18,7 @@
           </div>
         </template>
       </item-list>
-      <div>
+      <div v-if="wiw">
         <h5 class="text-primary mb-3">
           <span v-schema="[`wiw[${activeIndex}].role`]">{{ wiw.role }}</span
           >&nbsp;<span
@@ -44,6 +45,7 @@
   </section>
 </template>
 <script>
+import { clamp } from 'lodash'
 import { section } from '@/mixins'
 export default {
   mixins: [section],
@@ -55,6 +57,11 @@ export default {
   computed: {
     wiw() {
       return this.schema.wiw[this.activeIndex]
+    },
+  },
+  methods: {
+    clampActiveIndex() {
+      this.activeIndex = clamp(this.activeIndex, -1, this.schema.wiw.length - 1)
     },
   },
 }

@@ -24,7 +24,7 @@
   </div>
 </template>
 <script>
-import { merge } from 'lodash'
+import { merge, uniqueId } from 'lodash'
 import { SHOW_NOTIFICATION, REMOVE_NOTIFICATION } from '~/constants'
 export default {
   name: 'Notification',
@@ -49,7 +49,7 @@ export default {
         text = payload.text
         notification = payload
       }
-      const id = this.$uniqueId('notification_')
+      const id = uniqueId('notification_')
       const timeout = text.length * 200 + 1000
       const timeoutId = setTimeout(this.removeNotificationById, timeout, id)
       this.notifications.push(
