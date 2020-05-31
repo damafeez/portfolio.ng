@@ -61,7 +61,7 @@ export default {
   },
   methods: {
     clampActiveIndex() {
-      this.activeIndex = clamp(this.activeIndex, -1, this.schema.wiw.length - 1)
+      this.activeIndex = clamp(this.activeIndex, 0, this.schema.wiw.length - 1)
     },
   },
 }

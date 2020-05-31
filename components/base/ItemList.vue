@@ -22,12 +22,12 @@
         :address="`${address}[${index}]`"
       />
     </li>
-    <li v-if="editMode && list.length">
+    <li v-if="editMode">
       <span
         class="add-button cursor-pointer btn-hover rounded-full text-on-tertiary flex-center"
         :class="buttonClassList"
         @click="
-          addOne(address)
+          schemaListAdd({ address, items: [itemToAdd] })
           $emit('addOne', address)
         "
       >
@@ -38,7 +38,7 @@
 </template>
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import { get } from 'lodash'
+import { get, cloneDeep } from 'lodash'
 export default {
   // TODO: use random ids for all keys
   name: 'ItemList',
@@ -49,6 +49,11 @@ export default {
     },
     buttonClassList: { type: String, default: '' },
     liClassList: { type: String, default: '' },
+  },
+  data() {
+    return {
+      itemToAdd: null,
+    }
   },
   computed: {
     ...mapGetters({
@@ -63,9 +68,15 @@ export default {
       return list
     },
   },
+  watch: {
+    editMode(editMode) {
+      if (!this.itemToAdd && editMode)
+        this.itemToAdd = cloneDeep((this.list || [])[0])
+    },
+  },
   methods: {
     ...mapActions({
-      addOne: 'document/schemaListAddOne',
+      schemaListAdd: 'document/schemaListAdd',
       remove: 'document/schemaListRemoveOne',
     }),
   },

@@ -1,7 +1,7 @@
-import { set, get, merge, cloneDeep } from 'lodash'
+import { set, get, merge } from 'lodash'
 import {
   SET_SCHEMA,
-  SCHEMA_LIST_ADD_ONE,
+  SCHEMA_LIST_ADD,
   SCHEMA_LIST_REMOVE_ONE,
 } from '@/constants'
 
@@ -14,15 +14,13 @@ export const mutations = {
   [SET_SCHEMA](state, schema) {
     state.schema = merge({}, state.schema, schema)
   },
-  [SCHEMA_LIST_ADD_ONE](state, address) {
+  [SCHEMA_LIST_ADD](state, { address, items = [] }) {
     const list = get(state.schema, address)
     if (!Array.isArray(list))
       throw new Error(`Error adding item. Invalid address ${address}`)
-
-    const last = list[list.length - 1]
-    const newItem = cloneDeep(last)
-
-    newItem !== undefined && list.push(newItem)
+    if (!Array.isArray(items))
+      throw new Error(`Error adding items. ${items} should be an Array`)
+    list.push(...items)
   },
   [SCHEMA_LIST_REMOVE_ONE](state, { address, index }) {
     const list = get(state.schema, address)
@@ -43,8 +41,8 @@ export const actions = {
       commit(SET_SCHEMA, update)
     }
   },
-  schemaListAddOne({ commit }, payload) {
-    commit(SCHEMA_LIST_ADD_ONE, payload)
+  schemaListAdd({ commit }, payload) {
+    commit(SCHEMA_LIST_ADD, payload)
   },
   schemaListRemoveOne({ commit }, payload) {
     commit(SCHEMA_LIST_REMOVE_ONE, payload)
