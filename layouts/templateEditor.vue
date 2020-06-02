@@ -122,7 +122,10 @@ export default {
   },
   altClickFocus(event) {
     // Disallow only alt/option + click
-    if (event.altKey) event.stopPropagation()
+    if (event.altKey) {
+      event.preventDefault()
+      event.stopPropagation()
+    }
   },
 }
 </script>
