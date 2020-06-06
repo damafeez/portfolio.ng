@@ -8,36 +8,35 @@
         @remove="$event.index === activeIndex && clampActiveIndex()"
       >
         <template #item="{ item: company, index, address }">
-          <div
-            v-schema="[`${address}.name`]"
+          <p-text
+            tag="div"
+            :address="`${address}.name`"
             class="companies-li px-6 py-3 cursor-pointer relative"
             :class="{ active: activeIndex === index }"
             @click="activeIndex = index"
           >
             {{ company.name }}
-          </div>
+          </p-text>
         </template>
       </item-list>
       <div v-if="wiw">
         <h5 class="text-primary mb-3">
-          <span v-schema="[`wiw[${activeIndex}].role`]">{{ wiw.role }}</span
-          >&nbsp;<span
-            >@<span v-schema="[`wiw[${activeIndex}].name`]">{{
-              wiw.name
-            }}</span>
-          </span>
+          <p-text :address="`wiw[${activeIndex}].role`"></p-text>&nbsp; @
+          <p-text :address="`wiw[${activeIndex}].name`"></p-text>
         </h5>
-        <p v-schema="[`wiw[${activeIndex}].duration`]" class="text-sm">
-          {{ wiw.duration }}
-        </p>
+        <p-text
+          tag="p"
+          :address="`wiw[${activeIndex}].duration`"
+          class="text-sm"
+        >
+        </p-text>
         <item-list
           :address="`wiw[${activeIndex}].achievements`"
           class="company-desc mt-10"
         >
           <template #item="{ item: achievement, address}">
-            <div v-schema="[address]" class="company-desc-li">
-              {{ achievement }}
-            </div>
+            <p-text tag="div" :address="address" class="company-desc-li">
+            </p-text>
           </template>
         </item-list>
       </div>

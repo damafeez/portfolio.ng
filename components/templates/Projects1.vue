@@ -8,22 +8,20 @@
       address="projects"
     >
       <template #item="{ item: project, address }">
-        <h4 v-schema="[`${address}.name`]" class="text-primary">
-          {{ project.name }}
-        </h4>
-        <p v-schema="[`${address}.description`]">
-          {{ project.description }}
-        </p>
+        <p-text
+          tag="h4"
+          class="text-primary"
+          :address="`${address}.name`"
+        ></p-text>
+        <p-text tag="p" :address="`${address}.description`"></p-text>
         <item-list
           :address="`${address}.tags`"
           class="tag-list flex flex-wrap items-center mt-8"
           button-class-list="bg-primary text-on-primary"
           li-class-list="text-sm my-1"
         >
-          <template #item="{ item: tag, tagAddress }">
-            <span v-schema="[tagAddress]">
-              {{ tag }}
-            </span>
+          <template #item="{ item: tag, address: tagAddress }">
+            <p-text :address="tagAddress"></p-text>
           </template>
         </item-list>
       </template>

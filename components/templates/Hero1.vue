@@ -8,15 +8,15 @@
     <h1 class="mt-48 mb-6 max-w-2xl">
       Hi, <br />
       I'm
-      <span v-schema="['profile.name']">{{ schema.profile.name }}</span
-      >.
+      <p-text address="profile.name"></p-text>.
     </h1>
-    <p v-schema="['profile.description']" class="max-w-xl">
-      {{ schema.profile.description }}
-    </p>
-    <button v-schema="['cta[0].text']" class="bg-primary my-10 text-on-primary">
-      {{ schema.cta[0].text }}
-    </button>
+    <p-text tag="p" address="profile.description" class="max-w-xl"></p-text>
+    <p-text
+      tag="button"
+      address="cta[0].text"
+      class="bg-primary my-10 text-on-primary"
+    >
+    </p-text>
   </section>
 </template>
 <script>

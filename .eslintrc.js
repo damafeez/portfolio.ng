@@ -21,6 +21,8 @@ module.exports = {
   rules: {
     'vue/no-unused-components': 'warn',
     'vue/no-unused-vars': 'warn',
+    'vue/no-v-html': 'off',
+    'vue/require-default-prop': 'off',
     'no-unused-vars': 'warn'
   }
 }
