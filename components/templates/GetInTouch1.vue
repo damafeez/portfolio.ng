@@ -1,7 +1,7 @@
 <template>
   <section class="get-in-touch pad-y min-h-0" watermark="Hello :)">
-    <p-text tag="h2" address="contact.intro"></p-text>
-    <p-text tag="p" address="contact.description"></p-text>
+    <h2 is="p-text" address="contact.intro"></h2>
+    <p is="p-text" address="contact.description"></p>
     <button class="mt-10 bg-tertiary text-on-tertiary">Say hello</button>
   </section>
 </template>

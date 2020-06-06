@@ -8,15 +8,15 @@
     <h1 class="mt-48 mb-6 max-w-2xl">
       Hi, <br />
       I'm
-      <p-text address="profile.name"></p-text>.
+      <span is="p-text" address="profile.name"></span>
+      .
     </h1>
-    <p-text tag="p" address="profile.description" class="max-w-xl"></p-text>
-    <p-text
-      tag="button"
+    <p is="p-text" address="profile.description" class="max-w-xl"></p>
+    <button
+      is="p-text"
       address="cta[0].text"
       class="bg-primary my-10 text-on-primary"
-    >
-    </p-text>
+    ></button>
   </section>
 </template>
 <script>

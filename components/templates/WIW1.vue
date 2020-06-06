@@ -8,35 +8,36 @@
         @remove="$event.index === activeIndex && clampActiveIndex()"
       >
         <template #item="{ item: company, index, address }">
-          <p-text
-            tag="div"
+          <div
+            is="p-text"
             :address="`${address}.name`"
             class="companies-li px-6 py-3 cursor-pointer relative"
             :class="{ active: activeIndex === index }"
             @click="activeIndex = index"
           >
             {{ company.name }}
-          </p-text>
+          </div>
         </template>
       </item-list>
       <div v-if="wiw">
         <h5 class="text-primary mb-3">
-          <p-text :address="`wiw[${activeIndex}].role`"></p-text>&nbsp; @
-          <p-text :address="`wiw[${activeIndex}].name`"></p-text>
+          <span is="p-text" :address="`wiw[${activeIndex}].role`"></span
+          >&nbsp;@<span
+            is="p-text"
+            :address="`wiw[${activeIndex}].name`"
+          ></span>
         </h5>
-        <p-text
-          tag="p"
+        <p
+          is="p-text"
           :address="`wiw[${activeIndex}].duration`"
           class="text-sm"
-        >
-        </p-text>
+        ></p>
         <item-list
           :address="`wiw[${activeIndex}].achievements`"
           class="company-desc mt-10"
         >
           <template #item="{ item: achievement, address}">
-            <p-text tag="div" :address="address" class="company-desc-li">
-            </p-text>
+            <div is="p-text" :address="address" class="company-desc-li"></div>
           </template>
         </item-list>
       </div>

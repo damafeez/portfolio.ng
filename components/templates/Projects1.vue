@@ -8,12 +8,8 @@
       address="projects"
     >
       <template #item="{ item: project, address }">
-        <p-text
-          tag="h4"
-          class="text-primary"
-          :address="`${address}.name`"
-        ></p-text>
-        <p-text tag="p" :address="`${address}.description`"></p-text>
+        <h4 is="p-text" class="text-primary" :address="`${address}.name`"></h4>
+        <p is="p-text" :address="`${address}.description`"></p>
         <item-list
           :address="`${address}.tags`"
           class="tag-list flex flex-wrap items-center mt-8"
@@ -21,7 +17,7 @@
           li-class-list="text-sm my-1"
         >
           <template #item="{ item: tag, address: tagAddress }">
-            <p-text :address="tagAddress"></p-text>
+            <span is="p-text" :address="tagAddress"></span>
           </template>
         </item-list>
       </template>

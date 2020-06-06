@@ -20,6 +20,9 @@ export default {
     text() {
       return this.$escapeHTML(get(this.schema, this.address) || '')
     },
+    tagName() {
+      return this.$vnode.data.tag || this.tag
+    },
   },
   methods: {
     setup() {
@@ -56,7 +59,7 @@ export default {
     return slot.tag
       ? slot
       : createElement(
-          this.tag,
+          this.tagName,
           { on: this.$listeners, attr: this.$attr },
           slot.text || this.text,
         )

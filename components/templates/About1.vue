@@ -1,11 +1,11 @@
 <template>
   <section class="about py-40 flex flex-wrap justify-between relative">
     <div>
-      <p-text tag="h4" address="about.intro"></p-text>
-      <p-text tag="p" address="about.description"></p-text>
+      <h4 is="p-text" address="about.intro"></h4>
+      <p is="p-text" address="about.description"></p>
     </div>
     <div class="self-end">
-      <p-text tag="p" address="social.description"></p-text>
+      <p is="p-text" address="social.description"></p>
       <item-list
         class="flex flex-wrap items-center"
         address="social.links"
