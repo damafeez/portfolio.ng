@@ -5,6 +5,7 @@
       <item-list
         address="wiw"
         class="companies float-left sm:float-none mb-10 mr-12"
+        li-class-list="z-10"
         @remove="$event.index === activeIndex && clampActiveIndex()"
       >
         <template #item="{ item: company, index, address }">
@@ -37,7 +38,7 @@
           class="company-desc mt-10"
         >
           <template #item="{ item: achievement, address}">
-            <div is="p-text" :address="address" class="company-desc-li"></div>
+            <span is="p-text" :address="address" class="company-desc-li"></span>
           </template>
         </item-list>
       </div>
