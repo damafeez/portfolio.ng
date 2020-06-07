@@ -58,11 +58,13 @@ export default {
         : {}
     return slot.tag
       ? slot
-      : createElement(
-          this.tagName,
-          { on: this.$listeners, attr: this.$attr },
-          slot.text || this.text,
-        )
+      : createElement(this.tagName, {
+          on: this.$listeners,
+          attr: this.$attr,
+          domProps: {
+            innerHTML: slot.text || this.text,
+          },
+        })
   },
 }
 </script>

@@ -8,8 +8,7 @@
     <h1 class="mt-48 mb-6 max-w-2xl">
       Hi, <br />
       I'm
-      <span is="p-text" address="profile.name"></span>
-      .
+      <span is="p-text" address="profile.name"></span>.
     </h1>
     <p is="p-text" address="profile.description" class="max-w-xl"></p>
     <button
