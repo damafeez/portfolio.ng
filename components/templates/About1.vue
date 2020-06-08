@@ -11,14 +11,17 @@
         address="social.links"
         button-class-list="no-bg text-xl"
       >
-        <template #item="{ item: social }">
-          <a
-            class="icon-box btn-hover"
-            target="_blank"
-            rel="noopener noreferrer"
-            :href="social.link"
-            ><icon-base :name="social.icon"
-          /></a>
+        <template #item="{ address, item: social }">
+          <p-icon :address="`${address}.icon`">
+            <a
+              is="p-link"
+              class="icon-box btn-hover"
+              target="_blank"
+              rel="noopener noreferrer"
+              :address="`${address}.link`"
+              ><icon-base :name="social.icon"></icon-base
+            ></a>
+          </p-icon>
         </template>
       </item-list>
     </div>

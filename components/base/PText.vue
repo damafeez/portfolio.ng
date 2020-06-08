@@ -13,15 +13,14 @@ export default {
     },
     tag: {
       type: String,
-      default: 'span',
     },
   },
   computed: {
     text() {
-      return this.$escapeHTML(get(this.schema, this.address) || '')
+      return this.$escapeHTML(get(this.schema, this.address, ''))
     },
     tagName() {
-      return this.$vnode.data.tag || this.tag
+      return this.tag || this.$vnode.data.tag || 'span'
     },
   },
   methods: {
@@ -59,8 +58,6 @@ export default {
     return slot.tag
       ? slot
       : createElement(this.tagName, {
-          on: this.$listeners,
-          attr: this.$attr,
           domProps: {
             innerHTML: slot.text || this.text,
           },
