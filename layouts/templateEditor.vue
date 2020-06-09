@@ -29,6 +29,7 @@ import Notification from '~/components/Notification'
 import {
   TEMPLATE_EDITOR_UPLOAD_IMAGE,
   TEMPLATE_EDITOR_TEXT_EDIT,
+  TEMPLATE_ICON_CHANGE,
   SHOW_NOTIFICATION,
   REMOVE_NOTIFICATION,
 } from '~/constants'
@@ -102,10 +103,12 @@ export default {
     busBindListeners() {
       this.$eventBus.$on(TEMPLATE_EDITOR_UPLOAD_IMAGE, this.busImageUpoad)
       this.$eventBus.$on(TEMPLATE_EDITOR_TEXT_EDIT, this.busSchemaEdit)
+      this.$eventBus.$on(TEMPLATE_ICON_CHANGE, this.busSchemaEdit)
     },
     busUnbindListeners() {
       this.$eventBus.$off(TEMPLATE_EDITOR_UPLOAD_IMAGE, this.busImageUpoad)
       this.$eventBus.$off(TEMPLATE_EDITOR_TEXT_EDIT, this.busSchemaEdit)
+      this.$eventBus.$off(TEMPLATE_ICON_CHANGE, this.busSchemaEdit)
     },
     imageChange(e) {
       const file = e.target.files[0]
