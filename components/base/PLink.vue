@@ -22,8 +22,7 @@ export default {
     const slot =
       typeof this.$scopedSlots.default === 'function'
         ? this.$scopedSlots.default({
-            value: this.text,
-            address: this.address,
+            value: this.href,
           })
         : null
     return this.$vnode.data.tag

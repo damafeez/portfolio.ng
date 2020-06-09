@@ -52,7 +52,6 @@ export default {
       typeof this.$scopedSlots.default === 'function'
         ? this.$scopedSlots.default({
             value: this.text,
-            address: this.address,
           })[0]
         : {}
     return slot.tag

@@ -1,6 +1,5 @@
 <script>
 import { get } from 'lodash'
-import IconBase from '~/components/base/IconBase'
 import { changeFeed } from '~/mixins'
 
 export default {
@@ -22,10 +21,9 @@ export default {
     console.log(this.$el, '============PIcon')
     return typeof this.$scopedSlots.default === 'function'
       ? this.$scopedSlots.default({
-          value: this.text,
-          address: this.address,
+          value: this.name,
         })
-      : createElement(IconBase, {
+      : createElement('IconBase', {
           props: {
             name: this.name,
           },
