@@ -61,7 +61,7 @@ export default {
       this.triggerFocused = true
     },
     async blur() {
-      await this.$wait(500)
+      await this.$wait(100)
       this.triggerFocused = false
     },
     changeHandler(name) {
