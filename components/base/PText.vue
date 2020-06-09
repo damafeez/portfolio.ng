@@ -25,6 +25,7 @@ export default {
   },
   methods: {
     setup() {
+      if (!this.$el) return
       this.$el.setAttribute('contenteditable', '')
       this.$el.addEventListener('focus', this.focus)
       this.$el.addEventListener('blur', this.blur)
@@ -40,7 +41,7 @@ export default {
     changeHandler(text) {
       this.$eventBus.$emit(TEMPLATE_EDITOR_TEXT_EDIT, [this.address, text])
     },
-    clean() {
+    tearDown() {
       if (!this.$el) return
       this.$el.removeAttribute('contenteditable')
       this.$el.removeEventListener('focus', this.focus)
@@ -57,6 +58,7 @@ export default {
     return slot.tag
       ? slot
       : createElement(this.tagName, {
+          on: this.$listeners,
           domProps: {
             innerHTML: slot.text || this.text,
           },

@@ -15,20 +15,19 @@ const changeFeed = {
   },
   watch: {
     editMode(editMode) {
-      if (!this.$el) return
       if (editMode) this.setup()
-      else this.clean()
+      else this.tearDown()
     },
   },
   methods: {
     setup() {},
-    clean() {},
+    tearDown() {},
   },
   mounted() {
     if (this.editMode) this.setup()
   },
   beforeDestroy() {
-    this.clean()
+    this.tearDown()
   },
 }
 

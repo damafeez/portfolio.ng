@@ -29,6 +29,7 @@ export default {
       ? createElement(
           this.$vnode.data.tag,
           {
+            on: this.$listeners,
             attrs: { href: this.href },
           },
           slot,

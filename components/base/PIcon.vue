@@ -25,6 +25,7 @@ export default {
         })
       : createElement('IconBase', {
           props: {
+            on: this.$listeners,
             name: this.name,
           },
         })
