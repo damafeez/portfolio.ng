@@ -32,6 +32,7 @@ import {
   TEMPLATE_ICON_CHANGE,
   SHOW_NOTIFICATION,
   REMOVE_NOTIFICATION,
+  TEMPLATE_LINK_CHANGE,
 } from '~/constants'
 
 export default {
@@ -104,11 +105,13 @@ export default {
       this.$eventBus.$on(TEMPLATE_EDITOR_UPLOAD_IMAGE, this.busImageUpoad)
       this.$eventBus.$on(TEMPLATE_EDITOR_TEXT_EDIT, this.busSchemaEdit)
       this.$eventBus.$on(TEMPLATE_ICON_CHANGE, this.busSchemaEdit)
+      this.$eventBus.$on(TEMPLATE_LINK_CHANGE, this.busSchemaEdit)
     },
     busUnbindListeners() {
       this.$eventBus.$off(TEMPLATE_EDITOR_UPLOAD_IMAGE, this.busImageUpoad)
       this.$eventBus.$off(TEMPLATE_EDITOR_TEXT_EDIT, this.busSchemaEdit)
       this.$eventBus.$off(TEMPLATE_ICON_CHANGE, this.busSchemaEdit)
+      this.$eventBus.$off(TEMPLATE_LINK_CHANGE, this.busSchemaEdit)
     },
     imageChange(e) {
       const file = e.target.files[0]
@@ -153,6 +156,22 @@ export default {
   cursor: url('~assets/images/image.png'), auto;
   * {
     cursor: initial;
+  }
+}
+[p-edit-container] {
+  @apply bg-tertiary rounded-lg shadow-xl p-3;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 12rem;
+  max-height: 15rem;
+  left: 50%;
+  bottom: 100%;
+  transform: translate(-50%, -2rem);
+  cursor: initial;
+  overflow-y: hidden;
+  & > *:not(:last-child) {
+    @apply mb-4;
   }
 }
 </style>

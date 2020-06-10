@@ -1,8 +1,5 @@
 <template>
-  <div
-    tabindex="-1"
-    class="icon-picker bg-tertiary rounded-lg shadow-xl absolute p-4 outline-none"
-  >
+  <div class="icon-picker">
     <span
       v-for="(name, i) in $options.iconNames"
       :key="i"
@@ -24,12 +21,6 @@ export default {
 </script>
 <style lang="scss">
 .icon-picker {
-  width: 12rem;
-  height: 10rem;
-  left: 50%;
-  bottom: 100%;
-  transform: translate(-50%, -2rem);
-  cursor: initial;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 0.2rem;
