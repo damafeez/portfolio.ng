@@ -1,11 +1,11 @@
 <script>
 import { get } from 'lodash'
-import { changeFeed } from '~/mixins'
+import { changeFeed, changeFeedProps } from '~/mixins'
 import { TEMPLATE_EDITOR_TEXT_EDIT } from '~/constants'
 
 export default {
   name: 'PText',
-  mixins: [changeFeed],
+  mixins: [changeFeed, changeFeedProps],
   props: {
     address: {
       type: String,
@@ -17,7 +17,7 @@ export default {
       return this.$escapeHTML(get(this.schema, this.address, ''))
     },
     tagName() {
-      return this.tag || this.$vnode.data.tag || 'span'
+      return this.$vnode.data.tag || 'span'
     },
   },
   methods: {

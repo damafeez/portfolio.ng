@@ -7,17 +7,11 @@ const section = {
   },
 }
 const changeFeed = {
-  props: {
-    tag: String,
-  },
   computed: {
     ...mapGetters({
       schema: 'document/schema',
       editMode: 'editMode',
     }),
-    tagName() {
-      return this.tag || this.$vnode.data.tag
-    },
   },
   watch: {
     editMode(editMode) {
@@ -37,4 +31,10 @@ const changeFeed = {
   },
 }
 
-export { section, changeFeed }
+const changeFeedProps = {
+  props: {
+    multiple: false,
+  },
+}
+
+export { section, changeFeed, changeFeedProps }

@@ -1,18 +1,13 @@
 <script>
 import Vue from 'vue'
 import { get } from 'lodash'
-import {
-  getEditContainer,
-  setupEditContainerListeners,
-  removeEditContainerListeners,
-} from '~/utils'
 import TextInput from '~/components/TextInput'
-import { changeFeed } from '~/mixins'
+import { changeFeed, changeFeedProps } from '~/mixins'
 import { TEMPLATE_LINK_CHANGE } from '~/constants'
 
 export default {
   name: 'PLink',
-  mixins: [changeFeed],
+  mixins: [changeFeed, changeFeedProps],
   props: {
     address: {
       type: String,
@@ -26,9 +21,10 @@ export default {
   },
   methods: {
     setup() {
-      if (!this.$el) return
-      const editContainer = getEditContainer(this.$el)
-      let textInput = this.$options.textInput
+      const { $el, $options, changeHandler } = this
+      if (!$el) return
+      const editContainer = $el.parentNode.querySelector('[p-edit-container]')
+      let { textInput } = $options
       if (!textInput) {
         const TextInputComponent = Vue.extend(TextInput)
         textInput = new TextInputComponent({
@@ -39,15 +35,13 @@ export default {
         editContainer.appendChild(textInput.$el)
         this.$options.textInput = textInput
       }
-      textInput.$on('input', this.changeHandler)
-      setupEditContainerListeners(this.$el)
+      textInput.$on('input', changeHandler)
     },
     changeHandler(link) {
       this.$eventBus.$emit(TEMPLATE_LINK_CHANGE, [this.address, link])
     },
     tearDown() {
       if (this.$options.iconPicker && this.$el) {
-        removeEditContainerListeners(this.$el)
         this.$options.iconPicker.$off('input', this.changeHandler)
       }
     },
@@ -59,9 +53,9 @@ export default {
             value: this.href,
           })
         : null
-    return this.tagName
+    return this.$vnode.data.tag
       ? createElement(
-          this.tagName,
+          this.$vnode.data.tag,
           {
             on: this.$listeners,
             attrs: { href: this.href },
