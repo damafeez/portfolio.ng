@@ -11,17 +11,19 @@
         address="social.links"
         button-class-list="no-bg text-xl"
       >
-        <template #item="{ address }">
-          <p-icon v-slot="{ value: name }" :address="`${address}.icon`">
-            <a
-              is="p-link"
-              class="icon-box btn-hover"
-              target="_blank"
-              rel="noopener noreferrer"
-              :address="`${address}.link`"
-              ><icon-base :name="name"></icon-base
-            ></a>
-          </p-icon>
+        <template #item="{ address, item: social }">
+          <a
+            is="p-multiple"
+            class="icon-box btn-hover"
+            target="_blank"
+            rel="noopener noreferrer"
+            :addresses="{
+              'p-icon': `${address}.icon`,
+              'p-link': `${address}.link`,
+            }"
+          >
+            <icon-base :name="social.icon"></icon-base
+          ></a>
         </template>
       </item-list>
     </div>

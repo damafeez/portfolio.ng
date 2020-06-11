@@ -59,9 +59,9 @@ export default {
             value: this.href,
           })
         : null
-    return this.$vnode.data.tag
+    return this.tagName
       ? createElement(
-          this.$vnode.data.tag,
+          this.tagName,
           {
             on: this.$listeners,
             attrs: { href: this.href },

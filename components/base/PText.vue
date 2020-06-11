@@ -11,9 +11,6 @@ export default {
       type: String,
       required: true,
     },
-    tag: {
-      type: String,
-    },
   },
   computed: {
     text() {

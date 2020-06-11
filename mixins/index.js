@@ -7,11 +7,17 @@ const section = {
   },
 }
 const changeFeed = {
+  props: {
+    tag: String,
+  },
   computed: {
     ...mapGetters({
       schema: 'document/schema',
       editMode: 'editMode',
     }),
+    tagName() {
+      return this.tag || this.$vnode.data.tag
+    },
   },
   watch: {
     editMode(editMode) {
