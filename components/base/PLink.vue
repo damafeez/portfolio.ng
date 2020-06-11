@@ -2,12 +2,12 @@
 import Vue from 'vue'
 import { get } from 'lodash'
 import TextInput from '~/components/TextInput'
-import { changeFeed, changeFeedProps } from '~/mixins'
+import { changeFeed, changeFeedProps, changeFeedPopup } from '~/mixins'
 import { TEMPLATE_LINK_CHANGE } from '~/constants'
 
 export default {
   name: 'PLink',
-  mixins: [changeFeed, changeFeedProps],
+  mixins: [changeFeed, changeFeedProps, changeFeedPopup],
   props: {
     address: {
       type: String,
@@ -21,8 +21,8 @@ export default {
   },
   methods: {
     setup() {
-      const { $el, $options, changeHandler } = this
-      if (!$el) return
+      const { $el, $options, changeHandler, isMultiple, popupSetup } = this
+      if (!isMultiple) popupSetup()
       const editContainer = $el.parentNode.querySelector('[p-edit-container]')
       let { textInput } = $options
       if (!textInput) {
@@ -40,10 +40,9 @@ export default {
     changeHandler(link) {
       this.$eventBus.$emit(TEMPLATE_LINK_CHANGE, [this.address, link])
     },
-    tearDown() {
-      if (this.$options.iconPicker && this.$el) {
-        this.$options.iconPicker.$off('input', this.changeHandler)
-      }
+    teardown() {
+      this.$options.textInput.$off('input', this.changeHandler)
+      if (!this.isMultiple) this.popupTeardown()
     },
   },
   render(createElement) {

@@ -163,7 +163,7 @@ export default {
   position: absolute;
   display: flex;
   flex-direction: column;
-  width: 12rem;
+  max-width: 12rem;
   max-height: 15rem;
   left: 50%;
   bottom: 100%;

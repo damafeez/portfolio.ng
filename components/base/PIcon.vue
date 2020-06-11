@@ -2,12 +2,12 @@
 import Vue from 'vue'
 import { get } from 'lodash'
 import IconPicker from '~/components/IconPicker.vue'
-import { changeFeed, changeFeedProps } from '~/mixins'
+import { changeFeed, changeFeedProps, changeFeedPopup } from '~/mixins'
 import { TEMPLATE_ICON_CHANGE } from '~/constants'
 
 export default {
   name: 'PIcon',
-  mixins: [changeFeed, changeFeedProps],
+  mixins: [changeFeed, changeFeedProps, changeFeedPopup],
   props: {
     address: {
       type: String,
@@ -21,8 +21,8 @@ export default {
   },
   methods: {
     setup() {
-      const { $el, $options, changeHandler } = this
-      if (!$el) return
+      const { $el, $options, changeHandler, isMultiple, popupSetup } = this
+      if (!isMultiple) popupSetup()
       const editContainer = $el.parentNode.querySelector('[p-edit-container]')
       let { iconPicker } = $options
       if (!iconPicker) {
@@ -37,10 +37,9 @@ export default {
     changeHandler(name) {
       this.$eventBus.$emit(TEMPLATE_ICON_CHANGE, [this.address, name])
     },
-    tearDown() {
-      if (this.$options.iconPicker && this.$el) {
-        this.$options.iconPicker.$off('icon-change', this.changeHandler)
-      }
+    teardown() {
+      this.$options.iconPicker.$off('icon-change', this.changeHandler)
+      if (!this.isMultiple) this.popupSetup()
     },
   },
   render(createElement) {
