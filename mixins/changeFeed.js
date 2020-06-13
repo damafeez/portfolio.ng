@@ -9,10 +9,10 @@ export const changeFeed = {
     }),
   },
   watch: {
-    editMode(editMode) {
+    editMode(editMode, prev) {
       if (process.client) {
         if (editMode) this.setup()
-        else this.teardown()
+        else if (prev) this.teardown()
       }
     },
   },
@@ -24,7 +24,7 @@ export const changeFeed = {
     if (this.editMode && process.client) this.setup()
   },
   beforeDestroy() {
-    if (process.client) this.teardown()
+    if (this.editMode && process.client) this.teardown()
   },
 }
 
