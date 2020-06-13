@@ -36,7 +36,7 @@ export default {
       this.$eventBus.$emit(TEMPLATE_EDITOR_UPLOAD_IMAGE, this.address)
     },
     changeHandler(text) {},
-    teardown() {
+    clean() {
       this.$el.removeEventListener('dblclick', this.imgUpload)
       this.$el.classList.remove('stop-cursor-propagation')
     },

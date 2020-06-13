@@ -12,19 +12,23 @@ export const changeFeed = {
     editMode(editMode, prev) {
       if (process.client) {
         if (editMode) this.setup()
-        else if (prev) this.teardown()
+        else if (prev) this.clean()
       }
     },
   },
   methods: {
     setup() {},
+    clean() {},
     teardown() {},
   },
   mounted() {
     if (this.editMode && process.client) this.setup()
   },
   beforeDestroy() {
-    if (this.editMode && process.client) this.teardown()
+    if (this.editMode && process.client) {
+      this.clean()
+      this.teardown()
+    }
   },
 }
 
@@ -89,7 +93,7 @@ export const changeFeedPopup = {
     triggerBlur() {
       this.popupTriggerFocused = false
     },
-    popupTeardown() {
+    popupClean() {
       const {
         $options: { popupContainer },
         $el,

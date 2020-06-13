@@ -37,7 +37,7 @@ export default {
     changeHandler(name) {
       this.$eventBus.$emit(TEMPLATE_ICON_CHANGE, [this.address, name])
     },
-    teardown() {
+    clean() {
       this.$options.iconPicker.$off('icon-change', this.changeHandler)
       if (!this.isMultiple) this.popupSetup()
     },

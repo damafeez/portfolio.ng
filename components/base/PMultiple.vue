@@ -14,8 +14,8 @@ export default {
     setup() {
       this.popupSetup()
     },
-    teardown() {
-      this.popupTeardown()
+    clean() {
+      this.popupClean()
     },
   },
   render(createElement) {

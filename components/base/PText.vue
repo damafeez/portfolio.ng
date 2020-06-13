@@ -38,7 +38,7 @@ export default {
     changeHandler(text) {
       this.$eventBus.$emit(TEMPLATE_EDITOR_TEXT_EDIT, [this.address, text])
     },
-    teardown() {
+    clean() {
       if (!this.$el) return
       this.$el.removeAttribute('contenteditable')
       this.$el.removeEventListener('focus', this.focus)

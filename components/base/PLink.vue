@@ -40,9 +40,9 @@ export default {
     changeHandler(link) {
       this.$eventBus.$emit(TEMPLATE_LINK_CHANGE, [this.address, link])
     },
-    teardown() {
+    clean() {
       this.$options.textInput.$off('input', this.changeHandler)
-      if (!this.isMultiple) this.popupTeardown()
+      if (!this.isMultiple) this.popupClean()
     },
   },
   render(createElement) {
