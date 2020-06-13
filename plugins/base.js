@@ -15,5 +15,5 @@ requireComponent.keys().forEach(fileName => {
   const component = required.default || required
   if (!component.name) throw new Error('base components should have a name')
   // Register component globally
-  Vue.component(component.name, component)
+  Vue.component(component.name, resolve => resolve(component))
 })

@@ -1,30 +1,7 @@
 <template>
   <Portfolio :modes="['night', 'default']" class="somolu leading-snug">
-    <Hero />
-    <About />
-    <WIW />
-    <Projects />
-    <GetInTouch />
   </Portfolio>
 </template>
-
-<script>
-import Hero from '@/components/templates/Hero1.vue'
-import About from '@/components/templates/About1.vue'
-import WIW from '@/components/templates/WIW1.vue'
-import Projects from '@/components/templates/Projects1.vue'
-import GetInTouch from '@/components/templates/GetInTouch1.vue'
-
-export default {
-  components: {
-    Hero,
-    About,
-    WIW,
-    Projects,
-    GetInTouch,
-  },
-}
-</script>
 <style lang="scss" scoped>
 .somolu {
   --background: #f1f0f4;

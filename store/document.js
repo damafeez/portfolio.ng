@@ -47,6 +47,9 @@ export const actions = {
   schemaListRemoveOne({ commit }, payload) {
     commit(SCHEMA_LIST_REMOVE_ONE, payload)
   },
+  setSections({ dispatch }, sections) {
+    dispatch('editSchema', ['_meta.sections', sections])
+  },
 }
 
 export const getters = {

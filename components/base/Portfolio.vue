@@ -3,7 +3,12 @@
     class="portfolio bg-background text-on-background"
     :mode="modes[modeIndex]"
   >
-    <slot v-if="schemaIsValid" />
+    <draggable v-if="schemaIsValid" v-model="sections" :disabled="!editMode">
+      <transition-group>
+        <component :is="section" v-for="section in sections" :key="section">
+        </component>
+      </transition-group>
+    </draggable>
     <div v-else>Please provide a valid schema</div>
     <div
       class="mode z-1000 btn-hover fixed cursor-pointer rounded-lg shadow-xl bg-secondary text-on-secondary-2 flex-center"
@@ -13,9 +18,17 @@
 </template>
 <script>
 import { isEmpty } from 'lodash'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
+import draggable from 'vuedraggable'
+import { loadSections } from '~/utils'
+
 export default {
   name: 'Portfolio',
+  components: {
+    draggable,
+    // load all sections
+    ...loadSections(),
+  },
   props: {
     modes: {
       type: Array,
@@ -30,12 +43,24 @@ export default {
   computed: {
     ...mapGetters({
       schema: 'document/schema',
+      editMode: 'editMode',
     }),
+    sections: {
+      get() {
+        return this.schema._meta.sections
+      },
+      set(value) {
+        this.setSections(value)
+      },
+    },
     schemaIsValid() {
       return !isEmpty(this.schema)
     },
   },
   methods: {
+    ...mapActions({
+      setSections: 'document/setSections',
+    }),
     changeMode() {
       this.modeIndex =
         this.modeIndex < this.modes.length - 1 ? this.modeIndex + 1 : 0
