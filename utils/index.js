@@ -1,5 +1,6 @@
 import { merge } from 'lodash'
-import defaultSchema from '@/schema/index.json'
+import defaultSchema from '~/schema/index.json'
+import { section } from '~/mixins'
 
 export function getSchema(name, merger = {}) {
   let schema = {}
@@ -28,6 +29,7 @@ export function loadSections() {
   return requireComponent.keys().reduce((acc, fileName) => {
     const file = requireComponent(fileName)
     const component = file.default || file
+    component.mixins = [...(component.mixins || []), section]
     const splitted = fileName.split('/')
     const name = splitted[splitted.length - 1].split('.vue')[0]
     acc[name] = component

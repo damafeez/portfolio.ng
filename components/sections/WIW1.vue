@@ -47,9 +47,7 @@
 </template>
 <script>
 import { clamp } from 'lodash'
-import { section } from '@/mixins'
 export default {
-  mixins: [section],
   data() {
     return {
       activeIndex: 0,

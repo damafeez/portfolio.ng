@@ -5,12 +5,6 @@
     <button class="mt-10 bg-tertiary text-on-tertiary">Say hello</button>
   </section>
 </template>
-<script>
-import { section } from '@/mixins'
-export default {
-  mixins: [section],
-}
-</script>
 <style lang="scss" scoped>
 .get-in-touch {
   &[watermark]::before {

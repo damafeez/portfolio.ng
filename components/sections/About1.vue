@@ -29,12 +29,6 @@
     </div>
   </section>
 </template>
-<script>
-import { section } from '@/mixins'
-export default {
-  mixins: [section],
-}
-</script>
 <style lang="scss" scoped>
 .about {
   &::before {

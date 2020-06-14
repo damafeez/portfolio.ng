@@ -18,12 +18,6 @@
     ></button>
   </section>
 </template>
-<script>
-import { section } from '@/mixins'
-export default {
-  mixins: [section],
-}
-</script>
 <style lang="scss" scoped>
 .hero {
   background-size: 0;
