@@ -154,8 +154,11 @@ export default {
 <style lang="scss">
 .stop-cursor-propagation {
   cursor: url('~assets/images/image.png'), auto;
-  * {
+  & > * {
     cursor: initial;
+    &.cursor-pointer {
+      cursor: pointer;
+    }
   }
 }
 [p-edit-container] {
