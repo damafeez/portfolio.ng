@@ -3,7 +3,12 @@
     class="portfolio bg-background text-on-background"
     :mode="modes[modeIndex]"
   >
-    <draggable v-if="schemaIsValid" v-model="sections" :disabled="!editMode">
+    <draggable
+      v-if="schemaIsValid"
+      v-model="sections"
+      :disabled="!editMode"
+      handle=".draggable-handle"
+    >
       <transition-group>
         <component :is="section" v-for="section in sections" :key="section">
         </component>
