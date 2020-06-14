@@ -66,9 +66,11 @@ export const changeFeedPopup = {
         popupContainer = document.createElement('div')
         popupContainer.setAttribute('p-edit-container', '')
         popupContainer.setAttribute('tabindex', '-1')
-        // TODO: handle container positioning
         popupContainer.style.display = 'none'
         popupContainer.style.outline = 'none'
+        const currentPositionValue = getComputedStyle($el.parentNode).position
+        if (currentPositionValue === 'static')
+          $el.parentNode.style.position = 'relative'
         $el.parentNode.insertBefore(popupContainer, $el)
       }
 
