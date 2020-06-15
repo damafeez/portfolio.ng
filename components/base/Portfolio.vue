@@ -7,9 +7,11 @@
       v-if="schemaIsValid"
       v-model="sections"
       :disabled="!editMode"
-      handle=".draggable-handle"
+      :animation="200"
+      group="sections"
+      handle="[draggable-handle]"
     >
-      <transition-group>
+      <transition-group type="transition">
         <component :is="section" v-for="section in sections" :key="section">
         </component>
       </transition-group>
@@ -43,6 +45,7 @@ export default {
   data() {
     return {
       modeIndex: 0,
+      drag: false,
     }
   },
   computed: {
@@ -98,6 +101,13 @@ export default {
     background-color: transparent;
     box-shadow: inset 0.5em 0 currentColor;
     animation: hover 70s ease-out infinite;
+  }
+
+  .flip-list-move {
+    transition: transform 0.5s;
+  }
+  .no-move {
+    transition: transform 0s;
   }
 }
 </style>

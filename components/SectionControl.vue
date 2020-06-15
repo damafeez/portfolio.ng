@@ -4,7 +4,8 @@
     class="section-control text-on-tertiary p-3 flex items-center"
   >
     <span
-      class="p-2 flex-center rounded-full cursor-pointer m-1 text-lg btn-hover draggable-handle"
+      draggable-handle
+      class="p-2 flex-center rounded-full cursor-pointer m-1 text-lg btn-hover"
       ><icon-base name="move"></icon-base
     ></span>
   </div>
@@ -26,6 +27,6 @@ export default {
 .section-control {
   position: absolute;
   top: 0;
-  right: 4rem;
+  right: 2rem;
 }
 </style>
