@@ -1,3 +1,5 @@
+import fs from 'fs'
+
 export default {
   mode: 'universal',
   /*
@@ -56,5 +58,30 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {},
+  },
+  generate: {
+    routes() {
+      const schemaDirectory = './schema'
+      return fs
+        .readdirSync(schemaDirectory)
+        .filter(name => name.endsWith('.json') && name !== 'index.json')
+        .map(name => {
+          try {
+            return {
+              route: `/templates/${name.split('.json')[0]}`,
+              payload: {
+                schema: JSON.parse(
+                  fs.readFileSync(`${schemaDirectory}/${name}`, {
+                    encoding: 'utf-8',
+                  }),
+                ),
+              },
+            }
+          } catch (error) {
+            console.warn(`unable to parse schema: ${name}`, error)
+          }
+        })
+        .filter(Boolean)
+    },
   },
 }
