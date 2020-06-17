@@ -1,5 +1,6 @@
 {
   "_meta": {
-    "sections": ["Hero1", "About1", "WIW1", "Projects1", "GetInTouch1"]
+    "sections": ["Hero1", "About1", "WIW1", "Projects1", "GetInTouch1"],
+    "modes": ["night", "default"]
   }
 }

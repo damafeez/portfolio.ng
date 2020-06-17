@@ -1,22 +1,11 @@
 <template>
   <main
-    class="portfolio bg-background text-on-background"
-    :mode="modes[modeIndex]"
+    class="portfolio-layout bg-background text-on-background somolu"
+    :mode="templateMode"
   >
-    <draggable
-      v-if="schemaIsValid"
-      v-model="sections"
-      :disabled="!editMode"
-      :animation="200"
-      group="sections"
-      handle="[draggable-handle]"
-    >
-      <transition-group type="transition">
-        <component :is="section" v-for="section in sections" :key="section">
-        </component>
-      </transition-group>
-    </draggable>
-    <div v-else>Please provide a valid schema</div>
+    <slot>
+      <nuxt />
+    </slot>
     <div
       class="mode z-1000 btn-hover fixed cursor-pointer rounded-lg shadow-xl bg-secondary text-on-secondary-2 flex-center"
       @click="changeMode"
@@ -24,28 +13,13 @@
   </main>
 </template>
 <script>
-import { isEmpty } from 'lodash'
-import { mapGetters, mapActions } from 'vuex'
-import draggable from 'vuedraggable'
-import { loadSections } from '~/utils'
+import { mapGetters } from 'vuex'
 
 export default {
-  name: 'Portfolio',
-  components: {
-    draggable,
-    // load all sections
-    ...loadSections(),
-  },
-  props: {
-    modes: {
-      type: Array,
-      default: () => ['default'],
-    },
-  },
+  name: 'PortfolioLayout',
   data() {
     return {
       modeIndex: 0,
-      drag: false,
     }
   },
   computed: {
@@ -53,31 +27,40 @@ export default {
       schema: 'document/schema',
       editMode: 'editMode',
     }),
-    sections: {
-      get() {
-        return this.schema._meta.sections
-      },
-      set(value) {
-        this.setSections(value)
-      },
-    },
-    schemaIsValid() {
-      return !isEmpty(this.schema)
+    templateMode() {
+      return this.schema._meta.modes[this.modeIndex]
     },
   },
   methods: {
-    ...mapActions({
-      setSections: 'document/setSections',
-    }),
     changeMode() {
       this.modeIndex =
         this.modeIndex < this.modes.length - 1 ? this.modeIndex + 1 : 0
     },
   },
+  head() {
+    return {
+      link: [
+        {
+          rel: 'stylesheet',
+          href: (function loadPortfolioCSS(name) {
+            try {
+              return require(`~/styles/${name}.scss`)
+            } catch (error) {
+              try {
+                return require(`~/styles/${name}.css`)
+              } catch (error) {
+                return require('~/styles/index.scss')
+              }
+            }
+          })('somolu'),
+        },
+      ],
+    }
+  },
 }
 </script>
 <style lang="scss" scoped>
-.portfolio {
+.portfolio-layout {
   .mode {
     width: 2.5rem;
     height: 2.5rem;
