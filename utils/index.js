@@ -1,23 +1,12 @@
-import { merge } from 'lodash'
-import defaultSchema from '~/schema/index.json'
 import { section } from '~/mixins'
 
-export function getSchema(name, merger = {}) {
-  let schema = {}
+export function getSchema(name) {
   try {
-    schema = require(`~/schema/${name}.json`)
+    return require(`~/schema/${name}.json`)
   } catch (error) {
     // eslint-disable-next-line no-console
     console.log(`unable to get schema ${name}`)
   }
-
-  return merge(
-    defaultSchema,
-    { _meta: { modes: ['default'] } },
-    schema,
-    merger,
-    { _meta: { name } },
-  )
 }
 
 export function wait(timeout) {

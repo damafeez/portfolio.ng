@@ -6,19 +6,33 @@
 </template>
 
 <script>
+import { merge } from 'lodash'
 import PortfolioLayout from '~/layouts/portfolio'
 import { getSchema } from '~/utils'
+import defaultSchema from '~/schema/index.json'
+
 export default {
   layout: 'templateEditor',
   components: {
     PortfolioLayout,
   },
-  middleware({ app, store, route, payload }) {
+  middleware({ store, route, error }) {
     const name = route.params.portfolio
-    store.dispatch(
-      'document/setSchema',
-      getSchema(name, store.state.document.schema),
+    const schema = getSchema(name)
+    if (!schema)
+      return error({
+        statusCode: 404,
+        message: `Template "${name}" not found, you probably followed an invalid link :(`,
+      })
+
+    const mergedSchema = merge(
+      defaultSchema,
+      { _meta: { modes: ['default'] } },
+      schema,
+      store.state.document.schema,
+      { _meta: { name } },
     )
+    store.dispatch('document/setSchema', mergedSchema)
   },
 }
 </script>
