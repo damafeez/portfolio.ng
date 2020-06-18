@@ -5,8 +5,8 @@
   >
     <span
       draggable-handle
-      class="p-2 flex-center rounded-full cursor-pointer m-1 text-lg btn-hover"
-      ><icon-base name="move"></icon-base
+      class="section-control__icon p-1 flex-center rounded-full cursor-move m-1 text-lg"
+      ><icon-base name="menu"></icon-base
     ></span>
   </div>
 </template>
@@ -28,5 +28,13 @@ export default {
   position: absolute;
   top: 0;
   right: 2rem;
+  &__icon {
+    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    &:hover {
+      border: 1px solid;
+      font-size: 1rem;
+      padding: 0.7rem;
+    }
+  }
 }
 </style>
