@@ -25,6 +25,7 @@ export default {
   computed: {
     ...mapGetters({
       schema: 'document/schema',
+      templateName: 'document/templateName',
       editMode: 'editMode',
     }),
     modes() {
@@ -55,7 +56,7 @@ export default {
                 return require('~/styles/index.scss')
               }
             }
-          })('somolu'),
+          })(this.templateName),
         },
       ],
     }

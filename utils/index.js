@@ -5,13 +5,19 @@ import { section } from '~/mixins'
 export function getSchema(name, merger = {}) {
   let schema = {}
   try {
-    schema = require(`@/schema/${name}.json`)
+    schema = require(`~/schema/${name}.json`)
   } catch (error) {
     // eslint-disable-next-line no-console
     console.log(`unable to get schema ${name}`)
   }
 
-  return merge(defaultSchema, schema, merger, { _meta: { name } })
+  return merge(
+    defaultSchema,
+    { _meta: { modes: ['default'] } },
+    schema,
+    merger,
+    { _meta: { name } },
+  )
 }
 
 export function wait(timeout) {
