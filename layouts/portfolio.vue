@@ -1,7 +1,7 @@
 <template>
   <main
     class="portfolio-layout bg-background text-on-background somolu"
-    :mode="templateMode"
+    :mode="currentMode"
   >
     <slot>
       <nuxt />
@@ -27,8 +27,11 @@ export default {
       schema: 'document/schema',
       editMode: 'editMode',
     }),
-    templateMode() {
-      return this.schema._meta.modes[this.modeIndex]
+    modes() {
+      return this.schema._meta.modes
+    },
+    currentMode() {
+      return this.modes[this.modeIndex]
     },
   },
   methods: {
