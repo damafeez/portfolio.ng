@@ -1,5 +1,5 @@
 <template>
-  <section class="about py-40 flex flex-wrap justify-between relative">
+  <section class="about py-40 flex flex-wrap justify-between relative z-10">
     <div>
       <h4 is="p-text" address="about.intro"></h4>
       <p is="p-text" address="about.description"></p>
@@ -32,7 +32,7 @@
 <style lang="scss" scoped>
 .about {
   &::before {
-    @apply absolute z-10;
+    @apply absolute;
     content: '';
     top: 50%;
     left: 50%;
