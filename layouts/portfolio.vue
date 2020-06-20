@@ -2,6 +2,7 @@
   <main
     class="portfolio-layout bg-background text-on-background somolu"
     :mode="currentMode"
+    :style="{ ...themes[currentMode], ...meta.styles }"
   >
     <slot>
       <nuxt />
@@ -14,6 +15,7 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
+import { without } from 'lodash'
 
 export default {
   name: 'PortfolioLayout',
@@ -28,8 +30,18 @@ export default {
       templateName: 'document/templateName',
       editMode: 'editMode',
     }),
+    meta() {
+      return this.schema._meta
+    },
+    themes() {
+      return this.meta.themes
+    },
     modes() {
-      return this.schema._meta.modes
+      const modes = Object.keys(this.themes)
+      const preferredCurrent = this.meta.currentMode
+      return preferredCurrent
+        ? [preferredCurrent, ...without(modes, preferredCurrent)]
+        : modes
     },
     currentMode() {
       return this.modes[this.modeIndex]
@@ -40,26 +52,6 @@ export default {
       this.modeIndex =
         this.modeIndex < this.modes.length - 1 ? this.modeIndex + 1 : 0
     },
-  },
-  head() {
-    return {
-      link: [
-        {
-          rel: 'stylesheet',
-          href: (function loadPortfolioCSS(name) {
-            try {
-              return require(`~/styles/${name}.scss`)
-            } catch (error) {
-              try {
-                return require(`~/styles/${name}.css`)
-              } catch (error) {
-                return require('~/styles/index.scss')
-              }
-            }
-          })(this.templateName),
-        },
-      ],
-    }
   },
 }
 </script>

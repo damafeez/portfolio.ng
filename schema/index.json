@@ -107,5 +107,20 @@
     "intro": "Get In Touch",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet perspiciatis molestias iusto quis perferendis dolorum dicta explicabo nihil consequatur corrupti eaque accusamus voluptatibus repellendus aliquam.",
     "email": "damafeez@gmail.com"
+  },
+  "_meta": {
+    "themes": {
+      "default": {
+        "--background": "#f1f0f4",
+        "--on-background": "#322a72",
+        "--primary": "#d8817a",
+        "--on-primary": "#f4f4f4",
+        "--secondary": "#ffffff",
+        "--on-secondary": "#322a72",
+        "--tertiary": "#ffffff",
+        "--on-tertiary": "#322a72",
+        "--suplement-1": "#d8807a5b"
+      }
+    }
   }
 }
