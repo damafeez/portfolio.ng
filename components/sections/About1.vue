@@ -32,7 +32,7 @@
 <style lang="scss" scoped>
 .about {
   &::before {
-    @apply absolute;
+    @apply absolute z-10;
     content: '';
     top: 50%;
     left: 50%;
