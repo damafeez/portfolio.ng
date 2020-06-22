@@ -29,6 +29,11 @@
     </div>
   </section>
 </template>
+<script>
+export default {
+  tags: ['somolu', 'dev', 'about'],
+}
+</script>
 <style lang="scss" scoped>
 .about {
   &::before {

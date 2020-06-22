@@ -1,6 +1,12 @@
 {
   "_meta": {
-    "sections": ["Hero1", "About1", "WIW1", "Projects1", "GetInTouch1"],
+    "sections": [
+      "HeroSomolu",
+      "AboutSomolu",
+      "WIWSomolu",
+      "ProjectsSomolu",
+      "GetInTouchSomolu"
+    ],
     "themes": {
       "night": {
         "--background": "#151515",

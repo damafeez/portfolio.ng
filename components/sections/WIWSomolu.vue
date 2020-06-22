@@ -63,6 +63,7 @@ export default {
       this.activeIndex = clamp(this.activeIndex, 0, this.schema.wiw.length - 1)
     },
   },
+  tags: ['somolu', 'dev', 'wiw'],
 }
 </script>
 <style lang="scss" scoped>

@@ -28,6 +28,11 @@
     </button>
   </section>
 </template>
+<script>
+export default {
+  tags: ['somolu', 'dev', 'projects'],
+}
+</script>
 <style lang="scss">
 .projects {
   .projects-grid {

@@ -18,6 +18,11 @@
     ></button>
   </section>
 </template>
+<script>
+export default {
+  tags: ['somolu', 'dev', 'hero'],
+}
+</script>
 <style lang="scss" scoped>
 .hero {
   background-size: 0;

@@ -5,6 +5,11 @@
     <button class="mt-10 bg-tertiary text-on-tertiary">Say hello</button>
   </section>
 </template>
+<script>
+export default {
+  tags: ['somolu', 'dev', 'get-in-touch'],
+}
+</script>
 <style lang="scss" scoped>
 .get-in-touch {
   &[watermark]::before {
