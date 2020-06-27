@@ -190,3 +190,17 @@ label {
 .z-1001 {
   z-index: 1001;
 }
+.img-zoom {
+  overflow: hidden;
+  &:hover {
+    img {
+      transform: scale(1.1);
+    }
+  }
+  img {
+    transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

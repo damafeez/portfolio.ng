@@ -7,6 +7,8 @@ export const section = {
     ...mapGetters({
       schema: 'document/schema',
       editMode: 'editMode',
+      currentThemeName: 'document/currentThemeName',
+      currentThemeStyles: 'document/currentTheme',
     }),
   },
   mounted() {
