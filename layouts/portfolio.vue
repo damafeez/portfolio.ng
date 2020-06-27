@@ -1,57 +1,39 @@
 <template>
   <main
     class="portfolio-layout bg-background text-on-background somolu"
-    :mode="currentMode"
-    :style="{ ...themes[currentMode], ...meta.styles }"
+    :mode="currentThemeName"
+    :style="{ ...currentThemeStyles, ...meta.styles }"
   >
     <slot>
       <nuxt />
     </slot>
     <div
       class="mode z-1000 btn-hover fixed cursor-pointer rounded-lg shadow-xl bg-secondary text-on-secondary-2 flex-center"
-      @click="changeMode"
+      @click="changeTheme"
     ></div>
   </main>
 </template>
 <script>
-import { mapGetters } from 'vuex'
-import { without } from 'lodash'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'PortfolioLayout',
-  data() {
-    return {
-      modeIndex: 0,
-    }
-  },
   computed: {
     ...mapGetters({
       schema: 'document/schema',
       templateName: 'document/templateName',
+      currentThemeName: 'document/currentThemeName',
+      currentThemeStyles: 'document/currentTheme',
       editMode: 'editMode',
     }),
     meta() {
       return this.schema._meta
     },
-    themes() {
-      return this.meta.themes
-    },
-    modes() {
-      const modes = Object.keys(this.themes)
-      const preferredCurrent = this.meta.currentMode
-      return preferredCurrent
-        ? [preferredCurrent, ...without(modes, preferredCurrent)]
-        : modes
-    },
-    currentMode() {
-      return this.modes[this.modeIndex]
-    },
   },
   methods: {
-    changeMode() {
-      this.modeIndex =
-        this.modeIndex < this.modes.length - 1 ? this.modeIndex + 1 : 0
-    },
+    ...mapActions({
+      changeTheme: 'document/changeThemeIndex',
+    }),
   },
 }
 </script>

@@ -1,13 +1,15 @@
-import { set, get, merge } from 'lodash'
+import { set, get, merge, without } from 'lodash'
 import {
   SET_SCHEMA,
   SCHEMA_LIST_ADD,
   SCHEMA_LIST_REMOVE_ONE,
-} from '@/constants'
+  CHANGE_THEME_INDEX,
+} from '~/constants'
 
 export const state = () => ({
   schema: {},
   updates: {},
+  currentThemeIndex: 0,
 })
 
 export const mutations = {
@@ -28,6 +30,13 @@ export const mutations = {
       throw new Error(`Error removing item. Invalid address ${address}`)
 
     list.splice(index, 1)
+  },
+  [CHANGE_THEME_INDEX](state) {
+    state.currentThemeIndex =
+      state.currentThemeIndex <
+      Object.keys(state.schema._meta.themes).length - 1
+        ? state.currentThemeIndex + 1
+        : 0
   },
 }
 
@@ -50,9 +59,23 @@ export const actions = {
   setSections({ dispatch }, sections) {
     dispatch('editSchema', ['_meta.sections', sections])
   },
+  changeThemeIndex({ commit }) {
+    commit(CHANGE_THEME_INDEX)
+  },
 }
 
 export const getters = {
   schema: state => state.schema,
   templateName: (state, { schema }) => schema._meta.name,
+  themeNames: (state, { schema }) => {
+    const modeNames = Object.keys(schema._meta.themes)
+    const preferredCurrent = schema._meta.currentMode
+    return preferredCurrent
+      ? [preferredCurrent, ...without(modeNames, preferredCurrent)]
+      : modeNames
+  },
+  currentThemeName: (state, { themeNames }) =>
+    themeNames[state.currentThemeIndex],
+  currentTheme: (state, { currentThemeName }) =>
+    state.schema._meta.themes[currentThemeName],
 }
