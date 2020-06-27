@@ -1,7 +1,9 @@
 <script>
-import { get } from 'lodash'
+import { get, inRange } from 'lodash'
+import { mapGetters } from 'vuex'
 import { changeFeed, changeFeedProps } from '~/mixins'
 import { TEMPLATE_EDITOR_UPLOAD_IMAGE } from '~/constants'
+import { wait } from '~/utils'
 
 export default {
   // mount file uploader from this component
@@ -12,8 +14,19 @@ export default {
       type: String,
       required: true,
     },
+    overlay: {
+      type: [Number, String],
+      default: 0,
+      validator: val => inRange(val, 0, 1.1),
+    },
+  },
+  data() {
+    return {
+      shadowOverlay: null,
+    }
   },
   computed: {
+    ...mapGetters({ currentThemeName: 'document/currentThemeName' }),
     imgUrl() {
       return get(this.schema, this.address, '')
     },
@@ -25,6 +38,26 @@ export default {
     imgUrl(url) {
       if (this.$el.tagName === 'IMG') this.$el.setAttribute('src', url)
       else this.$el.style.backgroundImage = `url(${this.imgUrl})`
+    },
+    currentThemeName: {
+      async handler() {
+        if (process.client) {
+          if (!this.overlay) {
+            this.shadowOverlay = undefined
+            return
+          }
+          await wait(500)
+          const { backgroundColor } = getComputedStyle(this.$el)
+          const overlayColor = backgroundColor.replace(
+            /^rgba?\((\d+,\s*\d+,\s*\d+)(,\s*\d+)?\)$/,
+            `rgba($1 ,${this.overlay})`,
+          )
+          // TODO: handle initial shadow
+          const shadowOverlay = `inset 0 0 0 100vw ${overlayColor}`
+          this.shadowOverlay = shadowOverlay
+        }
+      },
+      immediate: true,
     },
   },
   methods: {
@@ -59,6 +92,8 @@ export default {
             style: {
               backgroundImage:
                 this.tagName !== 'img' ? `url(${this.imgUrl})` : undefined,
+              boxShadow: this.shadowOverlay,
+              transition: 'box-shadow 0.2s cubic-bezier(0.075, 0.82, 0.165, 1)',
             },
           },
           slot,
@@ -67,4 +102,3 @@ export default {
   },
 }
 </script>
-<style lang="scss"></style>
