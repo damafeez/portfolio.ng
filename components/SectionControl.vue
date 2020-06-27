@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="editMode"
-    class="section-control text-on-tertiary p-3 flex items-center"
+    class="section-control absolute z-1000 top-0 text-on-tertiary p-3 flex items-center"
   >
     <span
       draggable-handle
@@ -25,8 +25,6 @@ export default {
 </script>
 <style lang="scss">
 .section-control {
-  position: absolute;
-  top: 0;
   right: 2rem;
   &__icon {
     transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
