@@ -11,12 +11,17 @@ export const section = {
       currentThemeStyles: 'document/currentTheme',
     }),
   },
+  provide() {
+    return {
+      tags: this.$options.tags,
+    }
+  },
   mounted() {
     if (process.client) {
       const { $el } = this
       const SectionControlComponent = Vue.extend(SectionControl)
       const sectionControl = new SectionControlComponent({
-        store: this.$store,
+        parent: this,
       })
       sectionControl.$mount()
       const currentPositionValue = getComputedStyle($el).position
