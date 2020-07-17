@@ -8,25 +8,29 @@
     handle="[draggable-handle]"
   >
     <transition-group type="transition">
-      <component
-        :is="section"
+      <SectionWrapper
         v-for="(section, i) in sections"
-        :key="section"
+        :key="i"
         :index="i"
+        :tags="loadSection(section).tags"
       >
-      </component>
+        <component :is="section" />
+      </SectionWrapper>
     </transition-group>
   </draggable>
 </template>
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import draggable from 'vuedraggable'
+import SectionWrapper from '~/components/SectionWrapper'
 import { section as sectionMixin } from '~/mixins'
+import { loadSection } from '~/utils'
 
 export default {
   layout: 'portfolio',
   components: {
     draggable,
+    SectionWrapper,
   },
   computed: {
     ...mapGetters({
@@ -48,8 +52,7 @@ export default {
         const { components } = this.$options
         sections.forEach(name => {
           if (!(name in components)) {
-            const component = require(`~/components/sections/${name}.vue`)
-            const section = component.default || component
+            const section = this.loadSection(name)
             section.mixins = [...(section.mixins || []), sectionMixin]
             components[name] = section
           }
@@ -59,13 +62,8 @@ export default {
     },
   },
   methods: {
-    ...mapActions({
-      setSections: 'document/setSections',
-    }),
-    changeMode() {
-      this.modeIndex =
-        this.modeIndex < this.modes.length - 1 ? this.modeIndex + 1 : 0
-    },
+    ...mapActions('document', ['setSections']),
+    loadSection,
   },
 }
 </script>

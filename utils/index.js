@@ -13,6 +13,11 @@ export function wait(timeout = 100) {
   return new Promise(resolve => setTimeout(() => resolve(), timeout))
 }
 
+export function loadSection(name) {
+  const component = require(`~/components/sections/${name}.vue`)
+  return component.default || component
+}
+
 export function loadSections() {
   return require.context(
     `~/components/sections`,
@@ -22,7 +27,7 @@ export function loadSections() {
   )
 }
 
-export function loadSectionNamesByTags(tags) {
+export function getSectionsByTags(tags) {
   const sections = loadSections()
 
   return sections

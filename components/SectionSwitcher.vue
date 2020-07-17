@@ -1,19 +1,19 @@
 <template>
-  <div
-    class="section-chooser rounded bg-secondary text-on-secondary p-3 shadow-lg"
+  <ul
+    class="section-switcher rounded bg-secondary text-on-secondary p-3 shadow-lg"
   >
-    <ul>
-      <li
-        v-for="section in similarSections"
-        :key="section.name"
-        class="flex items-center py-3 my-2 px-4 mx-3"
-        :class="
-          section.active
-            ? 'opacity-50 cursor-not-allowed'
-            : 'cursor-pointer btn-hover'
-        "
-        @click="changeSection(section)"
-      >
+    <li
+      v-for="section in similarSections"
+      :key="section.name"
+      class="py-3 my-2 px-4 mx-1"
+      :class="
+        section.active
+          ? 'opacity-50 cursor-not-allowed'
+          : 'cursor-pointer btn-hover'
+      "
+      @click="changeSection(section)"
+    >
+      <figure class="flex items-center m-0">
         <icon-base
           v-if="section.active"
           class="text-2xl"
@@ -26,26 +26,36 @@
           src="~assets/images/template-sample.png"
           :alt="section.name"
         />
-        <span class="ml-4">
+        <figcaption class="ml-5">
           {{ section.name }}
-        </span>
-      </li>
-    </ul>
-  </div>
+        </figcaption>
+      </figure>
+    </li>
+  </ul>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import { loadSectionNamesByTags } from '~/utils'
+import { getSectionsByTags } from '~/utils'
 
 export default {
-  name: 'SectionChooser',
+  name: 'SectionSwitcher',
+  props: {
+    index: {
+      type: Number,
+      required: true,
+    },
+    tags: {
+      type: Array,
+      required: true,
+    },
+  },
   computed: {
     ...mapGetters({
       editMode: 'editMode',
     }),
     similarSections() {
-      return loadSectionNamesByTags(this.tags)
+      return getSectionsByTags(this.tags)
     },
   },
   methods: {
@@ -55,11 +65,10 @@ export default {
       this.setSection({ index: this.index, value: section.name })
     },
   },
-  inject: ['tags', 'index'],
 }
 </script>
 <style lang="scss">
-.section-chooser {
+.section-switcher {
   max-width: 30rem;
   max-height: 80rem;
 }
