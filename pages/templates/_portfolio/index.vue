@@ -8,7 +8,12 @@
     handle="[draggable-handle]"
   >
     <transition-group type="transition">
-      <component :is="section" v-for="section in sections" :key="section">
+      <component
+        :is="section"
+        v-for="(section, i) in sections"
+        :key="section"
+        :index="i"
+      >
       </component>
     </transition-group>
   </draggable>

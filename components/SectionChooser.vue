@@ -12,6 +12,7 @@
             ? 'opacity-50 cursor-not-allowed'
             : 'cursor-pointer btn-hover'
         "
+        @click="changeSection(section)"
       >
         <icon-base
           v-if="section.active"
@@ -34,7 +35,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import { loadSectionNamesByTags } from '~/utils'
 
 export default {
@@ -47,7 +48,14 @@ export default {
       return loadSectionNamesByTags(this.tags)
     },
   },
-  inject: ['tags'],
+  methods: {
+    ...mapActions('document', ['setSection']),
+    changeSection(section) {
+      if (section.active) return
+      this.setSection({ index: this.index, value: section.name })
+    },
+  },
+  inject: ['tags', 'index'],
 }
 </script>
 <style lang="scss">

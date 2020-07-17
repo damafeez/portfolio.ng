@@ -3,6 +3,10 @@ import { mapGetters } from 'vuex'
 import SectionControl from '~/components/SectionControl'
 
 export const section = {
+  props: {
+    index: Number,
+    required: true,
+  },
   computed: {
     ...mapGetters({
       schema: 'document/schema',
@@ -14,6 +18,7 @@ export const section = {
   provide() {
     return {
       tags: this.$options.tags,
+      index: this.index,
     }
   },
   mounted() {

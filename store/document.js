@@ -59,6 +59,9 @@ export const actions = {
   setSections({ dispatch }, sections) {
     dispatch('editSchema', ['_meta.sections', sections])
   },
+  setSection({ dispatch }, { index, value }) {
+    dispatch('editSchema', [`_meta.sections[${index}]`, value])
+  },
   changeThemeIndex({ commit }) {
     commit(CHANGE_THEME_INDEX)
   },
