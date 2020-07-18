@@ -45,6 +45,11 @@ export default {
       editMode: 'editMode',
     }),
   },
+  watch: {
+    editMode(editMode) {
+      if (!editMode) this.sectionControlActive = false
+    },
+  },
 }
 </script>
 <style lang="scss">
