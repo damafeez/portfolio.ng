@@ -8,7 +8,7 @@
     >
       <span
         v-if="editMode"
-        class="items-li_close btn-hover absolute z-500 text-sm cursor-pointer text-white rounded-full bg-red-700 flex-center"
+        class="items-li_close btn-hover absolute z-50 text-sm cursor-pointer text-white rounded-full bg-red-700 flex-center"
         @click="
           remove({ address, index })
           $emit('remove', { address, index })

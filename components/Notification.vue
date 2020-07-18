@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="notification-group fixed z-1001">
     <div
       v-for="(notification, i) in notifications"
       :key="notification.id || i"
-      class="notification z-1000 p-5 m-2 rounded-sm shadow-2xl leading-relaxed bg-secondary text-on-secondary fixed text-sm"
+      class="p-5 m-2 rounded-sm shadow-2xl leading-relaxed bg-secondary text-on-secondary relative text-sm"
     >
       <span
         v-if="notification.close"
@@ -87,11 +87,11 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.notification {
-  min-width: 10rem;
-  max-width: 20rem;
+.notification-group {
+  width: 20rem;
+  max-width: calc(100% - 5rem);
   top: 2rem;
-  right: 5rem;
+  right: 3rem;
   .close {
     width: 1.5rem;
     height: 1.5rem;

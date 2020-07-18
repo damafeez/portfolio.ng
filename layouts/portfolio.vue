@@ -8,7 +8,7 @@
       <nuxt />
     </slot>
     <div
-      class="mode z-1000 btn-hover fixed cursor-pointer rounded-lg shadow-xl bg-secondary text-on-secondary-2 flex-center"
+      class="mode z-1001 btn-hover fixed cursor-pointer rounded-lg shadow-xl bg-secondary text-on-secondary-2 flex-center"
       @click="changeTheme"
     ></div>
   </main>
