@@ -1,5 +1,9 @@
 <template>
-  <div class="notification-group fixed z-1001">
+  <transition-group
+    tag="div"
+    name="fade"
+    class="notification-group fixed z-1001"
+  >
     <div
       v-for="(notification, i) in notifications"
       :key="notification.id || i"
@@ -21,7 +25,7 @@
       <div v-html="notification.text"></div>
     </div>
     <!-- TODO: add transition for notification show/hide -->
-  </div>
+  </transition-group>
 </template>
 <script>
 import { merge, uniqueId } from 'lodash'
