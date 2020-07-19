@@ -36,5 +36,9 @@
     "styles": {
       "line-height": 1.4
     }
+  },
+  "profile": {
+    "name": "Brittany Chiang",
+    "description": "Frontend developer with 5 years of professional experience. As you can see, this is very heavily inspired by Britteny Chiang's awesome website. Like I said, I build beautiful things for the web."
   }
 }

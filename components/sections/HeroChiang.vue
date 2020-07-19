@@ -11,7 +11,7 @@
     <p
       is="p-text"
       address="profile.description"
-      class="max-w-xl text-on-secondary-2"
+      class="max-w-lg text-on-secondary-2"
     ></p>
     <button
       is="p-text"
