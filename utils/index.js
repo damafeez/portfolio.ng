@@ -44,14 +44,18 @@ export function loadSections() {
 
 export function getSectionsByTags(tags) {
   const sections = loadSections()
+  const [_, ...withoutThemeName] = tags
 
   return sections
     .keys()
     .map(fileName => {
       const file = sections(fileName)
       const component = file.default || file
-
-      if (intersection(component.tags, tags).length > 2)
+      if (
+        intersection(component.tags, withoutThemeName).length /
+          withoutThemeName.length >
+        0.5
+      )
         return {
           name: fileName.match(/([\w-]+)(?=.vue$)/)[0],
           description: component.description,

@@ -55,8 +55,7 @@ export default {
       editMode: 'editMode',
     }),
     similarSections() {
-      const [_, ...withoutThemeName] = this.tags
-      return getSectionsByTags(withoutThemeName)
+      return getSectionsByTags(this.tags)
     },
   },
   methods: {
