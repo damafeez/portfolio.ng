@@ -28,6 +28,7 @@ import { loadSection } from '~/utils'
 
 export default {
   layout: 'portfolio',
+  scrollToTop: true,
   components: {
     draggable,
     SectionWrapper,
@@ -35,6 +36,7 @@ export default {
   computed: {
     ...mapGetters({
       schema: 'document/schema',
+      // because nuxt doesn't scrollToTop for child routes
       templateName: 'document/templateName',
       editMode: 'editMode',
     }),
