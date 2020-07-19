@@ -1,6 +1,6 @@
 <template>
   <div class="section-wrapper relative">
-    <div v-if="editMode" class="section-wrapper__editor absolute z-10 top-0">
+    <div v-if="editMode" class="section-wrapper__editor absolute z-1000 top-0">
       <SectionControl
         class="justify-end"
         @changeSection="sectionControlActive = !sectionControlActive"
