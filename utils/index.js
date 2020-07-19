@@ -5,8 +5,23 @@ export function getSchema(name) {
     return require(`~/schema/${name}.json`)
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.log(`unable to get schema ${name}`)
+    console.warn(`unable to get schema ${name}`)
   }
+}
+
+export function getSchemaNames() {
+  return require
+    .context(
+      // load files within schema folder
+      '../schema/',
+      // Whether or not to look in subfolders
+      false,
+      // The regular expression used to match vue component filenames
+      /\.json$/,
+    )
+    .keys()
+    .filter(name => name !== './index.json')
+    .map(name => name.match(/\.\/([\w-]+)(?=.json$)/)[1])
 }
 
 export function wait(timeout = 100) {

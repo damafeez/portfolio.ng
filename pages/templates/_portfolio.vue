@@ -29,7 +29,6 @@ export default {
       defaultSchema,
       { _meta: { modes: ['default'] } },
       schema,
-      store.state.document.schema,
       { _meta: { name } },
     )
     store.dispatch('document/setSchema', mergedSchema)

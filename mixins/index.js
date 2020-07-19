@@ -7,6 +7,7 @@ export const section = {
       editMode: 'editMode',
       currentThemeName: 'document/currentThemeName',
       currentThemeStyles: 'document/currentTheme',
+      templateName: 'document/templateName',
     }),
   },
 }

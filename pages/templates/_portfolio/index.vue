@@ -10,7 +10,7 @@
     <transition-group type="transition">
       <SectionWrapper
         v-for="(section, i) in sections"
-        :key="i"
+        :key="templateName + i"
         :index="i"
         :tags="loadSection(section).tags"
       >
@@ -35,6 +35,7 @@ export default {
   computed: {
     ...mapGetters({
       schema: 'document/schema',
+      templateName: 'document/templateName',
       editMode: 'editMode',
     }),
     sections: {

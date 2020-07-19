@@ -1,13 +1,24 @@
 <template>
-  <section class="featured-templates text-center pad-y">
-    <h3 class="mb-32">Featured templates</h3>
+  <section class="featured-templates pad-y">
+    <h3 class="mb-32 text-center">Featured templates</h3>
     <div class="template-grid grid-3">
-      <nuxt-link class="btn-hover" to="/templates/somolu"></nuxt-link>
-      <nuxt-link class="btn-hover" to="/templates/somolu"></nuxt-link>
-      <nuxt-link class="btn-hover" to="/templates/somolu"></nuxt-link>
-      <nuxt-link class="btn-hover" to="/templates/somolu"></nuxt-link>
-      <nuxt-link class="btn-hover" to="/templates/somolu"></nuxt-link>
-      <nuxt-link class="btn-hover" to="/templates/somolu"></nuxt-link>
+      <nuxt-link
+        v-for="name in $options.themeNames"
+        :key="name"
+        class="btn-hover uppercase mb-10"
+        :to="`/templates/${name}`"
+      >
+        <figure class="m-0">
+          <img
+            class="rounded"
+            src="~assets/images/template-sample.png"
+            :alt="name"
+          />
+          <figcaption class="mt-3">
+            {{ name }}
+          </figcaption>
+        </figure></nuxt-link
+      >
     </div>
     <nuxt-link
       to="templates"
@@ -17,16 +28,19 @@
     </nuxt-link>
   </section>
 </template>
+<script>
+import { getSchemaNames } from '~/utils'
+export default {
+  themeNames: getSchemaNames(),
+}
+</script>
 <style lang="scss" scoped>
 .featured-templates {
-  .template-grid {
-    & > a {
-      @apply rounded bg-cover;
-      background-image: url('~assets/images/template-sample.png');
-      height: 15rem;
-      &:nth-child(even) {
-        background-image: url('~assets/images/template-sample2.png');
-      }
+  figure {
+    height: 15rem;
+    width: 100%;
+    img {
+      object-fit: cover;
     }
   }
 }
