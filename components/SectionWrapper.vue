@@ -5,14 +5,16 @@
         class="justify-end"
         @changeSection="sectionControlActive = !sectionControlActive"
       />
-      <transition name="fade">
-        <SectionSwitcher
-          v-if="sectionControlActive"
-          class="mr-2"
-          :tags="tags"
-          :index="index"
-        />
-      </transition>
+      <keep-alive>
+        <transition name="fade">
+          <SectionSwitcher
+            v-if="sectionControlActive"
+            class="mr-2"
+            :tags="tags"
+            :index="index"
+          />
+        </transition>
+      </keep-alive>
     </div>
     <slot />
   </div>

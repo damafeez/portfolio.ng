@@ -25,9 +25,6 @@ export default {
     tagName() {
       return this.$vnode.data.tag || 'img'
     },
-    brightness() {
-      return this.overlay && `brightness(${this.overlay * 100}%)`
-    },
   },
   watch: {
     imgUrl(url) {
@@ -50,23 +47,26 @@ export default {
     },
   },
   render(h) {
-    const { tagName, imgUrl, brightness } = this
     const slot =
       typeof this.$scopedSlots.default === 'function'
         ? this.$scopedSlots.default({
-            value: imgUrl,
+            value: this.imgUrl,
           })
         : null
     const attrs = {}
     const style = {}
-    if (tagName === 'img') {
-      attrs.src = imgUrl
+    if (this.tagName === 'img') {
+      const brightness =
+        this.overlay !== null && `brightness(${1 - this.overlay})`
       brightness && (style.filter = brightness)
+      attrs.src = this.imgUrl
     } else {
-      style.backgroundImage = `url(${imgUrl})`
-      brightness && (style.position = 'relative')
+      const overlayGradient =
+        this.overlay === null
+          ? ''
+          : `linear-gradient(rgba(0, 0, 0, ${this.overlay}), rgba(0, 0, 0, ${this.overlay})), `
+      style.backgroundImage = `${overlayGradient}url(${this.imgUrl})`
     }
-
     return this.tagName
       ? h(
           this.tagName,
@@ -75,29 +75,7 @@ export default {
             attrs,
             style,
           },
-          tagName === 'img' || !brightness
-            ? slot
-            : [
-                h('div', {
-                  style: {
-                    backdropFilter: `brightness(${this.overlay * 100}%)`,
-                    position: 'absolute',
-                    width: '100%',
-                    height: '100%',
-                    top: 0,
-                    left: 0,
-                  },
-                }),
-                h(
-                  'div',
-                  {
-                    style: {
-                      position: 'relative',
-                    },
-                  },
-                  slot,
-                ),
-              ],
+          slot,
         )
       : slot
   },
