@@ -26,6 +26,7 @@ export default {
       })
 
     const mergedSchema = merge(
+      {},
       defaultSchema,
       { _meta: { modes: ['default'] } },
       schema,

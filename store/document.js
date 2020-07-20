@@ -1,6 +1,7 @@
 import { set, get, merge, without } from 'lodash'
 import {
   SET_SCHEMA,
+  UPDATE_SCHEMA,
   SCHEMA_LIST_ADD,
   SCHEMA_LIST_REMOVE_ONE,
   CHANGE_THEME_INDEX,
@@ -14,6 +15,9 @@ export const state = () => ({
 
 export const mutations = {
   [SET_SCHEMA](state, schema) {
+    state.schema = schema
+  },
+  [UPDATE_SCHEMA](state, schema) {
     state.schema = merge({}, state.schema, schema)
   },
   [SCHEMA_LIST_ADD](state, { address, items = [] }) {
@@ -47,7 +51,7 @@ export const actions = {
   editSchema({ commit, rootState }, [address, value]) {
     if (rootState.mode === 'edit') {
       const update = set({}, address, value)
-      commit(SET_SCHEMA, update)
+      commit(UPDATE_SCHEMA, update)
     }
   },
   schemaListAdd({ commit }, payload) {
