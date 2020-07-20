@@ -5,12 +5,12 @@
       <nuxt-link
         v-for="name in $options.themeNames"
         :key="name"
-        class="btn-hover uppercase mb-10"
+        class="uppercase mb-10"
         :to="`/templates/${name}`"
       >
         <figure class="m-0">
           <img
-            class="rounded"
+            class="rounded object-cover h-56 btn-hover"
             src="~assets/images/template-sample.png"
             :alt="name"
           />
@@ -34,14 +34,3 @@ export default {
   themeNames: getSchemaNames(),
 }
 </script>
-<style lang="scss" scoped>
-.featured-templates {
-  figure {
-    height: 15rem;
-    width: 100%;
-    img {
-      object-fit: cover;
-    }
-  }
-}
-</style>
