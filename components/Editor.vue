@@ -1,5 +1,7 @@
 <template>
-  <section class="editor flex-center bg-secondary text-on-secondary py-24">
+  <section
+    class="editor flex-center bg-secondary text-on-secondary py-24  -mx-5 sm:mx-0"
+  >
     <div class="edit overflow-hidden shadow-lg w-full flex flex-col rounded-lg">
       <div class="top-bar bg-white flex items-center py-1 px-6">
         <span class="fake-control"></span>

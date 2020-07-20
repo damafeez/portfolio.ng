@@ -1,7 +1,7 @@
 <template>
   <section class="featured-templates pad-y">
     <h3 class="mb-32 text-center">Featured templates</h3>
-    <div class="template-grid grid-3">
+    <div class="template-grid grid-3 -mx-5 sm:mx-0">
       <nuxt-link
         v-for="name in $options.themeNames"
         :key="name"
@@ -10,7 +10,7 @@
       >
         <figure class="m-0">
           <img
-            class="rounded object-cover h-56 btn-hover"
+            class="rounded object-cover w-full h-56 btn-hover"
             src="~assets/images/template-sample.png"
             :alt="name"
           />
