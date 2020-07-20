@@ -2,7 +2,7 @@
   "_meta": {
     "sections": [
       "HeroChiang",
-      "AboutSomolu",
+      "AboutChiang",
       "WIWSomolu",
       "ProjectsSomolu",
       "GetInTouchSomolu"
@@ -34,8 +34,9 @@
     },
     "currentMode": "night",
     "styles": {
-      "line-height": 1.4
-    }
+      "line-height": 1.5
+    },
+    "classes": ["bg-secondary", "text-on-secondary-2", "lg:px-20"]
   },
   "profile": {
     "name": "Brittany Chiang",

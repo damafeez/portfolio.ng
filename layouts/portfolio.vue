@@ -3,6 +3,7 @@
     class="portfolio-layout bg-background text-on-background somolu"
     :mode="currentThemeName"
     :style="{ ...currentThemeStyles, ...meta.styles }"
+    :class="meta.classes"
   >
     <slot>
       <nuxt />
