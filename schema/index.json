@@ -11,6 +11,14 @@
     "intro": "I enjoy building fine interactive UIs that are both aesthetically pleasing and easy to use. I have created excellent solutions with frameworks such as VueJS, Flutter and React.",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem enim ut esse quae ea mollitia minus. Sint at quaerat, nulla debitis ullam architecto aspernatur amet, nisi eligendi consectetur dicta distinctio? This seems like an awesome project."
   },
+  "technologies": [
+    "Javascript (ES6+)",
+    "Vue",
+    "Flutter",
+    "React",
+    "Node",
+    "Nuxt"
+  ],
   "cta": [{ "text": "See my resume", "link": "#" }],
   "social": {
     "description": "My Github is exciting, checkout myecent cat repository. Don't miss house on my social esse qua ea mollitia minus. Sint at quaerat, nulla debitis ullam architecto aspernatur amet, nisi eligendi consectetur dicta distinctio?",
