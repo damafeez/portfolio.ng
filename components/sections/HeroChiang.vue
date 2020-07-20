@@ -1,7 +1,7 @@
 <template>
   <section class="hero bg-secondary text-on-secondary pb-32 pt-40">
     <p class="text-on-tertiary">Hi, my name is</p>
-    <h1 class="mb-6 text-3xl">
+    <h1 class="mb-6 lg:text-3xl">
       <span is="p-text" address="profile.name"></span>.
       <br />
       <span class=" text-on-secondary-2">
