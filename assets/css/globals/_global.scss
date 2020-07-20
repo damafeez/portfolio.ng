@@ -213,3 +213,9 @@ label {
     object-fit: cover;
   }
 }
+[show-section-index] {
+  [section-index]::before {
+    content: attr(prepend) + attr(section-index) + attr(append);
+    margin-right: 0.5rem;
+  }
+}

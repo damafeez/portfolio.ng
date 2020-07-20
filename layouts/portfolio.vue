@@ -6,6 +6,7 @@
     :class="meta.classes"
     :outline-button="meta.attrs.outlineButton"
     :section-spacing="meta.attrs.sectionSpacing"
+    :show-section-index="meta.attrs.showSectionIndex"
   >
     <slot>
       <nuxt />

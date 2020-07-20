@@ -1,6 +1,8 @@
 <template>
   <section class="wiw pad-y flex flex-col items-center">
-    <h3 class="text-on-secondary">02. Where I've Worked</h3>
+    <h3 :section-index="`0${index}.`" class="text-on-secondary">
+      Where I've Worked
+    </h3>
     <div class="wiw-inner sm:flex mt-20">
       <item-list
         address="wiw"

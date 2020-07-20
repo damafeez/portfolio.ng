@@ -14,7 +14,7 @@
         :index="i"
         :tags="loadSection(section).tags"
       >
-        <component :is="section" />
+        <component :is="section" :index="i" />
       </SectionWrapper>
     </transition-group>
   </draggable>

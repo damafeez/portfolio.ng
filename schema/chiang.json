@@ -39,7 +39,8 @@
     "classes": ["bg-secondary", "text-on-secondary-2"],
     "attrs": {
       "outlineButton": true,
-      "sectionSpacing": "xl"
+      "sectionSpacing": "xl",
+      "showSectionIndex": true
     }
   },
   "profile": {

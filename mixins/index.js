@@ -1,6 +1,12 @@
 import { mapGetters } from 'vuex'
 
 export const section = {
+  props: {
+    index: {
+      type: [Number, String],
+      required: true,
+    },
+  },
   computed: {
     ...mapGetters({
       schema: 'document/schema',

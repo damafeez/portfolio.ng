@@ -3,7 +3,7 @@
     class="about-chiang py-10 flex justify-between items-center flex-wrap"
   >
     <div class="desc max-w-lg">
-      <h3 class="text-on-secondary">01. About Me</h3>
+      <h3 :section-index="`0${index}.`" class="text-on-secondary">About Me</h3>
       <p is="p-text" address="about.intro"></p>
       <p is="p-text" address="about.description"></p>
       <p>Here are a few technologies I've been working with recently:</p>
