@@ -1,7 +1,7 @@
 <template>
   <main class="overflow-x-hidden">
     <Hero />
-    <Editor v-if="!$device.isMobile" />
+    <Editor v-if="!isMobile" />
     <FeaturedTemplates />
     <Footer />
   </main>
@@ -19,6 +19,14 @@ export default {
     Editor,
     FeaturedTemplates,
     Footer,
+  },
+  data() {
+    return {
+      isMobile: true,
+    }
+  },
+  mounted() {
+    this.isMobile = this.$device.isMobile
   },
 }
 </script>
