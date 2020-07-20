@@ -130,6 +130,7 @@
         "--on-tertiary": "#322a72",
         "--suplement-1": "#d8807a5b"
       }
-    }
+    },
+    "attrs": {}
   }
 }

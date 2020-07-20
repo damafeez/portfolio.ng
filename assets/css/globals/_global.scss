@@ -77,6 +77,21 @@ footer,
   @screen md {
     @apply px-32;
   }
+  [section-spacing='sm'] & {
+    @screen md {
+      @apply px-16;
+    }
+  }
+  [section-spacing='xl'] & {
+    @screen lg {
+      @apply px-48;
+    }
+  }
+  [section-spacing='2xl'] & {
+    @screen lg {
+      @apply px-56;
+    }
+  }
 }
 .pad-y {
   @apply py-24;

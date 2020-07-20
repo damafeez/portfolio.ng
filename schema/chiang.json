@@ -36,10 +36,14 @@
     "styles": {
       "line-height": 1.5
     },
-    "classes": ["bg-secondary", "text-on-secondary-2", "lg:px-20"]
+    "classes": ["bg-secondary", "text-on-secondary-2"],
+    "attrs": {
+      "outlineButton": true,
+      "sectionSpacing": "xl"
+    }
   },
   "profile": {
     "name": "Brittany Chiang",
-    "description": "Frontend developer with 5 years of professional experience. As you can see, this is very heavily inspired by Britteny Chiang's awesome website. Like I said, I build beautiful things for the web."
+    "description": "Frontend developer with 5 years of professional experience. As you can see, this is very heavily inspired by Britteny Chiang's awesome website design. I build really beautiful things for the web."
   }
 }

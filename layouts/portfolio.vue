@@ -4,6 +4,8 @@
     :mode="currentThemeName"
     :style="{ ...currentThemeStyles, ...meta.styles }"
     :class="meta.classes"
+    :outline-button="meta.attrs.outlineButton"
+    :section-spacing="meta.attrs.sectionSpacing"
   >
     <slot>
       <nuxt />
