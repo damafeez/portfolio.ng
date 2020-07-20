@@ -1,7 +1,7 @@
 <template>
   <main class="overflow-x-hidden">
     <Hero />
-    <Editor />
+    <Editor v-if="!$device.isMobile" />
     <FeaturedTemplates />
     <Footer />
   </main>

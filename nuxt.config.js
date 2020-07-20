@@ -49,7 +49,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/pwa'],
+  modules: ['@nuxtjs/pwa', '@nuxtjs/device'],
   /*
    ** Build configuration
    */
