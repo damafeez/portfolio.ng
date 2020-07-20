@@ -35,4 +35,6 @@ module.exports = {
   },
   variants: {},
   plugins: [],
+
+  purge: ['./**/*.vue', './schema/**/*.json'],
 }
