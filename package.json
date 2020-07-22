@@ -6,17 +6,19 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt build",
+    "build": "nuxt build --target static && nuxt export",
     "start": "nuxt start",
-    "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "export": "nuxt export",
+    "serve": "nuxt serve",
+    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint": "yarn lint:js",
     "test": "jest"
   },
   "dependencies": {
     "@nuxtjs/device": "^1.2.7",
     "@nuxtjs/pwa": "^3.0.0-0",
     "lodash": "^4.17.15",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.13.3",
     "vuedraggable": "^2.23.2"
   },
   "devDependencies": {
