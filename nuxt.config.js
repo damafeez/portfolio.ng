@@ -78,7 +78,7 @@ export default {
               },
             }
           } catch (error) {
-            console.warn(`unable to parse schema: ${name}`, error)
+            console.error(`unable to parse schema: ${name}`, error)
           }
         })
         .filter(Boolean)

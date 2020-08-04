@@ -12,11 +12,10 @@
 </template>
 
 <script>
-// TODO: icon names should be generated dynamially from sprite
-import { iconNames } from '~/fixtures'
+import feather from 'feather-icons'
 export default {
   name: 'IconPicker',
-  iconNames,
+  iconNames: Object.values(feather.icons).map(icon => icon.name),
 }
 </script>
 <style lang="scss">

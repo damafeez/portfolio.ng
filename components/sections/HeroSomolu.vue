@@ -1,7 +1,7 @@
 <template>
   <section
     is="p-img"
-    :overlay="currentThemeName === 'night' ? 0.4 : undefined"
+    :overlay="currentThemeName === 'night' ? 0.5 : undefined"
     address="profile.images[0]"
     class="hero bg-secondary text-on-secondary bg-right-top bg-no-repeat pb-32 pt-5"
   >

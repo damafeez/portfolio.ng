@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import IconBase from 'feather-icons-vue'
 
 Vue.prototype.$eventBus = new Vue()
 Vue.prototype.$escapeHTML = function(unsafe, withNewLine = true) {
@@ -10,3 +11,5 @@ Vue.prototype.$escapeHTML = function(unsafe, withNewLine = true) {
     .replace(/'/g, '&#039;')
   return withNewLine ? safe.replace(/\n/g, '<br />') : safe
 }
+
+Vue.use(IconBase)
