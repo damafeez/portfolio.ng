@@ -3,7 +3,7 @@
     is="p-img"
     overlay="0.5"
     address="profile.images[1]"
-    class="hero bg-secondary text-on-secondary bg-cover bg-no-repeat pb-32 text-center flex flex-col items-center"
+    class="hero bg-secondary text-white bg-cover bg-no-repeat pb-32 text-center flex flex-col items-center"
   >
     <h1 class="mt-56 mb-6 max-w-2xl">
       Hi, <br />

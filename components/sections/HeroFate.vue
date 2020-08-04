@@ -9,7 +9,7 @@
       address="profile.images[1]"
       alt="user image"
     />
-    <div class="relative">
+    <div class="relative inline-block">
       <h1 class="mt-48 mb-6 max-w-2xl">
         Hi, <br />
         I'm

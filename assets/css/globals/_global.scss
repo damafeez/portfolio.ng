@@ -60,15 +60,15 @@ a {
 
 section,
 header {
-  @screen xl {
-    @apply min-h-screen;
+  @screen md {
+    min-height: min(50rem, 100vh);
   }
 }
 section,
 header,
 nav,
 footer,
-.pad-x {
+.container {
   @apply px-10;
   transition: background 0.3s ease-in-out, color 0.2s ease-in-out;
   @screen sm {

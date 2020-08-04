@@ -23,13 +23,26 @@
       "default": {
         "--background": "#f1f0f4",
         "--on-background": "#322a72",
-        "--primary": "#d8817a",
+        "--primary": "#2f62b5",
         "--on-primary": "#f4f4f4",
         "--secondary": "#ffffff",
-        "--on-secondary": "#322a72",
+        "--on-secondary": "#2f62b5",
+        "--on-secondary-2": "#322a72",
         "--tertiary": "#ffffff",
         "--on-tertiary": "#322a72",
-        "--suplement-1": "#d8807a5b"
+        "--suplement-1": "#332a7240"
+      },
+      "yellow": {
+        "--background": "#332a7240",
+        "--on-background": "#322a72",
+        "--primary": "#2f62b5",
+        "--on-primary": "#f4f4f4",
+        "--secondary": "#ffc402",
+        "--on-secondary": "#2f62b5",
+        "--on-secondary-2": "#322a72",
+        "--tertiary": "#332a7240",
+        "--on-tertiary": "#322a72",
+        "--suplement-1": "#332a7240"
       }
     },
     "currentMode": "night",
