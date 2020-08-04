@@ -31,13 +31,6 @@ module.exports = {
       boxShadow: {
         lg: '0 10px 25px -3px rgba(0, 0, 0, 0.05)',
       },
-      width: {
-        '72': '20rem',
-        '80': '30rem',
-        '85': '40rem',
-        '88': '45rem',
-        '90': '50rem',
-      },
     },
   },
   variants: {},

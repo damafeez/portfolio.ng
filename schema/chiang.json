@@ -27,7 +27,7 @@
         "--on-primary": "#f4f4f4",
         "--secondary": "#ffffff",
         "--on-secondary": "#2f62b5",
-        "--on-secondary-2": "#322a72",
+        "--on-secondary-2": "#333333",
         "--tertiary": "#ffffff",
         "--on-tertiary": "#322a72",
         "--suplement-1": "#332a7240"

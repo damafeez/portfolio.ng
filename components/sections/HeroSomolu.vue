@@ -1,7 +1,8 @@
 <template>
   <header class="bg-secondary text-on-secondary pb-32 pt-5 relative">
     <p-img
-      class="hidden sm:inline-block absolute w-80 h-full object-cover top-0 right-0"
+      width="550px"
+      class="hidden md:inline-block absolute h-full object-cover top-0 right-0"
       :overlay="currentThemeName === 'night' ? 0.5 : undefined"
       address="profile.images[1]"
     ></p-img>

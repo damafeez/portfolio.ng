@@ -1,7 +1,5 @@
 <template>
-  <section
-    class="about-chiang py-10 flex justify-between items-center flex-wrap"
-  >
+  <section class="about-chiang py-10 flex gap-32 items-center flex-wrap">
     <div class="desc max-w-lg">
       <h3 :section-index="`0${index}.`" class="text-on-secondary">About Me</h3>
       <p is="p-text" address="about.intro"></p>
