@@ -19,7 +19,7 @@
     "@nuxtjs/pwa": "^3.0.0-0",
     "feather-icons": "^4.28.0",
     "feather-icons-vue": "^1.0.3",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "nuxt": "^v2.14.0",
     "vuedraggable": "^2.23.2"
   },
